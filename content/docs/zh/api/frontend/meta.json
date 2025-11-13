@@ -1,0 +1,24 @@
+{
+  "title": "前端接口",
+  "pages": [
+    "auth-system-description",
+    "get-available-models-list",
+    "---接口模块使用指南---",
+    "fei-system-initialization",
+    "fei-public-info",
+    "fei-email-authentication",
+    "fei-oauth-third-party-login",
+    "fei-user",
+    "fei-site-configuration",
+    "fei-model-rate-sync",
+    "fei-channel-management",
+    "fei-token-management",
+    "fei-redemption-code-management",
+    "fei-log",
+    "fei-data-statistics",
+    "fei-group",
+    "fei-midjourney-task",
+    "fei-task-center",
+    "fei-account-billing-panel"
+  ]
+}

@@ -12,6 +12,8 @@
     "cluster-deployment",
     "local-development",
     "---Configuration---",
-    "...configuration"
+    "../configuration/system-update",
+    "../configuration/environment-variables",
+    "../configuration/docker-compose-yml"
   ]
 }

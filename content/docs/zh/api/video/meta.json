@@ -1,0 +1,10 @@
+{
+  "title": "视频（Video）",
+  "pages": [
+    "kling-jimeng",
+    "openai-video",
+    "generate-video",
+    "query-video",
+    "video-examples"
+  ]
+}
