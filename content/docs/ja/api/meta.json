@@ -14,8 +14,10 @@
     "music",
     "video",
     "---クエリAPI---",
-    "query",
+    "token-usage",
     "---フロントエンドAPI---",
-    "frontend"
+    "auth-system-description",
+    "get-available-models-list",
+    "api-modules"
   ]
 }

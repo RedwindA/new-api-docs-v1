@@ -1,9 +1,6 @@
 {
-  "title": "フロントエンドAPI",
+  "title": "接口模块使用指南",
   "pages": [
-    "auth-system-description",
-    "get-available-models-list",
-    "---APIモジュールガイド---",
     "fei-system-initialization",
     "fei-public-info",
     "fei-email-authentication",

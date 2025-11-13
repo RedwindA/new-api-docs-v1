@@ -1,9 +1,6 @@
 {
-  "title": "Frontend APIs",
+  "title": "APIモジュールガイド",
   "pages": [
-    "auth-system-description",
-    "get-available-models-list",
-    "---API Module Guide---",
     "fei-system-initialization",
     "fei-public-info",
     "fei-email-authentication",

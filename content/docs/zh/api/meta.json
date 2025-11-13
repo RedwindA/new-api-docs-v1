@@ -14,8 +14,10 @@
     "music",
     "video",
     "---查询接口---",
-    "query",
+    "token-usage",
     "---前端接口---",
-    "frontend"
+    "auth-system-description",
+    "get-available-models-list",
+    "api-modules"
   ]
 }
