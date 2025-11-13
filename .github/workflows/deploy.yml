@@ -36,6 +36,17 @@ jobs:
       - name: 📦 Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: 🔍 Debug Environment Variables
+        run: |
+          echo "Checking environment variables..."
+          echo "GITHUB_TOKEN exists: $([[ -n "$GITHUB_TOKEN" ]] && echo 'Yes' || echo 'No')"
+          echo "AFDIAN_USER_ID exists: $([[ -n "$AFDIAN_USER_ID" ]] && echo 'Yes' || echo 'No')"
+          echo "AFDIAN_TOKEN exists: $([[ -n "$AFDIAN_TOKEN" ]] && echo 'Yes' || echo 'No')"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AFDIAN_USER_ID: ${{ secrets.AFDIAN_USER_ID }}
+          AFDIAN_TOKEN: ${{ secrets.AFDIAN_TOKEN }}
+
       - name: 🔄 Pre-build (Generate Changelog & Special Thanks)
         run: bun run prebuild
         env:
