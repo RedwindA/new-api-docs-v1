@@ -1,5 +1,6 @@
 import type { Viewport, Metadata } from 'next';
 import './global.css';
+import { AISearchTrigger } from '@/components/search';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.newapi.ai'),
@@ -27,7 +28,10 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
       </head>
-      <body>{children}</body>
+      <body>
+        <AISearchTrigger />
+        {children}
+      </body>
     </html>
   );
 }
