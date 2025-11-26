@@ -148,8 +148,8 @@ curl "https://你的newapi服务器地址/v1beta/models/gemini-2.0-flash:generat
 ### Audio Processing 🟡
 
 <Callout type="warn" title="File Upload Limitations">
-  Only supports uploading audio via `inline_data` as base64; `file_data.file_uri`
-  or File API are not supported.
+  Only supports uploading audio via `inline_data` as base64;
+  `file_data.file_uri` or File API are not supported.
 </Callout>
 
 ```bash
@@ -178,8 +178,8 @@ curl "https://你的newapi服务器地址/v1beta/models/gemini-2.0-flash:generat
 ### Video Processing 🟡
 
 <Callout type="warn" title="File Upload Limitations">
-  Only supports uploading video via `inline_data` as base64; `file_data.file_uri`
-  or File API are not supported.
+  Only supports uploading video via `inline_data` as base64;
+  `file_data.file_uri` or File API are not supported.
 </Callout>
 
 ```bash
@@ -390,36 +390,36 @@ The content of the current conversation with the model. For single-turn queries,
 
 **Content Object Properties:**
 
-| Property | Type   | Required | Description                                                      |
-| -------- | ------ | -------- | ---------------------------------------------------------------- |
-| `parts`  | array  | Yes      | Ordered parts of the content, forming a single message           |
+| Property | Type   | Required | Description                                                                             |
+| -------- | ------ | -------- | --------------------------------------------------------------------------------------- |
+| `parts`  | array  | Yes      | Ordered parts of the content, forming a single message                                  |
 | `role`   | string | No       | The producer of the content in the conversation. `user`, `model`, `function`, or `tool` |
 
 **Part Object Properties:**
 
-| Property              | Type   | Required | Description                     |
-| --------------------- | ------ | -------- | ------------------------------- |
-| `text`                | string | No       | Plain text content              |
-| `inlineData`          | object | No       | Inline media byte data          |
+| Property              | Type   | Required | Description                       |
+| --------------------- | ------ | -------- | --------------------------------- |
+| `text`                | string | No       | Plain text content                |
+| `inlineData`          | object | No       | Inline media byte data            |
 | `fileData`            | object | No       | URI reference to an uploaded file |
-| `functionCall`        | object | No       | Function call request           |
-| `functionResponse`    | object | No       | Function call response          |
-| `executableCode`      | object | No       | Executable code                 |
-| `codeExecutionResult` | object | No       | Code execution result           |
+| `functionCall`        | object | No       | Function call request             |
+| `functionResponse`    | object | No       | Function call response            |
+| `executableCode`      | object | No       | Executable code                   |
+| `codeExecutionResult` | object | No       | Code execution result             |
 
 **InlineData Object Properties:**
 
-| Property   | Type   | Required | Description                 |
-| ---------- | ------ | -------- | --------------------------- |
-| `mimeType` | string | Yes      | MIME type of the media      |
-| `data`     | string | Yes      | Base64-encoded media data   |
+| Property   | Type   | Required | Description               |
+| ---------- | ------ | -------- | ------------------------- |
+| `mimeType` | string | Yes      | MIME type of the media    |
+| `data`     | string | Yes      | Base64-encoded media data |
 
 **FileData Object Properties:**
 
-| Property  | Type   | Required | Description              |
-| --------- | ------ | -------- | ------------------------ |
-| `mimeType` | string | Yes      | MIME type of the file    |
-| `fileUri`  | string | Yes      | URI of the file          |
+| Property   | Type   | Required | Description           |
+| ---------- | ------ | -------- | --------------------- |
+| `mimeType` | string | Yes      | MIME type of the file |
+| `fileUri`  | string | Yes      | URI of the file       |
 
 #### `tools`
 
@@ -430,31 +430,31 @@ List of tools the model may use to generate the next response. Supported tools i
 
 **Tool Object Properties:**
 
-| Property               | Type | Required | Description                            |
-| ---------------------- | ---- | -------- | -------------------------------------- |
-| `functionDeclarations` | array | No       | Optional list of function declarations |
+| Property               | Type   | Required | Description                            |
+| ---------------------- | ------ | -------- | -------------------------------------- |
+| `functionDeclarations` | array  | No       | Optional list of function declarations |
 | `codeExecution`        | object | No       | Enables the model to execute code      |
 
 **FunctionDeclaration Object Properties:**
 
-| Property      | Type   | Required | Description                             |
-| ------------- | ------ | -------- | --------------------------------------- |
-| `name`        | string | Yes      | Function name                           |
+| Property      | Type   | Required | Description                                |
+| ------------- | ------ | -------- | ------------------------------------------ |
+| `name`        | string | Yes      | Function name                              |
 | `description` | string | No       | Description of the function's capabilities |
 | `parameters`  | object | No       | Function parameters, in JSON Schema format |
 
 **FunctionCall Object Properties:**
 
-| Property | Type   | Required | Description                     |
-| -------- | ------ | -------- | ------------------------------- |
-| `name`   | string | Yes      | Name of the function to call    |
+| Property | Type   | Required | Description                           |
+| -------- | ------ | -------- | ------------------------------------- |
+| `name`   | string | Yes      | Name of the function to call          |
 | `args`   | object | No       | Key-value pairs of function arguments |
 
 **FunctionResponse Object Properties:**
 
-| Property   | Type   | Required | Description                        |
-| ---------- | ------ | -------- | ---------------------------------- |
-| `name`     | string | Yes      | Name of the called function        |
+| Property   | Type   | Required | Description                          |
+| ---------- | ------ | -------- | ------------------------------------ |
+| `name`     | string | Yes      | Name of the called function          |
 | `response` | object | Yes      | Response data from the function call |
 
 **ExecutableCode Object Properties:**
@@ -466,15 +466,15 @@ List of tools the model may use to generate the next response. Supported tools i
 
 **CodeExecutionResult Object Properties:**
 
-| Property | Type   | Required | Description                       |
-| -------- | ------ | -------- | --------------------------------- |
-| `outcome` | enum   | Yes      | Result status of code execution   |
-| `output` | string | No       | Output content of code execution  |
+| Property  | Type   | Required | Description                      |
+| --------- | ------ | -------- | -------------------------------- |
+| `outcome` | enum   | Yes      | Result status of code execution  |
+| `output`  | string | No       | Output content of code execution |
 
 **CodeExecution Object Properties:**
 
-| Property | Type   | Required | Description                                  |
-| -------- | ------ | -------- | -------------------------------------------- |
+| Property | Type         | Required | Description                                                       |
+| -------- | ------------ | -------- | ----------------------------------------------------------------- |
 | {}       | empty object | -        | Empty configuration object to enable code execution functionality |
 
 #### `toolConfig`
@@ -486,16 +486,16 @@ Tool configuration for any tools specified in the request.
 
 **ToolConfig Object Properties:**
 
-| Property                | Type | Required | Description                        |
-| ----------------------- | ---- | -------- | ---------------------------------- |
-| `functionCallingConfig` | object | No       | Function calling configuration     |
+| Property                | Type   | Required | Description                    |
+| ----------------------- | ------ | -------- | ------------------------------ |
+| `functionCallingConfig` | object | No       | Function calling configuration |
 
 **FunctionCallingConfig Object Properties:**
 
-| Property               | Type | Required | Description                           |
-| ---------------------- | ---- | -------- | ------------------------------------- |
-| `mode`                 | enum | No       | Specifies the mode for function calling |
-| `allowedFunctionNames` | array | No       | List of allowed function names to call |
+| Property               | Type  | Required | Description                             |
+| ---------------------- | ----- | -------- | --------------------------------------- |
+| `mode`                 | enum  | No       | Specifies the mode for function calling |
+| `allowedFunctionNames` | array | No       | List of allowed function names to call  |
 
 **FunctionCallingMode Enum Values:**
 
@@ -513,10 +513,10 @@ List of SafetySetting instances used to block unsafe content.
 
 **SafetySetting Object Properties:**
 
-| Property    | Type | Required | Description         |
-| ----------- | ---- | -------- | ------------------- |
-| `category`  | enum | Yes      | Safety category     |
-| `threshold` | enum | Yes      | Blocking threshold  |
+| Property    | Type | Required | Description        |
+| ----------- | ---- | -------- | ------------------ |
+| `category`  | enum | Yes      | Safety category    |
+| `threshold` | enum | Yes      | Blocking threshold |
 
 **HarmCategory Enum Values:**
 
@@ -559,26 +559,26 @@ Configuration options for model generation and output.
 
 **GenerationConfig Object Properties:**
 
-| Property                     | Type   | Required | Description                                             |
-| ---------------------------- | ------ | -------- | ------------------------------------------------------- |
-| `stopSequences`              | array  | No       | Set of character sequences (up to 5) that will stop output generation |
-| `responseMimeType`           | string | No       | MIME type of the generated candidate text               |
-| `responseSchema`             | object | No       | Output schema for the generated candidate text          |
-| `responseModalities`         | array  | No       | Requested response modalities                           |
-| `candidateCount`             | integer | No       | Number of generated responses to return                 |
-| `maxOutputTokens`            | integer | No       | Upper limit on the number of tokens included in the candidate response |
-| `temperature`                | number | No       | Controls the randomness of the output, range [0.0, 2.0] |
-| `topP`                       | number | No       | Upper limit on the cumulative probability of tokens to consider during sampling |
-| `topK`                       | integer | No       | Upper limit on the number of tokens to consider during sampling |
-| `seed`                       | integer | No       | Seed used in decoding                                   |
-| `presencePenalty`            | number | No       | Presence penalty                                        |
-| `frequencyPenalty`           | number | No       | Frequency penalty                                       |
-| `responseLogprobs`           | boolean | No       | Whether to export logprobs results in the response      |
-| `logprobs`                   | integer | No       | Number of top logprobs to return                        |
-| `enableEnhancedCivicAnswers` | boolean | No       | Enable enhanced civic service answers                   |
-| `speechConfig`               | object | No       | Speech generation configuration                         |
-| `thinkingConfig`             | object | No       | Configuration for thinking functionality                |
-| `mediaResolution`            | enum   | No       | Specified media resolution                              |
+| Property                     | Type    | Required | Description                                                                     |
+| ---------------------------- | ------- | -------- | ------------------------------------------------------------------------------- |
+| `stopSequences`              | array   | No       | Set of character sequences (up to 5) that will stop output generation           |
+| `responseMimeType`           | string  | No       | MIME type of the generated candidate text                                       |
+| `responseSchema`             | object  | No       | Output schema for the generated candidate text                                  |
+| `responseModalities`         | array   | No       | Requested response modalities                                                   |
+| `candidateCount`             | integer | No       | Number of generated responses to return                                         |
+| `maxOutputTokens`            | integer | No       | Upper limit on the number of tokens included in the candidate response          |
+| `temperature`                | number  | No       | Controls the randomness of the output, range [0.0, 2.0]                         |
+| `topP`                       | number  | No       | Upper limit on the cumulative probability of tokens to consider during sampling |
+| `topK`                       | integer | No       | Upper limit on the number of tokens to consider during sampling                 |
+| `seed`                       | integer | No       | Seed used in decoding                                                           |
+| `presencePenalty`            | number  | No       | Presence penalty                                                                |
+| `frequencyPenalty`           | number  | No       | Frequency penalty                                                               |
+| `responseLogprobs`           | boolean | No       | Whether to export logprobs results in the response                              |
+| `logprobs`                   | integer | No       | Number of top logprobs to return                                                |
+| `enableEnhancedCivicAnswers` | boolean | No       | Enable enhanced civic service answers                                           |
+| `speechConfig`               | object  | No       | Speech generation configuration                                                 |
+| `thinkingConfig`             | object  | No       | Configuration for thinking functionality                                        |
+| `mediaResolution`            | enum    | No       | Specified media resolution                                                      |
 
 **Supported MIME Types:**
 
@@ -594,23 +594,23 @@ Configuration options for model generation and output.
 
 **Schema Object Properties:**
 
-| Property      | Type     | Required | Description                                     |
-| ------------- | -------- | -------- | ----------------------------------------------- |
-| `type`        | enum     | Yes      | Data type                                       |
-| `description` | string   | No       | Field description                               |
-| `enum`        | array    | No       | List of enum values (when type is string)       |
-| `example`     | any type | No       | Example value                                   |
-| `nullable`    | boolean  | No       | Whether it can be null                          |
-| `format`      | string   | No       | String format (e.g., date, date-time, etc.)     |
-| `items`       | object   | No       | Schema for array items (when type is array)     |
+| Property      | Type     | Required | Description                                                |
+| ------------- | -------- | -------- | ---------------------------------------------------------- |
+| `type`        | enum     | Yes      | Data type                                                  |
+| `description` | string   | No       | Field description                                          |
+| `enum`        | array    | No       | List of enum values (when type is string)                  |
+| `example`     | any type | No       | Example value                                              |
+| `nullable`    | boolean  | No       | Whether it can be null                                     |
+| `format`      | string   | No       | String format (e.g., date, date-time, etc.)                |
+| `items`       | object   | No       | Schema for array items (when type is array)                |
 | `properties`  | object   | No       | Schema mapping for object properties (when type is object) |
-| `required`    | array    | No       | List of required property names                 |
-| `minimum`     | number   | No       | Minimum value for numbers                       |
-| `maximum`     | number   | No       | Maximum value for numbers                       |
-| `minItems`    | integer  | No       | Minimum length for arrays                       |
-| `maxItems`    | integer  | No       | Maximum length for arrays                       |
-| `minLength`   | integer  | No       | Minimum length for strings                      |
-| `maxLength`   | integer  | No       | Maximum length for strings                      |
+| `required`    | array    | No       | List of required property names                            |
+| `minimum`     | number   | No       | Minimum value for numbers                                  |
+| `maximum`     | number   | No       | Maximum value for numbers                                  |
+| `minItems`    | integer  | No       | Minimum length for arrays                                  |
+| `maxItems`    | integer  | No       | Maximum length for arrays                                  |
+| `minLength`   | integer  | No       | Minimum length for strings                                 |
+| `maxLength`   | integer  | No       | Maximum length for strings                                 |
 
 **Type Enum Values:**
 
@@ -654,20 +654,20 @@ Responses from models that support multiple candidate answers. Safety ratings an
 
 **Candidate Object Properties:**
 
-| Property                | Type | Description                                             |
-| ----------------------- | ---- | ------------------------------------------------------- |
-| `content`               | object | Generated content returned by the model                 |
-| `finishReason`          | enum | Reason why the model stopped generating tokens          |
-| `safetyRatings`         | array | List of safety ratings for the candidate response       |
-| `citationMetadata`      | object | Citation information for the model-generated candidate  |
-| `tokenCount`            | integer | Number of tokens for this candidate                     |
-| `groundingAttributions` | array | Attribution information for sources referenced to generate grounded responses |
-| `groundingMetadata`     | object | Reference metadata for the candidate object             |
-| `avgLogprobs`           | number | Average log probability score for the candidate         |
-| `logprobsResult`        | object | Log-likelihood scores for response tokens and preceding tokens |
-| `urlRetrievalMetadata`  | object | Metadata related to URL context retrieval tool          |
-| `urlContextMetadata`    | object | Metadata related to URL context retrieval tool          |
-| `index`                 | integer | Index of the candidate in the response candidate list   |
+| Property                | Type    | Description                                                                   |
+| ----------------------- | ------- | ----------------------------------------------------------------------------- |
+| `content`               | object  | Generated content returned by the model                                       |
+| `finishReason`          | enum    | Reason why the model stopped generating tokens                                |
+| `safetyRatings`         | array   | List of safety ratings for the candidate response                             |
+| `citationMetadata`      | object  | Citation information for the model-generated candidate                        |
+| `tokenCount`            | integer | Number of tokens for this candidate                                           |
+| `groundingAttributions` | array   | Attribution information for sources referenced to generate grounded responses |
+| `groundingMetadata`     | object  | Reference metadata for the candidate object                                   |
+| `avgLogprobs`           | number  | Average log probability score for the candidate                               |
+| `logprobsResult`        | object  | Log-likelihood scores for response tokens and preceding tokens                |
+| `urlRetrievalMetadata`  | object  | Metadata related to URL context retrieval tool                                |
+| `urlContextMetadata`    | object  | Metadata related to URL context retrieval tool                                |
+| `index`                 | integer | Index of the candidate in the response candidate list                         |
 
 **FinishReason Enum Values:**
 
@@ -690,9 +690,9 @@ Responses from models that support multiple candidate answers. Safety ratings an
 
 **PromptFeedback Object Properties:**
 
-| Property        | Type | Description                     |
-| --------------- | ---- | ------------------------------- |
-| `blockReason`   | enum | Reason for blocking this prompt |
+| Property        | Type  | Description                     |
+| --------------- | ----- | ------------------------------- |
+| `blockReason`   | enum  | Reason for blocking this prompt |
 | `safetyRatings` | array | Safety ratings for the prompt   |
 
 **BlockReason Enum Values:**
@@ -711,18 +711,18 @@ Responses from models that support multiple candidate answers. Safety ratings an
 
 **UsageMetadata Object Properties:**
 
-| Property                     | Type | Description                                             |
-| ---------------------------- | ---- | ------------------------------------------------------- |
-| `promptTokenCount`           | integer | Number of tokens in the prompt                          |
-| `cachedContentTokenCount`    | integer | Number of tokens in the cached part of the prompt       |
+| Property                     | Type    | Description                                                     |
+| ---------------------------- | ------- | --------------------------------------------------------------- |
+| `promptTokenCount`           | integer | Number of tokens in the prompt                                  |
+| `cachedContentTokenCount`    | integer | Number of tokens in the cached part of the prompt               |
 | `candidatesTokenCount`       | integer | Total number of tokens across all generated candidate responses |
-| `totalTokenCount`            | integer | Total number of tokens for the generation request       |
-| `toolUsePromptTokenCount`    | integer | Number of tokens in the tool use prompt                 |
-| `thoughtsTokenCount`         | integer | Number of thought tokens for the thinking model         |
-| `promptTokensDetails`        | array | List of modalities processed in the request input       |
-| `candidatesTokensDetails`    | array | List of modalities returned in the response             |
-| `cacheTokensDetails`         | array | List of modalities for cached content in the request input |
-| `toolUsePromptTokensDetails` | array | List of modalities processed for tool use request input |
+| `totalTokenCount`            | integer | Total number of tokens for the generation request               |
+| `toolUsePromptTokenCount`    | integer | Number of tokens in the tool use prompt                         |
+| `thoughtsTokenCount`         | integer | Number of thought tokens for the thinking model                 |
+| `promptTokensDetails`        | array   | List of modalities processed in the request input               |
+| `candidatesTokensDetails`    | array   | List of modalities returned in the response                     |
+| `cacheTokensDetails`         | array   | List of modalities for cached content in the request input      |
+| `toolUsePromptTokensDetails` | array   | List of modalities processed for tool use request input         |
 
 #### `modelVersion`
 
@@ -815,10 +815,10 @@ Responses from models that support multiple candidate answers. Safety ratings an
 
 **SafetyRating Object Properties:**
 
-| Property      | Type   | Description                                |
-| ------------- | ------ | ------------------------------------------ |
-| `category`    | enum   | Category for this rating                   |
-| `probability` | enum   | Harm probability of this content           |
+| Property      | Type    | Description                                         |
+| ------------- | ------- | --------------------------------------------------- |
+| `category`    | enum    | Category for this rating                            |
+| `probability` | enum    | Harm probability of this content                    |
 | `blocked`     | boolean | Whether this content was blocked due to this rating |
 
 **HarmProbability Enum Values:**
@@ -832,18 +832,18 @@ Responses from models that support multiple candidate answers. Safety ratings an
 
 **CitationMetadata Object Properties:**
 
-| Property          | Type | Description                        |
-| ----------------- | ---- | ---------------------------------- |
+| Property          | Type  | Description                             |
+| ----------------- | ----- | --------------------------------------- |
 | `citationSources` | array | Source citations for specific responses |
 
 **CitationSource Object Properties:**
 
-| Property     | Type   | Description                                             |
-| ------------ | ------ | ------------------------------------------------------- |
-| `startIndex` | integer | Starting index of the response segment attributed to this source |
-| `endIndex`   | integer | Ending index (exclusive) of the attribution segment     |
-| `uri`        | string | URI attributed as the source for the text part          |
-| `license`    | string | License of the GitHub project attributed as the source for the segment |
+| Property     | Type    | Description                                                            |
+| ------------ | ------- | ---------------------------------------------------------------------- |
+| `startIndex` | integer | Starting index of the response segment attributed to this source       |
+| `endIndex`   | integer | Ending index (exclusive) of the attribution segment                    |
+| `uri`        | string  | URI attributed as the source for the text part                         |
+| `license`    | string  | License of the GitHub project attributed as the source for the segment |
 
 ### Code Execution
 
@@ -888,84 +888,84 @@ When the code execution tool is enabled, the model can generate and execute code
 
 **GroundingMetadata Object Properties:**
 
-| Property            | Type | Description                                             |
-| ------------------- | ---- | ------------------------------------------------------- |
-| `groundingChunks`   | array | List of supporting references retrieved from the specified grounding source |
-| `groundingSupports` | array | List of grounding supports                              |
-| `webSearchQueries`  | array | Web search queries for subsequent web searches          |
-| `searchEntryPoint`  | object | Google Search entry point for subsequent web searches   |
-| `retrievalMetadata` | object | Metadata related to retrieval in the grounding process  |
+| Property            | Type   | Description                                                                 |
+| ------------------- | ------ | --------------------------------------------------------------------------- |
+| `groundingChunks`   | array  | List of supporting references retrieved from the specified grounding source |
+| `groundingSupports` | array  | List of grounding supports                                                  |
+| `webSearchQueries`  | array  | Web search queries for subsequent web searches                              |
+| `searchEntryPoint`  | object | Google Search entry point for subsequent web searches                       |
+| `retrievalMetadata` | object | Metadata related to retrieval in the grounding process                      |
 
 **GroundingAttribution Object Properties:**
 
-| Property  | Type | Description                                |
-| --------- | ---- | ------------------------------------------ |
+| Property   | Type   | Description                                                   |
+| ---------- | ------ | ------------------------------------------------------------- |
 | `sourceId` | object | Identifier of the source that contributed to this attribution |
-| `content` | object | Source content that constitutes this attribution |
+| `content`  | object | Source content that constitutes this attribution              |
 
 **AttributionSourceId Object Properties:**
 
-| Property                 | Type | Description                                             |
-| ------------------------ | ---- | ------------------------------------------------------- |
-| `groundingPassage`       | object | Identifier for an inline passage                        |
-| `semanticRetrieverChunk` | object | Identifier for a Chunk extracted by Semantic Retriever  |
+| Property                 | Type   | Description                                            |
+| ------------------------ | ------ | ------------------------------------------------------ |
+| `groundingPassage`       | object | Identifier for an inline passage                       |
+| `semanticRetrieverChunk` | object | Identifier for a Chunk extracted by Semantic Retriever |
 
 **GroundingPassageId Object Properties:**
 
-| Property    | Type   | Description                                                     |
-| ----------- | ------ | --------------------------------------------------------------- |
-| `passageId` | string | ID of the passage matching `GroundingPassage.id` of `GenerateAnswerRequest` |
-| `partIndex` | integer | Index of the part in `GroundingPassage.content` of `GenerateAnswerRequest` |
+| Property    | Type    | Description                                                                 |
+| ----------- | ------- | --------------------------------------------------------------------------- |
+| `passageId` | string  | ID of the passage matching `GroundingPassage.id` of `GenerateAnswerRequest` |
+| `partIndex` | integer | Index of the part in `GroundingPassage.content` of `GenerateAnswerRequest`  |
 
 **SemanticRetrieverChunk Object Properties:**
 
-| Property | Type   | Description                                                 |
-| -------- | ------ | ----------------------------------------------------------- |
+| Property | Type   | Description                                                                 |
+| -------- | ------ | --------------------------------------------------------------------------- |
 | `source` | string | Name of the source matching `SemanticRetrieverConfig.source` of the request |
-| `chunk`  | string | Name of the Chunk containing the attributed text            |
+| `chunk`  | string | Name of the Chunk containing the attributed text                            |
 
 **SearchEntryPoint Object Properties:**
 
-| Property          | Type   | Description                                             |
-| ----------------- | ------ | ------------------------------------------------------- |
-| `renderedContent` | string | Web content snippet that can be embedded in a web page or WebView |
+| Property          | Type   | Description                                                                    |
+| ----------------- | ------ | ------------------------------------------------------------------------------ |
+| `renderedContent` | string | Web content snippet that can be embedded in a web page or WebView              |
 | `sdkBlob`         | string | Base64-encoded JSON representing an array of search term and search URL tuples |
 
 **Segment Object Properties:**
 
-| Property     | Type   | Description                                     |
-| ------------ | ------ | ----------------------------------------------- |
+| Property     | Type    | Description                                           |
+| ------------ | ------- | ----------------------------------------------------- |
 | `partIndex`  | integer | Index of the Part object in its parent Content object |
-| `startIndex` | integer | Starting index in the given part, in bytes      |
+| `startIndex` | integer | Starting index in the given part, in bytes            |
 | `endIndex`   | integer | Ending index (exclusive) in the given chunk, in bytes |
-| `text`       | string | Text corresponding to the segment in the response |
+| `text`       | string  | Text corresponding to the segment in the response     |
 
 **RetrievalMetadata Object Properties:**
 
-| Property                          | Type | Description                                             |
-| --------------------------------- | ---- | ------------------------------------------------------- |
+| Property                            | Type   | Description                                                                                    |
+| ----------------------------------- | ------ | ---------------------------------------------------------------------------------------------- |
 | `googleSearchDynamicRetrievalScore` | number | Probability score (range [0,1]) that information from Google Search helped answer the question |
 
 **GroundingChunk Object Properties:**
 
-| Property | Type | Description                   |
-| -------- | ---- | ----------------------------- |
-| `web`    | object | Grounding chunk from the web  |
+| Property | Type   | Description                  |
+| -------- | ------ | ---------------------------- |
+| `web`    | object | Grounding chunk from the web |
 
 **Web Object Properties:**
 
-| Property | Type   | Description                 |
-| -------- | ------ | --------------------------- |
-| `uri`    | string | URI reference of the chunk  |
-| `title`  | string | Title of the data chunk     |
+| Property | Type   | Description                |
+| -------- | ------ | -------------------------- |
+| `uri`    | string | URI reference of the chunk |
+| `title`  | string | Title of the data chunk    |
 
 **GroundingSupport Object Properties:**
 
-| Property                | Type | Description                                             |
-| ----------------------- | ---- | ------------------------------------------------------- |
-| `groundingChunkIndices` | array | List of indices specifying citations related to copyright claims |
-| `confidenceScores`      | array | Confidence scores for supporting reference documents, range 0 to 1 |
-| `segment`               | object | Content segment to which this support request belongs   |
+| Property                | Type   | Description                                                        |
+| ----------------------- | ------ | ------------------------------------------------------------------ |
+| `groundingChunkIndices` | array  | List of indices specifying citations related to copyright claims   |
+| `confidenceScores`      | array  | Confidence scores for supporting reference documents, range 0 to 1 |
+| `segment`               | object | Content segment to which this support request belongs              |
 
 ### Multimodal Processing
 
@@ -981,10 +981,10 @@ The Gemini API supports processing inputs and outputs in multiple modalities:
 
 **ModalityTokenCount Object Properties:**
 
-| Property   | Type | Description                          |
-| ---------- | ---- | ------------------------------------ |
-| `modality` | enum | Modality associated with this token count |
-| `tokenCount` | integer | Number of tokens                     |
+| Property     | Type    | Description                               |
+| ------------ | ------- | ----------------------------------------- |
+| `modality`   | enum    | Modality associated with this token count |
+| `tokenCount` | integer | Number of tokens                          |
 
 **MediaResolution Enum Values:**
 
@@ -996,44 +996,44 @@ The Gemini API supports processing inputs and outputs in multiple modalities:
 
 **ThinkingConfig Object Properties:**
 
-| Property          | Type   | Description                               |
-| ----------------- | ------ | ----------------------------------------- |
-| `includeThoughts` | boolean | Whether to include thoughts in the response |
+| Property          | Type    | Description                                        |
+| ----------------- | ------- | -------------------------------------------------- |
+| `includeThoughts` | boolean | Whether to include thoughts in the response        |
 | `thinkingBudget`  | integer | Number of thought tokens the model should generate |
 
 ### Speech Generation
 
 **SpeechConfig Object Properties:**
 
-| Property                  | Type   | Description                               |
-| ------------------------- | ------ | ----------------------------------------- |
-| `voiceConfig`             | object | Configuration for single-voice output     |
-| `multiSpeakerVoiceConfig` | object | Configuration for multi-speaker settings  |
-| `languageCode`            | string | Language code for speech synthesis        |
+| Property                  | Type   | Description                              |
+| ------------------------- | ------ | ---------------------------------------- |
+| `voiceConfig`             | object | Configuration for single-voice output    |
+| `multiSpeakerVoiceConfig` | object | Configuration for multi-speaker settings |
+| `languageCode`            | string | Language code for speech synthesis       |
 
 **VoiceConfig Object Properties:**
 
-| Property              | Type | Description                               |
-| --------------------- | ---- | ----------------------------------------- |
+| Property              | Type   | Description                                 |
+| --------------------- | ------ | ------------------------------------------- |
 | `prebuiltVoiceConfig` | object | Configuration for the prebuilt voice to use |
 
 **PrebuiltVoiceConfig Object Properties:**
 
-| Property    | Type   | Description                           |
-| ----------- | ------ | ------------------------------------- |
-| `voiceName` | string | Name of the preset voice to use       |
+| Property    | Type   | Description                     |
+| ----------- | ------ | ------------------------------- |
+| `voiceName` | string | Name of the preset voice to use |
 
 **MultiSpeakerVoiceConfig Object Properties:**
 
-| Property                | Type | Description                       |
-| ----------------------- | ---- | --------------------------------- |
-| `speakerVoiceConfigs` | array | All enabled speaker voices        |
+| Property              | Type  | Description                |
+| --------------------- | ----- | -------------------------- |
+| `speakerVoiceConfigs` | array | All enabled speaker voices |
 
 **SpeakerVoiceConfig Object Properties:**
 
-| Property      | Type   | Description                       |
-| ------------- | ------ | --------------------------------- |
-| `speaker`     | string | Name of the speaker to use        |
+| Property      | Type   | Description                        |
+| ------------- | ------ | ---------------------------------- |
+| `speaker`     | string | Name of the speaker to use         |
 | `voiceConfig` | object | Configuration for the voice to use |
 
 **Supported Language Codes:**
@@ -1060,51 +1060,51 @@ The Gemini API supports processing inputs and outputs in multiple modalities:
 
 **LogprobsResult Object Properties:**
 
-| Property           | Type | Description                                             |
-| ------------------ | ---- | ------------------------------------------------------- |
-| `topCandidates`    | array | Length equals the total number of decoding steps        |
+| Property           | Type  | Description                                                                                              |
+| ------------------ | ----- | -------------------------------------------------------------------------------------------------------- |
+| `topCandidates`    | array | Length equals the total number of decoding steps                                                         |
 | `chosenCandidates` | array | Length equals the total number of decoding steps, chosen candidates are not necessarily in topCandidates |
 
 **TopCandidates Object Properties:**
 
-| Property   | Type | Description                               |
-| ---------- | ---- | ----------------------------------------- |
+| Property     | Type  | Description                                              |
+| ------------ | ----- | -------------------------------------------------------- |
 | `candidates` | array | Candidates sorted by log probability in descending order |
 
 **Candidate (Logprobs) Object Properties:**
 
-| Property         | Type   | Description                          |
-| ---------------- | ------ | ------------------------------------ |
-| `token`          | string | Token string value of the candidate  |
-| `tokenId`        | integer | Token ID value of the candidate      |
-| `logProbability` | number | Log probability of the candidate     |
+| Property         | Type    | Description                         |
+| ---------------- | ------- | ----------------------------------- |
+| `token`          | string  | Token string value of the candidate |
+| `tokenId`        | integer | Token ID value of the candidate     |
+| `logProbability` | number  | Log probability of the candidate    |
 
 ### URL Retrieval Functionality
 
 **UrlRetrievalMetadata Object Properties:**
 
-| Property               | Type | Description                       |
-| ---------------------- | ---- | --------------------------------- |
-| `urlRetrievalContexts` | array | List of URL retrieval contexts    |
+| Property               | Type  | Description                    |
+| ---------------------- | ----- | ------------------------------ |
+| `urlRetrievalContexts` | array | List of URL retrieval contexts |
 
 **UrlRetrievalContext Object Properties:**
 
-| Property       | Type   | Description                 |
-| -------------- | ------ | --------------------------- |
-| `retrievedUrl` | string | URL retrieved by the tool   |
+| Property       | Type   | Description               |
+| -------------- | ------ | ------------------------- |
+| `retrievedUrl` | string | URL retrieved by the tool |
 
 **UrlContextMetadata Object Properties:**
 
-| Property      | Type | Description                 |
-| ------------- | ---- | --------------------------- |
-| `urlMetadata` | array | List of URL contexts        |
+| Property      | Type  | Description          |
+| ------------- | ----- | -------------------- |
+| `urlMetadata` | array | List of URL contexts |
 
 **UrlMetadata Object Properties:**
 
-| Property           | Type   | Description                 |
-| ------------------ | ------ | --------------------------- |
-| `retrievedUrl`     | string | URL retrieved by the tool   |
-| `urlRetrievalStatus` | enum   | Status of URL retrieval     |
+| Property             | Type   | Description               |
+| -------------------- | ------ | ------------------------- |
+| `retrievedUrl`       | string | URL retrieved by the tool |
+| `urlRetrievalStatus` | enum   | Status of URL retrieval   |
 
 **UrlRetrievalStatus Enum Values:**
 
@@ -1162,28 +1162,28 @@ The Gemini API supports processing inputs and outputs in multiple modalities:
 
 ### Common Error Codes
 
-| Error Code | Description                        |
-| ---------- | ---------------------------------- |
-| `400`      | Malformed request or invalid parameters |
-| `401`      | Invalid or missing API key         |
+| Error Code | Description                              |
+| ---------- | ---------------------------------------- |
+| `400`      | Malformed request or invalid parameters  |
+| `401`      | Invalid or missing API key               |
 | `403`      | Insufficient permissions or quota limits |
-| `429`      | Too many requests                  |
-| `500`      | Internal server error              |
+| `429`      | Too many requests                        |
+| `500`      | Internal server error                    |
 
 ### Detailed Error Code Descriptions
 
-| Error Code | Status                  | Description                               | Solution                                   |
-| ---------- | --------------------- | ----------------------------------------- | ------------------------------------------ |
-| `400`      | `INVALID_ARGUMENT`    | Invalid request parameters or malformed format | Check request parameter format and required fields |
-| `400`      | `FAILED_PRECONDITION` | Request precondition not met              | Ensure API call preconditions are met      |
-| `401`      | `UNAUTHENTICATED`     | Invalid, missing, or expired API key      | Check API key validity and format          |
-| `403`      | `PERMISSION_DENIED`   | Insufficient permissions or quota exhausted | Check API key permissions or upgrade quota |
-| `404`      | `NOT_FOUND`           | Specified model or resource does not exist | Verify model name and resource path        |
-| `413`      | `PAYLOAD_TOO_LARGE`   | Request body too large                    | Reduce input content size or process in batches |
-| `429`      | `RESOURCE_EXHAUSTED`  | Request frequency exceeded or insufficient quota | Reduce request frequency or wait for quota reset |
-| `500`      | `INTERNAL`            | Internal server error                     | Retry request, contact support if it persists |
-| `503`      | `UNAVAILABLE`         | Service temporarily unavailable           | Wait a moment and retry                    |
-| `504`      | `DEADLINE_EXCEEDED`   | Request timed out                         | Reduce input size or retry request         |
+| Error Code | Status                | Description                                      | Solution                                           |
+| ---------- | --------------------- | ------------------------------------------------ | -------------------------------------------------- |
+| `400`      | `INVALID_ARGUMENT`    | Invalid request parameters or malformed format   | Check request parameter format and required fields |
+| `400`      | `FAILED_PRECONDITION` | Request precondition not met                     | Ensure API call preconditions are met              |
+| `401`      | `UNAUTHENTICATED`     | Invalid, missing, or expired API key             | Check API key validity and format                  |
+| `403`      | `PERMISSION_DENIED`   | Insufficient permissions or quota exhausted      | Check API key permissions or upgrade quota         |
+| `404`      | `NOT_FOUND`           | Specified model or resource does not exist       | Verify model name and resource path                |
+| `413`      | `PAYLOAD_TOO_LARGE`   | Request body too large                           | Reduce input content size or process in batches    |
+| `429`      | `RESOURCE_EXHAUSTED`  | Request frequency exceeded or insufficient quota | Reduce request frequency or wait for quota reset   |
+| `500`      | `INTERNAL`            | Internal server error                            | Retry request, contact support if it persists      |
+| `503`      | `UNAVAILABLE`         | Service temporarily unavailable                  | Wait a moment and retry                            |
+| `504`      | `DEADLINE_EXCEEDED`   | Request timed out                                | Reduce input size or retry request                 |
 
 ### Error Response Example
 

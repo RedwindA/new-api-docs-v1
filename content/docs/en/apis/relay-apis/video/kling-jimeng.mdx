@@ -17,27 +17,27 @@ POST /v1/video/generations
 
 ### Request Headers
 
-| Parameter     | Type   | Required | Description                    |
-| ------------- | ------ | -------- | ------------------------------ |
+| Parameter     | Type   | Required | Description                                 |
+| ------------- | ------ | -------- | ------------------------------------------- |
 | Authorization | string | Yes      | User Authentication Token (Bearer: sk-xxxx) |
-| Content-Type  | string | Yes      | application/json               |
+| Content-Type  | string | Yes      | application/json                            |
 
 ### Request Parameters
 
-| Parameter       | Type    | Required | Description                                                          |
-| --------------- | ------- | -------- | -------------------------------------------------------------------- |
-| model           | string  | Yes      | Model/Style ID                                                       |
-| prompt          | string  | Yes      | Text prompt                                                          |
-| duration        | number  | No       | Video duration (seconds)                                             |
-| fps             | integer | No       | Video frame rate                                                     |
-| height          | integer | No       | Video height                                                         |
-| width           | integer | No       | Video width                                                          |
-| image           | string  | No       | Image input (URL/Base64)                                             |
+| Parameter       | Type    | Required | Description                                                                           |
+| --------------- | ------- | -------- | ------------------------------------------------------------------------------------- |
+| model           | string  | Yes      | Model/Style ID                                                                        |
+| prompt          | string  | Yes      | Text prompt                                                                           |
+| duration        | number  | No       | Video duration (seconds)                                                              |
+| fps             | integer | No       | Video frame rate                                                                      |
+| height          | integer | No       | Video height                                                                          |
+| width           | integer | No       | Video width                                                                           |
+| image           | string  | No       | Image input (URL/Base64)                                                              |
 | metadata        | object  | No       | Vendor-specific/custom parameters (e.g., negative_prompt, style, quality_level, etc.) |
-| n               | integer | No       | Number of videos to generate                                         |
-| response_format | string  | No       | Response format                                                      |
-| seed            | integer | No       | Random seed                                                          |
-| user            | string  | No       | User identifier                                                      |
+| n               | integer | No       | Number of videos to generate                                                          |
+| response_format | string  | No       | Response format                                                                       |
+| seed            | integer | No       | Random seed                                                                           |
+| user            | string  | No       | User identifier                                                                       |
 
 ### Request Examples
 
@@ -153,14 +153,14 @@ curl 'https://你的newapi服务器地址/v1/video/generations/{task_id}'
 
 #### Response Field Descriptions
 
-| Field    | Type   | Description                                                          |
-| -------- | ------ | -------------------------------------------------------------------- |
-| task_id  | string | Task ID                                                              |
+| Field    | Type   | Description                                                                |
+| -------- | ------ | -------------------------------------------------------------------------- |
+| task_id  | string | Task ID                                                                    |
 | status   | string | Task status (processing: Processing, succeeded: Succeeded, failed: Failed) |
-| format   | string | Video format                                                         |
-| url      | string | Video resource URL (on success)                                      |
-| metadata | object | Result metadata                                                      |
-| error    | object | Error message (null on success)                                      |
+| format   | string | Video format                                                               |
+| url      | string | Video resource URL (on success)                                            |
+| metadata | object | Result metadata                                                            |
+| error    | object | Error message (null on success)                                            |
 
 ## Error Responses
 

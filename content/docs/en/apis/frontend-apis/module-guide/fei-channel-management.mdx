@@ -14,11 +14,11 @@ The API prefix is uniformly http(s)://`<your-domain>`
 
 ### Get Channel List
 
--   **Interface Name**: Get Channel List
--   **HTTP Method**: GET
--   **Path**: `/api/channel/`
--   **Authentication Required**: Administrator
--   **Feature Description**: Paginate and retrieve a list of all channels in the system, supporting filtering by type, status, and tag mode.
+- **Interface Name**: Get Channel List
+- **HTTP Method**: GET
+- **Path**: `/api/channel/`
+- **Authentication Required**: Administrator
+- **Feature Description**: Paginate and retrieve a list of all channels in the system, supporting filtering by type, status, and tag mode.
 
 💡 Request Example:
 
@@ -76,20 +76,20 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `p` (Number): Page number, defaults to 1
--   `page_size` (Number): Items per page, defaults to 20
--   `id_sort` (Boolean): Whether to sort by ID, defaults to sorting by priority
--   `tag_mode` (Boolean): Whether to enable tag mode
--   `type` (Number): Channel type filter
--   `status` (String): Status filter, optional values: "enabled", "disabled", "all"
+- `p` (Number): Page number, defaults to 1
+- `page_size` (Number): Items per page, defaults to 20
+- `id_sort` (Boolean): Whether to sort by ID, defaults to sorting by priority
+- `tag_mode` (Boolean): Whether to enable tag mode
+- `type` (Number): Channel type filter
+- `status` (String): Status filter, optional values: "enabled", "disabled", "all"
 
 ### Search Channels
 
--   **Interface Name**: Search Channels
--   **HTTP Method**: GET
--   **Path**: `/api/channel/search`
--   **Authentication Required**: Administrator
--   **Feature Description**: Search channels based on keywords, groups, models, and other criteria.
+- **Interface Name**: Search Channels
+- **HTTP Method**: GET
+- **Path**: `/api/channel/search`
+- **Authentication Required**: Administrator
+- **Feature Description**: Search channels based on keywords, groups, models, and other criteria.
 
 💡 Request Example:
 
@@ -139,18 +139,18 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `keyword` (String): Search keyword, can match channel names
--   `group` (String): Group filter condition
--   `model` (String): Model filter condition
--   Other parameters are the same as the Get Channel List interface.
+- `keyword` (String): Search keyword, can match channel names
+- `group` (String): Group filter condition
+- `model` (String): Model filter condition
+- Other parameters are the same as the Get Channel List interface.
 
 ### Query Channel Model Capabilities
 
--   **Interface Name**: Query Channel Model Capabilities
--   **HTTP Method**: GET
--   **Path**: `/api/channel/models`
--   **Authentication Required**: Administrator
--   **Feature Description**: Get a list of models supported by all channels in the system.
+- **Interface Name**: Query Channel Model Capabilities
+- **HTTP Method**: GET
+- **Path**: `/api/channel/models`
+- **Authentication Required**: Administrator
+- **Feature Description**: Get a list of models supported by all channels in the system.
 
 💡 Request Example:
 
@@ -202,16 +202,16 @@ const data = await response.json();
 
 `data` (Array): List of model information
 
--   `id` (String): Model ID
--   `name` (String): Model display name
+- `id` (String): Model ID
+- `name` (String): Model display name
 
 ### Query Enabled Model Capabilities
 
--   **Interface Name**: Query Enabled Model Capabilities
--   **HTTP Method**: GET
--   **Path**: `/api/channel/models_enabled`
--   **Authentication Required**: Administrator
--   **Feature Description**: Get a list of models supported by currently enabled channels.
+- **Interface Name**: Query Enabled Model Capabilities
+- **HTTP Method**: GET
+- **Path**: `/api/channel/models_enabled`
+- **Authentication Required**: Administrator
+- **Feature Description**: Get a list of models supported by currently enabled channels.
 
 💡 Request Example:
 
@@ -256,11 +256,11 @@ const data = await response.json();
 
 ### Get Single Channel
 
--   **Interface Name**: Get Single Channel
--   **HTTP Method**: GET
--   **Path**: `/api/channel/:id`
--   **Authentication Required**: Administrator
--   **Feature Description**: Get detailed information for a specified channel, excluding sensitive key information.
+- **Interface Name**: Get Single Channel
+- **HTTP Method**: GET
+- **Path**: `/api/channel/:id`
+- **Authentication Required**: Administrator
+- **Feature Description**: Get detailed information for a specified channel, excluding sensitive key information.
 
 💡 Request Example:
 
@@ -312,16 +312,16 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `id` (Number): Channel ID, passed via URL path
--   Returns complete channel information, but without key fields.
+- `id` (Number): Channel ID, passed via URL path
+- Returns complete channel information, but without key fields.
 
 ### Batch Test Channel Connectivity
 
--   **Interface Name**: Batch Test Channel Connectivity
--   **HTTP Method**: GET
--   **Path**: `/api/channel/test`
--   **Authentication Required**: Administrator
--   **Feature Description**: Batch test the connectivity and response time of all or specified channels.
+- **Interface Name**: Batch Test Channel Connectivity
+- **HTTP Method**: GET
+- **Path**: `/api/channel/test`
+- **Authentication Required**: Administrator
+- **Feature Description**: Batch test the connectivity and response time of all or specified channels.
 
 💡 Request Example:
 
@@ -378,18 +378,18 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `model` (String): Optional, specifies the test model
--   `results` (Array): List of test results
-    -   `success` (Boolean): Whether the test was successful
-    -   `time` (Number): Response time (seconds)
+- `model` (String): Optional, specifies the test model
+- `results` (Array): List of test results
+  - `success` (Boolean): Whether the test was successful
+  - `time` (Number): Response time (seconds)
 
 ### Single Channel Test
 
--   **Interface Name**: Single Channel Test
--   **HTTP Method**: GET
--   **Path**: `/api/channel/test/:id`
--   **Authentication Required**: Administrator
--   **Feature Description**: Test the connectivity of a specified channel, supporting a specified test model.
+- **Interface Name**: Single Channel Test
+- **HTTP Method**: GET
+- **Path**: `/api/channel/test/:id`
+- **Authentication Required**: Administrator
+- **Feature Description**: Test the connectivity of a specified channel, supporting a specified test model.
 
 💡 Request Example:
 
@@ -427,17 +427,17 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `id` (Number): Channel ID, passed via URL path
--   `model` (String): Optional, specifies the name of the test model
--   `time` (Number): Response time (seconds)
+- `id` (Number): Channel ID, passed via URL path
+- `model` (String): Optional, specifies the name of the test model
+- `time` (Number): Response time (seconds)
 
 ### Batch Refresh Balance
 
--   **Interface Name**: Batch Refresh Balance
--   **HTTP Method**: GET
--   **Path**: `/api/channel/update_balance`
--   **Authentication Required**: Administrator
--   **Feature Description**: Batch update balance information for all enabled channels.
+- **Interface Name**: Batch Refresh Balance
+- **HTTP Method**: GET
+- **Path**: `/api/channel/update_balance`
+- **Authentication Required**: Administrator
+- **Feature Description**: Batch update balance information for all enabled channels.
 
 💡 Request Example:
 
@@ -477,11 +477,11 @@ No request parameters, the system will automatically update the balance of all e
 
 ### Single Refresh Balance
 
--   **Interface Name**: Update Specified Channel Balance
--   **HTTP Method**: GET
--   **Path**: `/api/channel/update_balance/:id`
--   **Authentication Required**: Administrator
--   **Feature Description**: Update balance information for a specified channel. Multi-key channels do not support balance inquiry.
+- **Interface Name**: Update Specified Channel Balance
+- **HTTP Method**: GET
+- **Path**: `/api/channel/update_balance/:id`
+- **Authentication Required**: Administrator
+- **Feature Description**: Update balance information for a specified channel. Multi-key channels do not support balance inquiry.
 
 💡 Request Example:
 
@@ -518,16 +518,16 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `id` (Number): Channel ID, passed via URL path
--   `balance` (Number): Updated channel balance
+- `id` (Number): Channel ID, passed via URL path
+- `balance` (Number): Updated channel balance
 
 ### Add Channel
 
--   **Interface Name**: Add Channel
--   **HTTP Method**: POST
--   **Path**: `/api/channel/`
--   **Authentication Required**: Administrator
--   **Feature Description**: Create new AI service channels, supporting single, batch, and multi-key modes.
+- **Interface Name**: Add Channel
+- **HTTP Method**: POST
+- **Path**: `/api/channel/`
+- **Authentication Required**: Administrator
+- **Feature Description**: Create new AI service channels, supporting single, batch, and multi-key modes.
 
 💡 Request Example:
 
@@ -576,25 +576,25 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `mode` (String): Add mode, optional values: "single", "batch", "multi_to_single"
--   `multi_key_mode` (String): Multi-key mode, required when mode is "multi_to_single"
--   `channel` (Object): Channel configuration information
-    -   `name` (String): Channel name
-    -   `type` (Number): Channel type
-    -   `key` (String): API key
-    -   `base_url` (String): Base URL
-    -   `models` (String): List of supported models, comma-separated, optional
-    -   `groups` (Array): List of available groups
-    -   `priority` (Number): Priority
-    -   `weight` (Number): Weight
+- `mode` (String): Add mode, optional values: "single", "batch", "multi_to_single"
+- `multi_key_mode` (String): Multi-key mode, required when mode is "multi_to_single"
+- `channel` (Object): Channel configuration information
+  - `name` (String): Channel name
+  - `type` (Number): Channel type
+  - `key` (String): API key
+  - `base_url` (String): Base URL
+  - `models` (String): List of supported models, comma-separated, optional
+  - `groups` (Array): List of available groups
+  - `priority` (Number): Priority
+  - `weight` (Number): Weight
 
 ### Update Channel
 
--   **Interface Name**: Update Channel
--   **HTTP Method**: PUT
--   **Path**: `/api/channel/`
--   **Authentication Required**: Administrator
--   **Feature Description**: Update existing channel configuration information.
+- **Interface Name**: Update Channel
+- **HTTP Method**: PUT
+- **Path**: `/api/channel/`
+- **Authentication Required**: Administrator
+- **Feature Description**: Update existing channel configuration information.
 
 💡 Request Example:
 
@@ -637,16 +637,16 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `id` (Number): Channel ID, required
--   Other fields are the same as the Add Channel interface, all are optional.
+- `id` (Number): Channel ID, required
+- Other fields are the same as the Add Channel interface, all are optional.
 
 ### Delete Disabled Channels
 
--   **Interface Name**: Delete Disabled Channels
--   **HTTP Method**: DELETE
--   **Path**: `/api/channel/disabled`
--   **Authentication Required**: Administrator
--   **Feature Description**: Batch delete all disabled channels.
+- **Interface Name**: Delete Disabled Channels
+- **HTTP Method**: DELETE
+- **Path**: `/api/channel/disabled`
+- **Authentication Required**: Administrator
+- **Feature Description**: Batch delete all disabled channels.
 
 💡 Request Example:
 
@@ -683,16 +683,16 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   No request parameters
--   `data` (Number): Number of channels deleted
+- No request parameters
+- `data` (Number): Number of channels deleted
 
 ### Batch Disable Tagged Channels
 
--   **Interface Name**: Batch Disable Tagged Channels
--   **HTTP Method**: POST
--   **Path**: `/api/channel/tag/disabled`
--   **Authentication Required**: Administrator
--   **Feature Description**: Batch disable channels by tag.
+- **Interface Name**: Batch Disable Tagged Channels
+- **HTTP Method**: POST
+- **Path**: `/api/channel/tag/disabled`
+- **Authentication Required**: Administrator
+- **Feature Description**: Batch disable channels by tag.
 
 💡 Request Example:
 
@@ -735,11 +735,11 @@ const data = await response.json();
 
 ### Batch Enable Tagged Channels
 
--   **Interface Name**: Batch Enable Tagged Channels
--   **HTTP Method**: POST
--   **Path**: `/api/channel/tag/enabled`
--   **Authentication Required**: Administrator
--   **Feature Description**: Batch enable channels by tag.
+- **Interface Name**: Batch Enable Tagged Channels
+- **HTTP Method**: POST
+- **Path**: `/api/channel/tag/enabled`
+- **Authentication Required**: Administrator
+- **Feature Description**: Batch enable channels by tag.
 
 💡 Request Example:
 
@@ -782,11 +782,11 @@ const data = await response.json();
 
 ### Edit Channel Tags
 
--   **Interface Name**: Edit Channel Tags
--   **HTTP Method**: PUT
--   **Path**: `/api/channel/tag`
--   **Authentication Required**: Administrator
--   **Feature Description**: Batch edit channel attributes for specified tags.
+- **Interface Name**: Edit Channel Tags
+- **HTTP Method**: PUT
+- **Path**: `/api/channel/tag`
+- **Authentication Required**: Administrator
+- **Feature Description**: Batch edit channel attributes for specified tags.
 
 💡 Request Example:
 
@@ -830,21 +830,21 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `tag` (String): The tag name to edit, required
--   `new_tag` (String): New tag name, optional
--   `priority` (Number): New priority, optional
--   `weight` (Number): New weight, optional
--   `model_mapping` (String): Model mapping configuration, optional
--   `models` (String): List of supported models, comma-separated, optional
--   `groups` (String): List of available groups, comma-separated, optional
+- `tag` (String): The tag name to edit, required
+- `new_tag` (String): New tag name, optional
+- `priority` (Number): New priority, optional
+- `weight` (Number): New weight, optional
+- `model_mapping` (String): Model mapping configuration, optional
+- `models` (String): List of supported models, comma-separated, optional
+- `groups` (String): List of available groups, comma-separated, optional
 
 ### Delete Channel
 
--   **Interface Name**: Delete Channel
--   **HTTP Method**: DELETE
--   **Path**: `/api/channel/:id`
--   **Authentication Required**: Administrator
--   **Feature Description**: Hard delete a specified channel. The channel cache will be refreshed after deletion.
+- **Interface Name**: Delete Channel
+- **HTTP Method**: DELETE
+- **Path**: `/api/channel/:id`
+- **Authentication Required**: Administrator
+- **Feature Description**: Hard delete a specified channel. The channel cache will be refreshed after deletion.
 
 💡 Request Example:
 
@@ -884,11 +884,11 @@ const data = await response.json();
 
 ### Batch Delete Channels
 
--   **Interface Name**: Batch Delete Channels
--   **HTTP Method**: POST
--   **Path**: `/api/channel/batch`
--   **Authentication Required**: Administrator
--   **Feature Description**: Batch delete channels based on a list of IDs.
+- **Interface Name**: Batch Delete Channels
+- **HTTP Method**: POST
+- **Path**: `/api/channel/batch`
+- **Authentication Required**: Administrator
+- **Feature Description**: Batch delete channels based on a list of IDs.
 
 💡 Request Example:
 
@@ -928,16 +928,16 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `ids` (Array): List of channel IDs to delete, required and cannot be empty
--   `data` (Number): Number of channels successfully deleted
+- `ids` (Array): List of channel IDs to delete, required and cannot be empty
+- `data` (Number): Number of channels successfully deleted
 
 ### Fix Channel Capability Table
 
--   **Interface Name**: Fix Channel Capability Table
--   **HTTP Method**: POST
--   **Path**: `/api/channel/fix`
--   **Authentication Required**: Administrator
--   **Feature Description**: Fix channel capability table data, rebuilding the mapping relationship between channels and models.
+- **Interface Name**: Fix Channel Capability Table
+- **HTTP Method**: POST
+- **Path**: `/api/channel/fix`
+- **Authentication Required**: Administrator
+- **Feature Description**: Fix channel capability table data, rebuilding the mapping relationship between channels and models.
 
 💡 Request Example:
 
@@ -977,17 +977,17 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   No request parameters
--   `data.success` (Number): Number of channels successfully fixed
--   `data.fails` (Number): Number of channels that failed to fix
+- No request parameters
+- `data.success` (Number): Number of channels successfully fixed
+- `data.fails` (Number): Number of channels that failed to fix
 
 ### Fetch Single Channel Models
 
--   **Interface Name**: Fetch Single Channel Models
--   **HTTP Method**: GET
--   **Path**: `/api/channel/fetch_models/:id`
--   **Authentication Required**: Administrator
--   **Feature Description**: Get a list of available models from the upstream API of the specified channel.
+- **Interface Name**: Fetch Single Channel Models
+- **HTTP Method**: GET
+- **Path**: `/api/channel/fetch_models/:id`
+- **Authentication Required**: Administrator
+- **Feature Description**: Get a list of available models from the upstream API of the specified channel.
 
 💡 Request Example:
 
@@ -1028,16 +1028,16 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `id` (Number): Channel ID, passed via URL path
--   `data` (Array): List of model IDs obtained from upstream
+- `id` (Number): Channel ID, passed via URL path
+- `data` (Array): List of model IDs obtained from upstream
 
 ### Fetch All Channel Models
 
--   **Interface Name**: Fetch All Channel Models
--   **HTTP Method**: POST
--   **Path**: `/api/channel/fetch_models`
--   **Authentication Required**: Administrator
--   **Feature Description**: Get a list of models from the upstream API using the provided configuration information, for preview when creating new channels.
+- **Interface Name**: Fetch All Channel Models
+- **HTTP Method**: POST
+- **Path**: `/api/channel/fetch_models`
+- **Authentication Required**: Administrator
+- **Feature Description**: Get a list of models from the upstream API using the provided configuration information, for preview when creating new channels.
 
 💡 Request Example:
 
@@ -1082,18 +1082,18 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `base_url` (String): Base URL, optional, uses default URL if empty
--   `type` (Number): Channel type, required
--   `key` (String): API key, required
--   `data` (Array): List of models obtained
+- `base_url` (String): Base URL, optional, uses default URL if empty
+- `type` (Number): Channel type, required
+- `key` (String): API key, required
+- `data` (Array): List of models obtained
 
 ### Batch Set Channel Tags
 
--   **Interface Name**: Batch Set Channel Tags
--   **HTTP Method**: POST
--   **Path**: `/api/channel/batch/tag`
--   **Authentication Required**: Administrator
--   **Feature Description**: Batch set tags for a specified list of channels.
+- **Interface Name**: Batch Set Channel Tags
+- **HTTP Method**: POST
+- **Path**: `/api/channel/batch/tag`
+- **Authentication Required**: Administrator
+- **Feature Description**: Batch set tags for a specified list of channels.
 
 💡 Request Example:
 
@@ -1134,17 +1134,17 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `ids` (Array): List of channel IDs to set tags for, required and cannot be empty
--   `tag` (String): The tag name to set, passing null clears the tag
--   `data` (Number): Number of channels for which tags were successfully set
+- `ids` (Array): List of channel IDs to set tags for, required and cannot be empty
+- `tag` (String): The tag name to set, passing null clears the tag
+- `data` (Number): Number of channels for which tags were successfully set
 
 ### Get Models by Tag
 
--   **Interface Name**: Get Models by Tag
--   **HTTP Method**: GET
--   **Path**: `/api/channel/tag/models`
--   **Authentication Required**: Administrator
--   **Feature Description**: Get the model list with the most models among all channels under the specified tag.
+- **Interface Name**: Get Models by Tag
+- **HTTP Method**: GET
+- **Path**: `/api/channel/tag/models`
+- **Authentication Required**: Administrator
+- **Feature Description**: Get the model list with the most models among all channels under the specified tag.
 
 💡 Request Example:
 
@@ -1181,16 +1181,16 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `tag` (String): Tag name, required
--   `data` (String): List of models from the channel with the most models under this tag, comma-separated
+- `tag` (String): Tag name, required
+- `data` (String): List of models from the channel with the most models under this tag, comma-separated
 
 ### Copy Channel
 
--   **Interface Name**: Copy Channel
--   **HTTP Method**: POST
--   **Path**: `/api/channel/copy/:id`
--   **Authentication Required**: Administrator
--   **Feature Description**: Copy an existing channel to create a new one, supporting custom suffixes and balance reset options.
+- **Interface Name**: Copy Channel
+- **HTTP Method**: POST
+- **Path**: `/api/channel/copy/:id`
+- **Authentication Required**: Administrator
+- **Feature Description**: Copy an existing channel to create a new one, supporting custom suffixes and balance reset options.
 
 💡 Request Example:
 
@@ -1229,7 +1229,7 @@ const data = await response.json();
 
 🧾 Field Description:
 
--   `id` (Number): ID of the channel to copy, passed via URL path
--   `suffix` (String): Optional, suffix to append to the original name, defaults to "\_复制"
--   `reset_balance` (Boolean): Optional, whether to reset balance and used quota to 0, defaults to true
--   `data.id` (Number): ID of the newly created channel
+- `id` (Number): ID of the channel to copy, passed via URL path
+- `suffix` (String): Optional, suffix to append to the original name, defaults to "\_复制"
+- `reset_balance` (Boolean): Optional, whether to reset balance and used quota to 0, defaults to true
+- `data.id` (Number): ID of the newly created channel

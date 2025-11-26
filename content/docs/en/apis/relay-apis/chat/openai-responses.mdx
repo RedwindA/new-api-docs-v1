@@ -720,190 +720,190 @@ The text, image, or file input provided to the model to generate a response.
 
 ##### Possible Types
 
-| Type                | Description                                                |
-| ------------------- | ---------------------------------------------------------- |
-| String              | Text input, equivalent to text input with a user role      |
+| Type                 | Description                                                          |
+| -------------------- | -------------------------------------------------------------------- |
+| String               | Text input, equivalent to text input with a user role                |
 | Array of input items | A list of one or more input items containing different content types |
 
 ##### Input Message Object
 
-| Property | Type         | Required | Description                                                                     |
-| -------- | ------------ | -------- | ------------------------------------------------------------------------------- |
+| Property | Type            | Required | Description                                                                                                                 |
+| -------- | --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
 | content  | string or array | Yes      | The text, image, or audio input provided to the model to generate a response. Can also include previous assistant responses |
-| role     | string       | Yes      | The role of the input message. Possible values: `user`, `assistant`, `system`, or `developer` |
-| type     | string       | No       | The type of the input message, always `message`                                 |
+| role     | string          | Yes      | The role of the input message. Possible values: `user`, `assistant`, `system`, or `developer`                               |
+| type     | string          | No       | The type of the input message, always `message`                                                                             |
 
 ##### Content Item Types
 
 ###### Text Input
 
-| Property | Type   | Required | Description                              |
-| -------- | ------ | -------- | ---------------------------------------- |
-| text     | string | Yes      | The text input provided to the model     |
+| Property | Type   | Required | Description                                     |
+| -------- | ------ | -------- | ----------------------------------------------- |
+| text     | string | Yes      | The text input provided to the model            |
 | type     | string | Yes      | The type of the input item, always `input_text` |
 
 ###### Image Input
 
-| Property  | Type   | Required | Description                                                                         |
-| --------- | ------ | -------- | ----------------------------------------------------------------------------------- |
+| Property  | Type   | Required | Description                                                                                                       |
+| --------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | detail    | string | Yes      | The detail level of the image to send to the model. Possible values: `high`, `low`, or `auto`. Defaults to `auto` |
-| type      | string | Yes      | The type of the input item, always `input_image`                                    |
-| file_id   | string | No       | The file ID to send to the model                                                    |
-| image_url | string | No       | The image URL to send to the model. Can be a full URL or a base64 encoded image in a data URL |
+| type      | string | Yes      | The type of the input item, always `input_image`                                                                  |
+| file_id   | string | No       | The file ID to send to the model                                                                                  |
+| image_url | string | No       | The image URL to send to the model. Can be a full URL or a base64 encoded image in a data URL                     |
 
 ###### File Input
 
-| Property  | Type   | Required | Description                              |
-| --------- | ------ | -------- | ---------------------------------------- |
+| Property  | Type   | Required | Description                                     |
+| --------- | ------ | -------- | ----------------------------------------------- |
 | type      | string | Yes      | The type of the input item, always `input_file` |
-| file_data | string | No       | The content of the file to send to the model |
-| file_id   | string | No       | The file ID to send to the model         |
-| filename  | string | No       | The filename to send to the model        |
+| file_data | string | No       | The content of the file to send to the model    |
+| file_id   | string | No       | The file ID to send to the model                |
+| filename  | string | No       | The filename to send to the model               |
 
 ##### Output Item Types
 
 ###### Output Text
 
-| Property    | Type   | Required | Description                              |
-| ----------- | ------ | -------- | ---------------------------------------- |
-| text        | string | Yes      | The text output generated by the model   |
+| Property    | Type   | Required | Description                                       |
+| ----------- | ------ | -------- | ------------------------------------------------- |
+| text        | string | Yes      | The text output generated by the model            |
 | type        | string | Yes      | The type of the output item, always `output_text` |
-| annotations | array  | Yes      | Annotations for the text output          |
+| annotations | array  | Yes      | Annotations for the text output                   |
 
 ###### Annotation Types
 
 File Citation:
 
-| Property | Type   | Required | Description                              |
-| -------- | ------ | -------- | ---------------------------------------- |
-| file_id  | string | Yes      | The ID of the file                       |
-| index    | integer | Yes      | The index of the file in the file list   |
-| type     | string | Yes      | The type of file citation, always `file_citation` |
+| Property | Type    | Required | Description                                       |
+| -------- | ------- | -------- | ------------------------------------------------- |
+| file_id  | string  | Yes      | The ID of the file                                |
+| index    | integer | Yes      | The index of the file in the file list            |
+| type     | string  | Yes      | The type of file citation, always `file_citation` |
 
 URL Citation:
 
-| Property    | Type   | Required | Description                                 |
-| ----------- | ------ | -------- | ------------------------------------------- |
-| end_index   | integer | Yes      | The index of the last character of the URL citation in the message |
+| Property    | Type    | Required | Description                                                         |
+| ----------- | ------- | -------- | ------------------------------------------------------------------- |
+| end_index   | integer | Yes      | The index of the last character of the URL citation in the message  |
 | start_index | integer | Yes      | The index of the first character of the URL citation in the message |
-| title       | string | Yes      | The title of the web resource               |
-| type        | string | Yes      | The type of URL citation, always `url_citation` |
-| url         | string | Yes      | The URL of the web resource                 |
+| title       | string  | Yes      | The title of the web resource                                       |
+| type        | string  | Yes      | The type of URL citation, always `url_citation`                     |
+| url         | string  | Yes      | The URL of the web resource                                         |
 
 File Path:
 
-| Property | Type   | Required | Description                              |
-| -------- | ------ | -------- | ---------------------------------------- |
-| file_id  | string | Yes      | The ID of the file                       |
-| index    | integer | Yes      | The index of the file in the file list   |
-| type     | string | Yes      | The type of file path, always `file_path` |
+| Property | Type    | Required | Description                               |
+| -------- | ------- | -------- | ----------------------------------------- |
+| file_id  | string  | Yes      | The ID of the file                        |
+| index    | integer | Yes      | The index of the file in the file list    |
+| type     | string  | Yes      | The type of file path, always `file_path` |
 
 ###### Refusal Response
 
-| Property | Type   | Required | Description                              |
-| -------- | ------ | -------- | ---------------------------------------- |
-| refusal  | string | Yes      | The model's explanation for refusal      |
-| type     | string | Yes      | The type of refusal, always `refusal`    |
+| Property | Type   | Required | Description                           |
+| -------- | ------ | -------- | ------------------------------------- |
+| refusal  | string | Yes      | The model's explanation for refusal   |
+| type     | string | Yes      | The type of refusal, always `refusal` |
 
 ##### Tool Call Types
 
 ###### File Search Tool Call
 
-| Property | Type       | Required | Description                                                                                     |
-| -------- | ---------- | -------- | ----------------------------------------------------------------------------------------------- |
-| id       | string     | Yes      | The unique ID of the file search tool call                                                      |
-| queries  | array      | Yes      | The queries used to search for files                                                            |
-| status   | string     | Yes      | The status of the file search tool call. Possible values include: `in_progress`, `searching`, `incomplete`, or `failed` |
-| type     | string     | Yes      | The type of file search tool call, always `file_search_call`                                    |
-| results  | array or null | No       | The results of the file search tool call                                                        |
+| Property | Type          | Required | Description                                                                                                             |
+| -------- | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| id       | string        | Yes      | The unique ID of the file search tool call                                                                              |
+| queries  | array         | Yes      | The queries used to search for files                                                                                    |
+| status   | string        | Yes      | The status of the file search tool call. Possible values include: `in_progress`, `searching`, `incomplete`, or `failed` |
+| type     | string        | Yes      | The type of file search tool call, always `file_search_call`                                                            |
+| results  | array or null | No       | The results of the file search tool call                                                                                |
 
 ###### Web Search Tool Call
 
-| Property | Type   | Required | Description                                             |
-| -------- | ------ | -------- | ------------------------------------------------------- |
-| id       | string | Yes      | The unique ID of the web search tool call               |
-| status   | string | Yes      | The status of the web search tool call                  |
+| Property | Type   | Required | Description                                                |
+| -------- | ------ | -------- | ---------------------------------------------------------- |
+| id       | string | Yes      | The unique ID of the web search tool call                  |
+| status   | string | Yes      | The status of the web search tool call                     |
 | type     | string | Yes      | The type of web search tool call, always `web_search_call` |
 
 ###### Function Tool Call
 
-| Property  | Type   | Required | Description                                                         |
-| --------- | ------ | -------- | ------------------------------------------------------------------- |
-| arguments | string | Yes      | The JSON string of arguments passed to the function                 |
-| call_id   | string | Yes      | The unique ID of the function tool call generated by the model      |
-| name      | string | Yes      | The name of the function to run                                     |
-| type      | string | Yes      | The type of function tool call, always `function_call`              |
-| id        | string | No       | The unique ID of the function tool call                             |
+| Property  | Type   | Required | Description                                                                          |
+| --------- | ------ | -------- | ------------------------------------------------------------------------------------ |
+| arguments | string | Yes      | The JSON string of arguments passed to the function                                  |
+| call_id   | string | Yes      | The unique ID of the function tool call generated by the model                       |
+| name      | string | Yes      | The name of the function to run                                                      |
+| type      | string | Yes      | The type of function tool call, always `function_call`                               |
+| id        | string | No       | The unique ID of the function tool call                                              |
 | status    | string | No       | The status of the item. Possible values: `in_progress`, `completed`, or `incomplete` |
 
 ###### Computer Tool Call
 
-| Property              | Type   | Required | Description                                                         |
-| --------------------- | ------ | -------- | ------------------------------------------------------------------- |
-| action                | object | Yes      | The action of the computer interaction, such as click, drag, etc.   |
-| call_id               | string | Yes      | The identifier used when responding to tool call output             |
-| id                    | string | Yes      | The unique ID of the computer call                                  |
-| pending_safety_checks | array  | Yes      | Pending safety checks for the computer call                         |
+| Property              | Type   | Required | Description                                                                          |
+| --------------------- | ------ | -------- | ------------------------------------------------------------------------------------ |
+| action                | object | Yes      | The action of the computer interaction, such as click, drag, etc.                    |
+| call_id               | string | Yes      | The identifier used when responding to tool call output                              |
+| id                    | string | Yes      | The unique ID of the computer call                                                   |
+| pending_safety_checks | array  | Yes      | Pending safety checks for the computer call                                          |
 | status                | string | Yes      | The status of the item. Possible values: `in_progress`, `completed`, or `incomplete` |
-| type                  | string | Yes      | The type of computer call, always `computer_call`                   |
+| type                  | string | Yes      | The type of computer call, always `computer_call`                                    |
 
 Computer Action Types:
 
-| Action Type  | Description             |
-| ------------ | ----------------------- |
-| click        | Mouse click operation   |
+| Action Type  | Description                  |
+| ------------ | ---------------------------- |
+| click        | Mouse click operation        |
 | double_click | Mouse double click operation |
-| drag         | Drag operation          |
-| keypress     | Keypress operation      |
-| move         | Mouse move operation    |
-| screenshot   | Screenshot operation    |
-| scroll       | Scroll operation        |
-| type         | Text input operation    |
-| wait         | Wait operation          |
+| drag         | Drag operation               |
+| keypress     | Keypress operation           |
+| move         | Mouse move operation         |
+| screenshot   | Screenshot operation         |
+| scroll       | Scroll operation             |
+| type         | Text input operation         |
+| wait         | Wait operation               |
 
 ###### Computer Tool Call Output
 
-| Property                   | Type   | Required | Description                                                             |
-| -------------------------- | ------ | -------- | ----------------------------------------------------------------------- |
-| call_id                    | string | Yes      | The ID of the computer tool call that produced the output               |
-| output                     | object | Yes      | The computer screenshot image used for the computer use tool            |
-| type                       | string | Yes      | The type of computer tool call output, always `computer_call_output`    |
-| acknowledged_safety_checks | array  | No       | Safety checks reported by the API that have been acknowledged by the developer |
-| id                         | string | No       | The ID of the computer tool call output                                 |
+| Property                   | Type   | Required | Description                                                                                   |
+| -------------------------- | ------ | -------- | --------------------------------------------------------------------------------------------- |
+| call_id                    | string | Yes      | The ID of the computer tool call that produced the output                                     |
+| output                     | object | Yes      | The computer screenshot image used for the computer use tool                                  |
+| type                       | string | Yes      | The type of computer tool call output, always `computer_call_output`                          |
+| acknowledged_safety_checks | array  | No       | Safety checks reported by the API that have been acknowledged by the developer                |
+| id                         | string | No       | The ID of the computer tool call output                                                       |
 | status                     | string | No       | The status of the input message. Possible values: `in_progress`, `completed`, or `incomplete` |
 
 ###### Function Tool Call Output
 
-| Property | Type   | Required | Description                                                         |
-| -------- | ------ | -------- | ------------------------------------------------------------------- |
-| call_id  | string | Yes      | The unique ID of the function tool call generated by the model      |
-| output   | string | Yes      | The JSON string of the function tool call output                    |
-| type     | string | Yes      | The type of function tool call output, always `function_call_output` |
-| id       | string | No       | The unique ID of the function tool call output                      |
+| Property | Type   | Required | Description                                                                          |
+| -------- | ------ | -------- | ------------------------------------------------------------------------------------ |
+| call_id  | string | Yes      | The unique ID of the function tool call generated by the model                       |
+| output   | string | Yes      | The JSON string of the function tool call output                                     |
+| type     | string | Yes      | The type of function tool call output, always `function_call_output`                 |
+| id       | string | No       | The unique ID of the function tool call output                                       |
 | status   | string | No       | The status of the item. Possible values: `in_progress`, `completed`, or `incomplete` |
 
 ##### Reasoning Related Items
 
-| Property          | Type         | Required | Description                                                                           |
-| ----------------- | ------------ | -------- | ------------------------------------------------------------------------------------- |
-| id                | string       | Yes      | The unique identifier for the reasoning content                                       |
-| summary           | array        | Yes      | Reasoning text content                                                                |
-| type              | string       | Yes      | The type of the object, always `reasoning`                                            |
+| Property          | Type           | Required | Description                                                                                                                                 |
+| ----------------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                | string         | Yes      | The unique identifier for the reasoning content                                                                                             |
+| summary           | array          | Yes      | Reasoning text content                                                                                                                      |
+| type              | string         | Yes      | The type of the object, always `reasoning`                                                                                                  |
 | encrypted_content | string or null | No       | The encrypted content of the reasoning item - populated when generating a response with the `reasoning.encrypted_content` include parameter |
-| status            | string       | No       | The status of the item. Possible values: `in_progress`, `completed`, or `incomplete`  |
+| status            | string         | No       | The status of the item. Possible values: `in_progress`, `completed`, or `incomplete`                                                        |
 
 Reasoning Summary:
 
-| Property | Type   | Required | Description                                               |
-| -------- | ------ | -------- | --------------------------------------------------------- |
+| Property | Type   | Required | Description                                                                     |
+| -------- | ------ | -------- | ------------------------------------------------------------------------------- |
 | text     | string | Yes      | A brief summary of the reasoning used by the model when generating the response |
-| type     | string | Yes      | The type of the object, always `summary_text`             |
+| type     | string | Yes      | The type of the object, always `summary_text`                                   |
 
 ##### Item Reference
 
-| Property | Type   | Required | Description                              |
-| -------- | ------ | -------- | ---------------------------------------- |
-| id       | string | Yes      | The ID of the item to reference          |
+| Property | Type   | Required | Description                                            |
+| -------- | ------ | -------- | ------------------------------------------------------ |
+| id       | string | Yes      | The ID of the item to reference                        |
 | type     | string | No       | The type of item to reference, always `item_reference` |
 
 #### model
@@ -920,11 +920,11 @@ The ID of the model to use for generating the response, e.g., gpt-4.1 or o3. Ope
 
 Specifies additional output data to include in the model response. Currently supported values include:
 
-| Value                                   | Description                                                      |
-| --------------------------------------- | ---------------------------------------------------------------- |
-| `file_search_call.results`              | Includes the search results of the file search tool call         |
-| `message.input_image.image_url`         | Includes the image URL from the input message                    |
-| `computer_call_output.output.image_url` | Includes the image URL from the computer call output             |
+| Value                                   | Description                                                                     |
+| --------------------------------------- | ------------------------------------------------------------------------------- |
+| `file_search_call.results`              | Includes the search results of the file search tool call                        |
+| `message.input_image.image_url`         | Includes the image URL from the input message                                   |
+| `computer_call_output.output.image_url` | Includes the image URL from the computer call output                            |
 | `reasoning.encrypted_content`           | Includes the encrypted version of reasoning tokens in the reasoning item output |
 
 #### instructions
@@ -975,11 +975,11 @@ The unique ID of the model's previous response. Use this parameter to create mul
 
 Configuration options for the reasoning model.
 
-| Property         | Type         | Required | Description                                                                                                                         |
-| ---------------- | ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Property         | Type           | Required | Description                                                                                                                                                                                                              |
+| ---------------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | effort           | string or null | No       | The effort level for reasoning. Possible values: `low`, `medium`, `high`. Defaults to `medium`. Lowering reasoning effort can speed up response times and reduce the number of tokens used for reasoning in the response |
-| summary          | string or null | No       | A summary of the reasoning performed by the model. This is useful for debugging and understanding the model's reasoning process. Possible values: `auto`, `concise`, `detailed` |
-| generate_summary | string or null | No       | **Deprecated**: Please use `summary` instead. A summary of the reasoning performed by the model. Possible values: `auto`, `concise`, `detailed` |
+| summary          | string or null | No       | A summary of the reasoning performed by the model. This is useful for debugging and understanding the model's reasoning process. Possible values: `auto`, `concise`, `detailed`                                          |
+| generate_summary | string or null | No       | **Deprecated**: Please use `summary` instead. A summary of the reasoning performed by the model. Possible values: `auto`, `concise`, `detailed`                                                                          |
 
 #### service_tier
 
@@ -989,11 +989,11 @@ Configuration options for the reasoning model.
 
 Specifies the latency tier used to process the request. This parameter is relevant for customers subscribed to scale tier services:
 
-| Value     | Description                                                                                                                                                          |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Value     | Description                                                                                                                                                                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `auto`    | If Scale tier is enabled for the project, the system will use scale tier credits until exhausted; if Scale tier is not enabled for the project, requests will be processed using the default service tier, which has a lower uptime SLA and no latency guarantees |
-| `default` | Requests will be processed using the default service tier, which has a lower uptime SLA and no latency guarantees                                                      |
-| `flex`    | Requests will be processed using the Flex Processing service tier. Learn more in the official documentation                                                            |
+| `default` | Requests will be processed using the default service tier, which has a lower uptime SLA and no latency guarantees                                                                                                                                                 |
+| `flex`    | Requests will be processed using the Flex Processing service tier. Learn more in the official documentation                                                                                                                                                       |
 
 When this parameter is not set, the default behavior is `auto`.
 
@@ -1030,8 +1030,8 @@ The sampling temperature to use, between 0 and 2. Higher values like 0.8 will ma
 
 Configuration options for the model's text response. Can be plain text or structured JSON data.
 
-| Property | Type   | Required | Description                      |
-| -------- | ------ | -------- | -------------------------------- |
+| Property | Type   | Required | Description                                |
+| -------- | ------ | -------- | ------------------------------------------ |
 | format   | object | No       | Specifies the format the model must output |
 
 Configure `{ "type": "json_schema" }` to enable structured output, ensuring the model will match the JSON schema you provide. See the structured output guide for more information.
@@ -1045,24 +1045,24 @@ Set to `{ "type": "json_object" }` to enable an older JSON mode, ensuring the mo
 
 ###### Text
 
-| Property | Type   | Required | Description                              |
-| -------- | ------ | -------- | ---------------------------------------- |
+| Property | Type   | Required | Description                                     |
+| -------- | ------ | -------- | ----------------------------------------------- |
 | type     | string | Yes      | The defined response format type. Always `text` |
 
 ###### JSON Schema
 
-| Property    | Type         | Required | Description                                                                                                                                               |
-| ----------- | ------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name        | string       | Yes      | The name of the response format. Must contain a-z, A-Z, 0-9, or include underscores and hyphens, with a maximum length of 64 |
-| schema      | object       | Yes      | The schema for the response format, described as a JSON Schema object                                                                                     |
-| type        | string       | Yes      | The defined response format type. Always `json_schema`                                                                                                    |
-| description | string       | No       | A description of the response format's purpose, which the model uses to determine how to respond in that format                                           |
+| Property    | Type            | Required | Description                                                                                                                                                                                                                                   |
+| ----------- | --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name        | string          | Yes      | The name of the response format. Must contain a-z, A-Z, 0-9, or include underscores and hyphens, with a maximum length of 64                                                                                                                  |
+| schema      | object          | Yes      | The schema for the response format, described as a JSON Schema object                                                                                                                                                                         |
+| type        | string          | Yes      | The defined response format type. Always `json_schema`                                                                                                                                                                                        |
+| description | string          | No       | A description of the response format's purpose, which the model uses to determine how to respond in that format                                                                                                                               |
 | strict      | boolean or null | No       | Whether to enable strict mode adherence when generating output. Defaults to `false`. If set to `true`, the model will always adhere to the exact schema defined in the schema field. Only a subset of JSON Schema is supported in strict mode |
 
 ###### JSON Object
 
-| Property | Type   | Required | Description                                     |
-| -------- | ------ | -------- | ----------------------------------------------- |
+| Property | Type   | Required | Description                                            |
+| -------- | ------ | -------- | ------------------------------------------------------ |
 | type     | string | Yes      | The defined response format type. Always `json_object` |
 
 Note: The model will not generate JSON if it is not instructed to do so via a system or user message. For supported models, `json_schema` is recommended.
@@ -1082,11 +1082,11 @@ How the model chooses which tool (or tools) to use when generating a response. S
 
 Controls whether and which tool the model calls.
 
-| Value      | Description                                            |
-| ---------- | ------------------------------------------------------ |
-| `none`     | The model will not call any tools, but will generate a message instead |
+| Value      | Description                                                                    |
+| ---------- | ------------------------------------------------------------------------------ |
+| `none`     | The model will not call any tools, but will generate a message instead         |
 | `auto`     | The model can choose between generating a message or calling one or more tools |
-| `required` | The model must call one or more tools                  |
+| `required` | The model must call one or more tools                                          |
 
 ###### Hosted Tool
 
@@ -1094,8 +1094,8 @@ Controls whether and which tool the model calls.
 
 Indicates that the model should use a built-in tool to generate a response.
 
-| Property | Type   | Required | Description                                                                                              |
-| -------- | ------ | -------- | -------------------------------------------------------------------------------------------------------- |
+| Property | Type   | Required | Description                                                                                                                   |
+| -------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | type     | string | Yes      | The type of hosted tool the model should use. Allowed values are: `file_search`, `web_search_preview`, `computer_use_preview` |
 
 ###### Function Tool
@@ -1104,9 +1104,9 @@ Indicates that the model should use a built-in tool to generate a response.
 
 Use this option to force the model to call a specific function.
 
-| Property | Type   | Required | Description                                |
-| -------- | ------ | -------- | ------------------------------------------ |
-| name     | string | Yes      | The name of the function to call           |
+| Property | Type   | Required | Description                                       |
+| -------- | ------ | -------- | ------------------------------------------------- |
+| name     | string | Yes      | The name of the function to call                  |
 | type     | string | Yes      | For function calls, the type is always `function` |
 
 #### tools
@@ -1118,8 +1118,8 @@ An array of tools the model may call when generating a response. You can specify
 
 The two categories of tools you can provide to the model are:
 
--   **Built-in tools**: Tools provided by OpenAI that extend the model's capabilities, such as web search or file search.
--   **Function calling (custom tools)**: Functions defined by you that enable the model to call your own code.
+- **Built-in tools**: Tools provided by OpenAI that extend the model's capabilities, such as web search or file search.
+- **Function calling (custom tools)**: Functions defined by you that enable the model to call your own code.
 
 ##### File Search Tool
 
@@ -1127,36 +1127,36 @@ The two categories of tools you can provide to the model are:
 
 A tool that searches for relevant content in uploaded files.
 
-| Property         | Type   | Required | Description                                          |
-| ---------------- | ------ | -------- | ---------------------------------------------------- |
-| type             | string | Yes      | The type of the file search tool, always `file_search` |
-| vector_store_ids | array  | Yes      | A list of vector store IDs to search                 |
-| filters          | object | No       | Filters to apply                                     |
+| Property         | Type    | Required | Description                                                                                 |
+| ---------------- | ------- | -------- | ------------------------------------------------------------------------------------------- |
+| type             | string  | Yes      | The type of the file search tool, always `file_search`                                      |
+| vector_store_ids | array   | Yes      | A list of vector store IDs to search                                                        |
+| filters          | object  | No       | Filters to apply                                                                            |
 | max_num_results  | integer | No       | The maximum number of results to return. This number should be between 1 and 50 (inclusive) |
-| ranking_options  | object | No       | Search ranking options                               |
+| ranking_options  | object  | No       | Search ranking options                                                                      |
 
 ###### Filter Types
 
 **Comparison Filter**
 
-| Property | Type               | Required | Description                                                                                                                                                                       |
-| -------- | ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key      | string             | Yes      | The key to compare against the value                                                                                                                                              |
-| type     | string             | Yes      | Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`<br />- eq: equals`<br />`- ne: not equals`<br />`- gt: greater than`<br />`- gte: greater than or equals`<br />`- lt: less than`<br />`- lte: less than or equals |
-| value    | string/number/boolean | Yes      | The value to compare against the property key; supports string, number, or boolean types                                                                                    |
+| Property | Type                  | Required | Description                                                                                                                                                                                                                               |
+| -------- | --------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key      | string                | Yes      | The key to compare against the value                                                                                                                                                                                                      |
+| type     | string                | Yes      | Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`<br />- eq: equals`<br />`- ne: not equals`<br />`- gt: greater than`<br />`- gte: greater than or equals`<br />`- lt: less than`<br />`- lte: less than or equals |
+| value    | string/number/boolean | Yes      | The value to compare against the property key; supports string, number, or boolean types                                                                                                                                                  |
 
 **Compound Filter**
 
-| Property | Type   | Required | Description                                                 |
-| -------- | ------ | -------- | ----------------------------------------------------------- |
+| Property | Type   | Required | Description                                                                         |
+| -------- | ------ | -------- | ----------------------------------------------------------------------------------- |
 | filters  | array  | Yes      | An array of filters to combine. Items can be comparison filters or compound filters |
-| type     | string | Yes      | The type of operation: `and` or `or`                        |
+| type     | string | Yes      | The type of operation: `and` or `or`                                                |
 
 ###### Ranking Options
 
-| Property        | Type   | Required | Description                                                                                              |
-| --------------- | ------ | -------- | -------------------------------------------------------------------------------------------------------- |
-| ranker          | string | No       | The ranker used for file search                                                                          |
+| Property        | Type   | Required | Description                                                                                                                                                             |
+| --------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ranker          | string | No       | The ranker used for file search                                                                                                                                         |
 | score_threshold | number | No       | The score threshold for file search, a number between 0 and 1. A number closer to 1 will attempt to return only the most relevant results, but may return fewer results |
 
 ##### Function Tool
@@ -1165,13 +1165,13 @@ A tool that searches for relevant content in uploaded files.
 
 Defines a function from your own code that the model can optionally call.
 
-| Property    | Type   | Required | Description                                   |
-| ----------- | ------ | -------- | --------------------------------------------- |
-| type        | string | Yes      | The type of the function tool, always `function` |
-| name        | string | Yes      | The name of the function to call              |
-| parameters  | object | Yes      | A JSON schema object describing the function's parameters |
-| strict      | boolean | Yes      | Whether to enforce strict parameter validation. Defaults to `true` |
-| description | string | No       | A description of the function. The model uses this to determine whether to call the function |
+| Property    | Type    | Required | Description                                                                                  |
+| ----------- | ------- | -------- | -------------------------------------------------------------------------------------------- |
+| type        | string  | Yes      | The type of the function tool, always `function`                                             |
+| name        | string  | Yes      | The name of the function to call                                                             |
+| parameters  | object  | Yes      | A JSON schema object describing the function's parameters                                    |
+| strict      | boolean | Yes      | Whether to enforce strict parameter validation. Defaults to `true`                           |
+| description | string  | No       | A description of the function. The model uses this to determine whether to call the function |
 
 ##### Web Search Tool (Web search preview)
 
@@ -1179,22 +1179,22 @@ Defines a function from your own code that the model can optionally call.
 
 This tool searches the web for relevant results to respond with.
 
-| Property            | Type   | Required | Description                                                                                     |
-| ------------------- | ------ | -------- | ----------------------------------------------------------------------------------------------- |
-| type                | string | Yes      | The type of the web search tool. Possible values: `web_search_preview` or `web_search_preview_2025_03_11` |
+| Property            | Type   | Required | Description                                                                                                                                    |
+| ------------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| type                | string | Yes      | The type of the web search tool. Possible values: `web_search_preview` or `web_search_preview_2025_03_11`                                      |
 | search_context_size | string | No       | High-level guidance on the amount of context window space to use for searching. Possible values: `low`, `medium`, `high`. Defaults to `medium` |
-| user_location       | object | No       | The user's location                                                                             |
-| domains             | array  | No       | A list of domains to restrict the search to                                                     |
+| user_location       | object | No       | The user's location                                                                                                                            |
+| domains             | array  | No       | A list of domains to restrict the search to                                                                                                    |
 
 ###### User Location
 
-| Property | Type   | Required | Description                                             |
-| -------- | ------ | -------- | ------------------------------------------------------- |
-| type     | string | Yes      | The approximate type of location. Always `approximate`  |
+| Property | Type   | Required | Description                                                     |
+| -------- | ------ | -------- | --------------------------------------------------------------- |
+| type     | string | Yes      | The approximate type of location. Always `approximate`          |
 | city     | string | No       | Free-form text input for the user's city, e.g., "San Francisco" |
-| country  | string | No       | The user's two-letter ISO country code, e.g., "US"      |
-| region   | string | No       | Free-form text input for the user's region, e.g., "California" |
-| timezone | string | No       | The user's IANA timezone, e.g., "America/Los_Angeles"   |
+| country  | string | No       | The user's two-letter ISO country code, e.g., "US"              |
+| region   | string | No       | Free-form text input for the user's region, e.g., "California"  |
+| timezone | string | No       | The user's IANA timezone, e.g., "America/Los_Angeles"           |
 
 ##### Computer Use Tool (Computer use preview)
 
@@ -1202,12 +1202,12 @@ This tool searches the web for relevant results to respond with.
 
 A tool that controls a virtual computer.
 
-| Property       | Type   | Required | Description                                                |
-| -------------- | ------ | -------- | ---------------------------------------------------------- |
-| type           | string | Yes      | The type of the computer use tool. Always `computer_use_preview` |
-| display_height | integer | Yes      | The height of the computer display                         |
-| display_width  | integer | Yes      | The width of the computer display                          |
-| environment    | string | Yes      | The type of computer environment to control                |
+| Property       | Type    | Required | Description                                                      |
+| -------------- | ------- | -------- | ---------------------------------------------------------------- |
+| type           | string  | Yes      | The type of the computer use tool. Always `computer_use_preview` |
+| display_height | integer | Yes      | The height of the computer display                               |
+| display_width  | integer | Yes      | The width of the computer display                                |
+| environment    | string  | Yes      | The type of computer environment to control                      |
 
 #### top_p
 
@@ -1227,10 +1227,10 @@ We generally recommend altering this value or `temperature`, but not both.
 
 The truncation strategy for model responses:
 
-| Value      | Description                                                                                                             |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Value      | Description                                                                                                                                                                                                                    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `auto`     | If the context for this response and the previous response exceeds the model's context window size, the model will truncate the response by removing input items from the middle of the conversation to fit the context window |
-| `disabled` | If the model response would exceed the model's context window size, the request will fail with a 400 error              |
+| `disabled` | If the model response would exceed the model's context window size, the request will fail with a 400 error                                                                                                                     |
 
 #### user
 
@@ -1249,124 +1249,124 @@ Returns a response object, or a streaming sequence of response objects if the re
 
 #### id
 
--   Type: string
--   Description: The unique identifier for the response
+- Type: string
+- Description: The unique identifier for the response
 
 #### object
 
--   Type: string
--   Description: The object type, with a value of "response"
+- Type: string
+- Description: The object type, with a value of "response"
 
 #### created_at
 
--   Type: integer
--   Description: Timestamp of when the response was created
+- Type: integer
+- Description: Timestamp of when the response was created
 
 #### status
 
--   Type: string
--   Description: The status of the response, such as "completed", "in_progress", etc.
+- Type: string
+- Description: The status of the response, such as "completed", "in_progress", etc.
 
 #### error
 
--   Type: object or null
--   Description: Contains error information if an error occurred
+- Type: object or null
+- Description: Contains error information if an error occurred
 
 #### incomplete_details
 
--   Type: object or null
--   Description: Contains detailed information if the response is incomplete
+- Type: object or null
+- Description: Contains detailed information if the response is incomplete
 
 #### instructions
 
--   Type: string or null
--   Description: System instructions provided to the model
+- Type: string or null
+- Description: System instructions provided to the model
 
 #### max_output_tokens
 
--   Type: integer or null
--   Description: Maximum number of output tokens
+- Type: integer or null
+- Description: Maximum number of output tokens
 
 #### model
 
--   Type: string
--   Description: The name of the model used
+- Type: string
+- Description: The name of the model used
 
 #### output
 
--   Type: array
--   Description: Contains generated replies and tool calls
--   May contain:
-    -   Message object (`type`: "message")
-    -   Tool use object (`type`: "tool_use")
+- Type: array
+- Description: Contains generated replies and tool calls
+- May contain:
+  - Message object (`type`: "message")
+  - Tool use object (`type`: "tool_use")
 
 #### parallel_tool_calls
 
--   Type: boolean
--   Description: Whether parallel tool calls are enabled
+- Type: boolean
+- Description: Whether parallel tool calls are enabled
 
 #### previous_response_id
 
--   Type: string or null
--   Description: ID of the previous response (for multi-turn conversations)
+- Type: string or null
+- Description: ID of the previous response (for multi-turn conversations)
 
 #### reasoning
 
--   Type: object
--   Description: Reasoning-related information
+- Type: object
+- Description: Reasoning-related information
 
 #### store
 
--   Type: boolean
--   Description: Whether to store this response
+- Type: boolean
+- Description: Whether to store this response
 
 #### temperature
 
--   Type: number
--   Description: The sampling temperature used
+- Type: number
+- Description: The sampling temperature used
 
 #### text
 
--   Type: object
--   Description: Text output format configuration
+- Type: object
+- Description: Text output format configuration
 
 #### tool_choice
 
--   Type: string
--   Description: Tool choice strategy
+- Type: string
+- Description: Tool choice strategy
 
 #### tools
 
--   Type: array
--   Description: List of available tools
+- Type: array
+- Description: List of available tools
 
 #### top_p
 
--   Type: number
--   Description: Nucleus sampling threshold
+- Type: number
+- Description: Nucleus sampling threshold
 
 #### truncation
 
--   Type: string
--   Description: Truncation strategy
+- Type: string
+- Description: Truncation strategy
 
 #### usage
 
--   Type: object
--   Description: Token usage statistics
--   Properties:
-    -   `input_tokens`: Number of tokens used for input
-    -   `input_tokens_details`: Input token details
-    -   `output_tokens`: Number of tokens used for output
-    -   `output_tokens_details`: Output token details
-    -   `total_tokens`: Total number of tokens
+- Type: object
+- Description: Token usage statistics
+- Properties:
+  - `input_tokens`: Number of tokens used for input
+  - `input_tokens_details`: Input token details
+  - `output_tokens`: Number of tokens used for output
+  - `output_tokens_details`: Output token details
+  - `total_tokens`: Total number of tokens
 
 #### user
 
--   Type: string or null
--   Description: User identifier
+- Type: string or null
+- Description: User identifier
 
 #### metadata
 
--   Type: object
--   Description: Additional metadata information
+- Type: object
+- Description: Additional metadata information

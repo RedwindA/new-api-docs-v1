@@ -14,20 +14,20 @@ POST /v1/videos
 
 ### Request Headers
 
-| Parameter     | Type   | Required | Description                    |
-| ------------- | ------ | -------- | ------------------------------ |
+| Parameter     | Type   | Required | Description                                 |
+| ------------- | ------ | -------- | ------------------------------------------- |
 | Authorization | string | Yes      | User authentication token (Bearer: sk-xxxx) |
 
 ### Request Parameters (multipart/form-data)
 
-| Parameter       | Type   | Required | Description                                  |
-| --------------- | ------ | -------- | -------------------------------------------- |
-| prompt          | string | Yes      | Text prompt describing the video to be generated |
-| model           | string | No       | Video generation model, defaults to sora-2   |
-| seconds         | string | No       | Video duration (seconds), defaults to 4 seconds |
+| Parameter       | Type   | Required | Description                                                       |
+| --------------- | ------ | -------- | ----------------------------------------------------------------- |
+| prompt          | string | Yes      | Text prompt describing the video to be generated                  |
+| model           | string | No       | Video generation model, defaults to sora-2                        |
+| seconds         | string | No       | Video duration (seconds), defaults to 4 seconds                   |
 | size            | string | No       | Output resolution, format is width x height, defaults to 720x1280 |
-| input_reference | file   | No       | Input image file (used for image-to-video generation) |
-| metadata        | string | No       | Extended parameters (JSON string format)     |
+| input_reference | file   | No       | Input image file (used for image-to-video generation)             |
+| metadata        | string | No       | Extended parameters (JSON string format)                          |
 
 #### metadata Parameter Description
 
@@ -108,14 +108,14 @@ curl https://你的newapi服务器地址/v1/videos \
 
 #### Response Field Description
 
-| Field      | Type    | Description                    |
-| ---------- | ------- | ------------------------------ |
-| id         | string  | Video task ID                  |
-| object     | string  | Object type, fixed as "video"  |
-| model      | string  | Name of the model used         |
-| created_at | integer | Creation timestamp             |
+| Field      | Type    | Description                           |
+| ---------- | ------- | ------------------------------------- |
+| id         | string  | Video task ID                         |
+| object     | string  | Object type, fixed as "video"         |
+| model      | string  | Name of the model used                |
+| created_at | integer | Creation timestamp                    |
 | status     | string  | Task status (processing: in progress) |
-| progress   | integer | Generation progress percentage |
+| progress   | integer | Generation progress percentage        |
 
 ## Query Video
 
@@ -129,9 +129,9 @@ GET /v1/videos/{video_id}
 
 ### Path Parameters
 
-| Parameter | Type   | Required | Description    |
-| -------- | ------ | -------- | -------------- |
-| video_id | string | Yes      | Video task ID  |
+| Parameter | Type   | Required | Description   |
+| --------- | ------ | -------- | ------------- |
+| video_id  | string | Yes      | Video task ID |
 
 ### Request Example
 
@@ -161,19 +161,19 @@ curl 'https://你的newapi服务器地址/v1/videos/video_123' \
 
 #### Response Field Description
 
-| Field      | Type    | Description                                                   |
-| ---------- | ------- | ------------------------------------------------------------- |
-| id         | string  | Video task ID                                                 |
-| object     | string  | Object type, fixed as "video"                                 |
-| model      | string  | Name of the model used                                        |
-| created_at | integer | Creation timestamp                                            |
+| Field      | Type    | Description                                                                  |
+| ---------- | ------- | ---------------------------------------------------------------------------- |
+| id         | string  | Video task ID                                                                |
+| object     | string  | Object type, fixed as "video"                                                |
+| model      | string  | Name of the model used                                                       |
+| created_at | integer | Creation timestamp                                                           |
 | status     | string  | Task status (processing: in progress, succeeded: successful, failed: failed) |
-| progress   | integer | Generation progress percentage                                |
-| expires_at | integer | Resource expiration timestamp                                 |
-| size       | string  | Video resolution                                              |
-| seconds    | string  | Video duration (seconds)                                      |
-| quality    | string  | Video quality                                                 |
-| url        | string  | Video download link (when completed)                          |
+| progress   | integer | Generation progress percentage                                               |
+| expires_at | integer | Resource expiration timestamp                                                |
+| size       | string  | Video resolution                                                             |
+| seconds    | string  | Video duration (seconds)                                                     |
+| quality    | string  | Video quality                                                                |
+| url        | string  | Video download link (when completed)                                         |
 
 ## Get Video Task Status
 
@@ -187,9 +187,9 @@ GET /v1/videos/{video_id}
 
 ### Path Parameters
 
-| Parameter | Type   | Required | Description                  |
-| -------- | ------ | -------- | ---------------------------- |
-| video_id | string | Yes      | Identifier of the video task to retrieve |
+| Parameter | Type   | Required | Description                              |
+| --------- | ------ | -------- | ---------------------------------------- |
+| video_id  | string | Yes      | Identifier of the video task to retrieve |
 
 ### Request Example
 
@@ -219,20 +219,20 @@ curl 'https://你的newapi服务器地址/v1/videos/video_123' \
 
 #### Response Field Description
 
-| Field                 | Type    | Description                                    |
-| --------------------- | ------- | ---------------------------------------------- |
-| id                    | string  | Unique identifier for the video task           |
-| object                | string  | Object type, fixed as "video"                  |
-| model                 | string  | Name of the model used to generate the video   |
-| status                | string  | Current lifecycle status of the video task     |
-| progress              | integer | Approximate completion percentage of the generation task |
-| created_at            | integer | Unix timestamp (seconds) when the task was created |
+| Field                 | Type    | Description                                                             |
+| --------------------- | ------- | ----------------------------------------------------------------------- |
+| id                    | string  | Unique identifier for the video task                                    |
+| object                | string  | Object type, fixed as "video"                                           |
+| model                 | string  | Name of the model used to generate the video                            |
+| status                | string  | Current lifecycle status of the video task                              |
+| progress              | integer | Approximate completion percentage of the generation task                |
+| created_at            | integer | Unix timestamp (seconds) when the task was created                      |
 | expires_at            | integer | Unix timestamp (seconds) when the downloadable resource expires, if set |
-| size                  | string  | Resolution of the generated video              |
-| seconds               | string  | Duration (seconds) of the generated video clip |
-| quality               | string  | Video quality                                  |
-| remixed_from_video_id | string  | Identifier of the source video if this video is a remix |
-| error                 | object  | Object containing error information if generation failed |
+| size                  | string  | Resolution of the generated video                                       |
+| seconds               | string  | Duration (seconds) of the generated video clip                          |
+| quality               | string  | Video quality                                                           |
+| remixed_from_video_id | string  | Identifier of the source video if this video is a remix                 |
+| error                 | object  | Object containing error information if generation failed                |
 
 ## Get Video Content
 
@@ -246,15 +246,15 @@ GET /v1/videos/{video_id}/content
 
 ### Path Parameters
 
-| Parameter | Type   | Required | Description                |
-| -------- | ------ | -------- | -------------------------- |
-| video_id | string | Yes      | Identifier of the video to download |
+| Parameter | Type   | Required | Description                         |
+| --------- | ------ | -------- | ----------------------------------- |
+| video_id  | string | Yes      | Identifier of the video to download |
 
 ### Query Parameters
 
-| Parameter | Type   | Required | Description                                   |
-| ------- | ------ | -------- | --------------------------------------------- |
-| variant | string | No       | Type of downloadable resource to return, defaults to MP4 video |
+| Parameter | Type   | Required | Description                                                    |
+| --------- | ------ | -------- | -------------------------------------------------------------- |
+| variant   | string | No       | Type of downloadable resource to return, defaults to MP4 video |
 
 ### Request Example
 
@@ -270,11 +270,11 @@ Directly returns the video file stream, with Content-Type `video/mp4`
 
 #### Response Headers
 
-| Field               | Description                      |
-| ------------------- | -------------------------------- |
+| Field               | Description                        |
+| ------------------- | ---------------------------------- |
 | Content-Type        | Video file type, usually video/mp4 |
-| Content-Length      | Video file size (bytes)          |
-| Content-Disposition | File download information        |
+| Content-Length      | Video file size (bytes)            |
+| Content-Disposition | File download information          |
 
 ## Error Responses
 

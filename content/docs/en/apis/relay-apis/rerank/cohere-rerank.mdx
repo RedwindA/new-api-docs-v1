@@ -3,8 +3,8 @@ title: Cohere Rerank Format
 ---
 
 <Callout type="warn" title="Important Note">
-  Cohere's Rerank model interface and [Jina's Rerank model interface format](jinaai-rerank.md)
-  are the same.
+  Cohere's Rerank model interface and [Jina's Rerank model interface
+  format](jinaai-rerank.md) are the same.
 </Callout>
 
 <Callout type="info" title="Official Documentation">
@@ -260,8 +260,8 @@ When issues occur with a request, the API may return the following HTTP status c
 
 Relevance scores are values normalized to the range [0, 1]:
 
--   A score close to 1 indicates high relevance to the query
+- A score close to 1 indicates high relevance to the query
 
--   A score close to 0 indicates low relevance
+- A score close to 0 indicates low relevance
 
 Note: It cannot be simply assumed that a document with a score of 0.9 is twice as relevant as a document with a score of 0.45. Relevance scores are relative indicators used for ranking, not for absolute comparison.

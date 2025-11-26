@@ -18,36 +18,42 @@ title: 利用可能なモデルリストの取得（Model）
 💡 リクエスト例：
 
 ```
+
 const response = await fetch('/api/models', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer your_user_token',
-    'New-Api-User': 'your_user_id'
-  }
+method: 'GET',
+headers: {
+'Content-Type': 'application/json',
+'Authorization': 'Bearer your_user_token',
+'New-Api-User': 'your_user_id'
+}
 });
 const data = await response.json();
+
 ```
 
 ✅ 成功レスポンス例：
 
 ```
+
 {
-  "success": true,
-  "data": {
-    "1": ["gpt-3.5-turbo", "gpt-4"],
-    "2": ["claude-3-sonnet", "claude-3-haiku"]
-  }
+"success": true,
+"data": {
+"1": ["gpt-3.5-turbo", "gpt-4"],
+"2": ["claude-3-sonnet", "claude-3-haiku"]
 }
+}
+
 ```
 
 ❗ 失敗レスポンス例：
 
 ```
+
 {
-  "success": false,
-  "message": "未授权访问"
+"success": false,
+"message": "未授权访问"
 }
+
 ```
 
 🧾 フィールド説明：

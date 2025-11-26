@@ -506,7 +506,7 @@ The name of the model to use, see model documentation for details. Range `1 - 25
 
 An object describing request metadata. Includes the following optional fields:
 
--   `user_id`: An external identifier for the user associated with the request. Should be a UUID, hash, or other opaque identifier. Do not include any identifying information such as names, email addresses, or phone numbers. Maximum length: 256.
+- `user_id`: An external identifier for the user associated with the request. Should be a UUID, hash, or other opaque identifier. Do not include any identifying information such as names, email addresses, or phone numbers. Maximum length: 256.
 
 #### `stop_sequences`
 
@@ -557,8 +557,8 @@ Can be set to one of two modes:
 }
 ```
 
--   `type`: Required, enum value: "enabled"
--   `budget_tokens`: Required, integer. Determines the number of tokens Claude can use for its internal reasoning process. A larger budget allows the model to perform deeper analysis on complex problems, improving response quality. Must be ≥1024 and less than `max_tokens`. Range `x > 1024`.
+- `type`: Required, enum value: "enabled"
+- `budget_tokens`: Required, integer. Determines the number of tokens Claude can use for its internal reasoning process. A larger budget allows the model to perform deeper analysis on complex problems, improving response quality. Must be ≥1024 and less than `max_tokens`. Range `x > 1024`.
 
 ##### 2. Disabled Mode
 
@@ -568,7 +568,7 @@ Can be set to one of two modes:
 }
 ```
 
--   `type`: Required, enum value: "disabled"
+- `type`: Required, enum value: "disabled"
 
 #### `tool_choice`
 
@@ -622,11 +622,11 @@ Defines the tools the model may use. Tools can be custom tools or built-in tool 
 
 Each custom tool definition includes:
 
--   `type`: Optional, enum value: "custom"
--   `name`: Tool name, required, 1-64 characters
--   `description`: Tool description, recommended to be as detailed as possible
--   `input_schema`: JSON Schema definition for tool input, required
--   `cache_control`: Cache control, optional, type is "ephemeral"
+- `type`: Optional, enum value: "custom"
+- `name`: Tool name, required, 1-64 characters
+- `description`: Tool description, recommended to be as detailed as possible
+- `input_schema`: JSON Schema definition for tool input, required
+- `cache_control`: Cache control, optional, type is "ephemeral"
 
 Example:
 
@@ -834,10 +834,10 @@ The conversational role of the generated message, always "assistant".
 
 The reason for stopping generation, possible values include:
 
--   `"end_turn"`: The model reached a natural stopping point
--   `"max_tokens"`: The requested `max_tokens` or the model's maximum limit was exceeded
--   `"stop_sequence"`: One of the custom stop sequences was generated
--   `"tool_use"`: The model called one or more tools
+- `"end_turn"`: The model reached a natural stopping point
+- `"max_tokens"`: The requested `max_tokens` or the model's maximum limit was exceeded
+- `"stop_sequence"`: One of the custom stop sequences was generated
+- `"tool_use"`: The model called one or more tools
 
 In non-streaming mode, this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -864,10 +864,10 @@ The object type, always "message" for Messages.
 
 Usage statistics related to billing and rate limiting. Includes the following fields:
 
--   `input_tokens`: The number of input tokens used, required, range `x > 0`
--   `output_tokens`: The number of output tokens used, required, range `x > 0`
--   `cache_creation_input_tokens`: The number of input tokens used to create cache entries (if applicable), required, range `x > 0`
--   `cache_read_input_tokens`: The number of input tokens read from cache (if applicable), required, range `x > 0`
+- `input_tokens`: The number of input tokens used, required, range `x > 0`
+- `output_tokens`: The number of output tokens used, required, range `x > 0`
+- `cache_creation_input_tokens`: The number of input tokens used to create cache entries (if applicable), required, range `x > 0`
+- `cache_read_input_tokens`: The number of input tokens read from cache (if applicable), required, range `x > 0`
 
 Note: Due to internal API transformations and parsing, token counts may not exactly correspond to the actual visible content of the request and response. For example, `output_tokens` will be non-zero even for an empty string response.
 
@@ -877,10 +877,10 @@ When there is an issue with the request, the API will return an error response o
 
 #### Common Error Status Codes
 
--   `401 Unauthorized`: API key invalid or not provided
--   `400 Bad Request`: Invalid request parameters
--   `429 Too Many Requests`: API call limit exceeded
--   `500 Internal Server Error`: Internal server error
+- `401 Unauthorized`: API key invalid or not provided
+- `400 Bad Request`: Invalid request parameters
+- `429 Too Many Requests`: API call limit exceeded
+- `500 Internal Server Error`: Internal server error
 
 Error Response Example:
 
@@ -896,7 +896,7 @@ Error Response Example:
 
 Main Error Types:
 
--   `invalid_request_error`: Invalid request parameters
--   `authentication_error`: Authentication related error
--   `rate_limit_error`: Rate limit exceeded
--   `server_error`: Internal server error
+- `invalid_request_error`: Invalid request parameters
+- `authentication_error`: Authentication related error
+- `rate_limit_error`: Rate limit exceeded
+- `server_error`: Internal server error

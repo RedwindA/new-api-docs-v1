@@ -3,7 +3,8 @@ title: Midjourney Image Formats (Midjourney Proxy/Midjourney Proxy Plus)
 ---
 
 <Callout type="info" title="Please Note">
-  This API is **not an official Midjourney API**, but rather a Midjourney proxy API implemented based on author **novicezk**'s open-source project
+  This API is **not an official Midjourney API**, but rather a Midjourney proxy
+  API implemented based on author **novicezk**'s open-source project
   [**midjourney-proxy**](https://github.com/novicezk/midjourney-proxy).
 </Callout>
 
@@ -15,42 +16,42 @@ title: Midjourney Image Formats (Midjourney Proxy/Midjourney Proxy Plus)
 
     We are very grateful for the author's contributions, which allow us to conveniently use Midjourney's powerful features. If you have time, please give the author a Star. If you are able, we recommend supporting the author's paid version, which offers more features.
 
-| Feature Category                  | Open-source Version | Paid Version |
-| --------------------------------- | ------------------- | ------------ |
-| **Basic Features**                |                     |              |
-| Imagine Command and Related Actions | ✓                   | ✓            |
-| Image Prompt Support              | ✓                   | ✓            |
-| Blend (Image Mixing)              | ✓                   | ✓            |
-| Describe (Image to Text)          | ✓                   | ✓            |
-| Real-time Task Progress           | ✓                   | ✓            |
-| Chinese Prompt Translation        | ✓                   | ✓            |
-| Prompt Sensitive Word Detection   | ✓                   | ✓            |
-| User-Token Connects to WSS        | ✓                   | ✓            |
-| Multi-Account Configuration       | ✓                   | ✓            |
-| **Advanced Features**             |                     |              |
-| Shorten (Prompt Analysis)         | ✗                   | ✓            |
-| Pan (Focus Movement)              | ✗                   | ✓            |
-| Zoom (Image Zoom)                 | ✗                   | ✓            |
-| Vary Region (Partial Redraw)      | ✗                   | ✓            |
-| Associate Button Actions and Remix Mode | ✗                   | ✓            |
-| Get Image Seed Value              | ✗                   | ✓            |
-| **Account Management**            |                     |              |
-| Account Pool Persistence          | ✗                   | ✓            |
-| Multiple Storage Support (Redis/MySQL) | ✗                   | ✓            |
+| Feature Category                          | Open-source Version | Paid Version |
+| ----------------------------------------- | ------------------- | ------------ |
+| **Basic Features**                        |                     |              |
+| Imagine Command and Related Actions       | ✓                   | ✓            |
+| Image Prompt Support                      | ✓                   | ✓            |
+| Blend (Image Mixing)                      | ✓                   | ✓            |
+| Describe (Image to Text)                  | ✓                   | ✓            |
+| Real-time Task Progress                   | ✓                   | ✓            |
+| Chinese Prompt Translation                | ✓                   | ✓            |
+| Prompt Sensitive Word Detection           | ✓                   | ✓            |
+| User-Token Connects to WSS                | ✓                   | ✓            |
+| Multi-Account Configuration               | ✓                   | ✓            |
+| **Advanced Features**                     |                     |              |
+| Shorten (Prompt Analysis)                 | ✗                   | ✓            |
+| Pan (Focus Movement)                      | ✗                   | ✓            |
+| Zoom (Image Zoom)                         | ✗                   | ✓            |
+| Vary Region (Partial Redraw)              | ✗                   | ✓            |
+| Associate Button Actions and Remix Mode   | ✗                   | ✓            |
+| Get Image Seed Value                      | ✗                   | ✓            |
+| **Account Management**                    |                     |              |
+| Account Pool Persistence                  | ✗                   | ✓            |
+| Multiple Storage Support (Redis/MySQL)    | ✗                   | ✓            |
 | Account Information Retrieval and Setting | ✗                   | ✓            |
-| Task Cancellation Feature         | ✗                   | ✓            |
-| Built-in Admin Panel              | ✗                   | ✓            |
-| **Smart Features**                |                     |              |
-| MJ V6.0 Support                   | ✗                   | ✓            |
-| Automatic Account Status Monitoring | ✗                   | ✓            |
-| Automatic Mode Switching          | ✗                   | ✓            |
-| Niji・Journey Bot Support          | ✗                   | ✓            |
-| InsightFace Face Service          | ✗                   | ✓            |
-| **Security Performance**          |                     |              |
-| Dynamic Configuration Support     | ✗                   | ✓            |
-| Token Disconnection Issue Fix     | ✗                   | ✓            |
-| Automatic Verification Feature    | ✗                   | ✓            |
-| Automatic Appeal for Prohibited Words | ✗                   | ✓            |
+| Task Cancellation Feature                 | ✗                   | ✓            |
+| Built-in Admin Panel                      | ✗                   | ✓            |
+| **Smart Features**                        |                     |              |
+| MJ V6.0 Support                           | ✗                   | ✓            |
+| Automatic Account Status Monitoring       | ✗                   | ✓            |
+| Automatic Mode Switching                  | ✗                   | ✓            |
+| Niji・Journey Bot Support                 | ✗                   | ✓            |
+| InsightFace Face Service                  | ✗                   | ✓            |
+| **Security Performance**                  |                     |              |
+| Dynamic Configuration Support             | ✗                   | ✓            |
+| Token Disconnection Issue Fix             | ✗                   | ✓            |
+| Automatic Verification Feature            | ✗                   | ✓            |
+| Automatic Appeal for Prohibited Words     | ✗                   | ✓            |
 
 ## 📝 Introduction
 
@@ -109,25 +110,25 @@ graph TD
 ### Flow Description
 
 1.  **Initial Tasks**
-    -   Imagine: Text to image generation
-    -   Blend: Multi-image mixing
-    -   Describe: Image description
-    -   Swap Face: Face replacement
+    - Imagine: Text to image generation
+    - Blend: Multi-image mixing
+    - Describe: Image description
+    - Swap Face: Face replacement
 
 2.  **Image Processing**
-    -   U1-U4: Upscale operation
-    -   V1-V4: Variation generation
-    -   Pan: Image panning
-    -   Zoom: Image zooming
+    - U1-U4: Upscale operation
+    - V1-V4: Variation generation
+    - Pan: Image panning
+    - Zoom: Image zooming
 
 3.  **Special Flows**
-    -   Action + Modal: Operations requiring modal confirmation
-    -   Action Direct Execution: Operations not requiring a modal
+    - Action + Modal: Operations requiring modal confirmation
+    - Action Direct Execution: Operations not requiring a modal
 
 4.  **Task Management**
-    -   Get task details
-    -   Get image Seed
-    -   Upload to Discord
+    - Get task details
+    - Get image Seed
+    - Upload to Discord
 
 ## 💡 Request Examples
 
@@ -550,165 +551,165 @@ Where `$OPENAI_API_KEY` is your API key.
 
 ##### `botType`
 
--   Type: Enum string
--   Required: No
--   Default: MID_JOURNEY
--   Options:
-    -   `MID_JOURNEY`: Midjourney model
-    -   `NIJI_JOURNEY`: Niji Journey model
--   Description: Select the bot type to use
+- Type: Enum string
+- Required: No
+- Default: MID_JOURNEY
+- Options:
+  - `MID_JOURNEY`: Midjourney model
+  - `NIJI_JOURNEY`: Niji Journey model
+- Description: Select the bot type to use
 
 ##### `prompt`
 
--   Type: String
--   Required: Yes
--   Description: Text prompt for image generation
--   Tip:
-    -   Use clear and specific descriptions
-    -   Can include details like art style, composition, etc.
-    -   Supports English and Chinese input
+- Type: String
+- Required: Yes
+- Description: Text prompt for image generation
+- Tip:
+  - Use clear and specific descriptions
+  - Can include details like art style, composition, etc.
+  - Supports English and Chinese input
 
 ##### `base64Array`
 
--   Type: String array
--   Required: No
--   Description: Base64 encoded array of image prompts
--   Format: Each element should be a complete base64 image string, including the MIME type prefix
+- Type: String array
+- Required: No
+- Description: Base64 encoded array of image prompts
+- Format: Each element should be a complete base64 image string, including the MIME type prefix
 
 ##### `accountFilter`
 
--   Type: Object
--   Required: No
--   Properties:
-    -   `channelId`: Channel ID
-    -   `instanceId`: Account instance ID
-    -   `modes`: Array of account modes, options: RELAX, FAST, TURBO
-    -   `remark`: Content included in the remark
-    -   `remix`: Whether the account supports remix
-    -   `remixAutoConsidered`: Remix auto-submission setting
+- Type: Object
+- Required: No
+- Properties:
+  - `channelId`: Channel ID
+  - `instanceId`: Account instance ID
+  - `modes`: Array of account modes, options: RELAX, FAST, TURBO
+  - `remark`: Content included in the remark
+  - `remix`: Whether the account supports remix
+  - `remixAutoConsidered`: Remix auto-submission setting
 
 ##### `notifyHook`
 
--   Type: String
--   Required: No
--   Description: Callback address after task completion; uses global notifyHook if empty
+- Type: String
+- Required: No
+- Description: Callback address after task completion; uses global notifyHook if empty
 
 ##### `state`
 
--   Type: String
--   Required: No
--   Description: Custom state parameter, can be used to track requests
+- Type: String
+- Required: No
+- Description: Custom state parameter, can be used to track requests
 
 #### Submit Blend Task
 
 ##### `base64Array`
 
--   Type: String array
--   Required: Yes
--   Description: Base64 encoded array of images to blend
--   Format: Must contain base64 strings for 2-5 images
+- Type: String array
+- Required: Yes
+- Description: Base64 encoded array of images to blend
+- Format: Must contain base64 strings for 2-5 images
 
 ##### `dimensions`
 
--   Type: Enum string
--   Required: No
--   Options:
-    -   `PORTRAIT`: 2:3 ratio
-    -   `SQUARE`: 1:1 ratio
-    -   `LANDSCAPE`: 3:2 ratio
--   Description: Aspect ratio setting for the output image
+- Type: Enum string
+- Required: No
+- Options:
+  - `PORTRAIT`: 2:3 ratio
+  - `SQUARE`: 1:1 ratio
+  - `LANDSCAPE`: 3:2 ratio
+- Description: Aspect ratio setting for the output image
 
 #### Submit Describe Task
 
 ##### `base64`
 
--   Type: String
--   Required: Yes
--   Description: Base64 encoding of the image to be described
--   Format: Complete base64 string, including MIME type prefix
+- Type: String
+- Required: Yes
+- Description: Base64 encoding of the image to be described
+- Format: Complete base64 string, including MIME type prefix
 
 #### Submit Modal Task
 
 ##### `maskBase64`
 
--   Type: String
--   Required: No
--   Description: Base64 encoded mask image for partial redraw
+- Type: String
+- Required: No
+- Description: Base64 encoded mask image for partial redraw
 
 ##### `prompt`
 
--   Type: String
--   Required: No
--   Description: Text prompt for the redraw area
+- Type: String
+- Required: No
+- Description: Text prompt for the redraw area
 
 ##### `taskId`
 
--   Type: String
--   Required: Yes
--   Description: ID of the original task
+- Type: String
+- Required: Yes
+- Description: ID of the original task
 
 #### Submit Swap Face Task
 
 ##### `sourceBase64`
 
--   Type: String
--   Required: Yes
--   Description: Base64 encoding of the source image for the face
--   Requirement: The image must contain a clear face
+- Type: String
+- Required: Yes
+- Description: Base64 encoding of the source image for the face
+- Requirement: The image must contain a clear face
 
 ##### `targetBase64`
 
--   Type: String
--   Required: Yes
--   Description: Base64 encoding of the target image
--   Requirement: The image must contain the face to be replaced
+- Type: String
+- Required: Yes
+- Description: Base64 encoding of the target image
+- Requirement: The image must contain the face to be replaced
 
 #### Execute Action
 
 ##### `chooseSameChannel`
 
--   Type: Boolean
--   Required: No
--   Default: false
--   Description: Whether to select an account under the same channel
+- Type: Boolean
+- Required: No
+- Default: false
+- Description: Whether to select an account under the same channel
 
 ##### `customId`
 
--   Type: String
--   Required: Yes
--   Description: Action identifier
--   Format: A string in a specific format, e.g., "MJ::JOB::upsample::1::xxx"
+- Type: String
+- Required: Yes
+- Description: Action identifier
+- Format: A string in a specific format, e.g., "MJ::JOB::upsample::1::xxx"
 
 ##### `taskId`
 
--   Type: String
--   Required: Yes
--   Description: ID of the task to perform the action on
+- Type: String
+- Required: Yes
+- Description: ID of the task to perform the action on
 
 #### Upload Files to Discord
 
 ##### `base64Array`
 
--   Type: String array
--   Required: Yes
--   Description: Base64 encoded array of images to upload
+- Type: String array
+- Required: Yes
+- Description: Base64 encoded array of images to upload
 
 ##### `filter`
 
--   Type: Object
--   Required: No
--   Properties:
-    -   `channelId`: Target Channel ID
-    -   `instanceId`: Account instance ID
-    -   `remark`: Remark information
+- Type: Object
+- Required: No
+- Properties:
+  - `channelId`: Target Channel ID
+  - `instanceId`: Account instance ID
+  - `remark`: Remark information
 
 #### Query Tasks by ID List
 
 ##### `ids`
 
--   Type: String array
--   Required: Yes
--   Description: List of task IDs to query
+- Type: String array
+- Required: Yes
+- Description: List of task IDs to query
 
 ### Common Response Format
 
@@ -716,32 +717,32 @@ All interfaces return a similar response structure:
 
 ##### `code`
 
--   Type: Integer
--   Description: Status code
+- Type: Integer
+- Description: Status code
 
-| Status Code | Description       |
-| ----------- | ----------------- |
+| Status Code | Description           |
+| ----------- | --------------------- |
 | 1           | Submission successful |
-| 22          | Task queued       |
-| 21          | Parameter error   |
-| 23          | System error      |
-| 24          | Account unavailable |
-| 25          | Insufficient quota  |
+| 22          | Task queued           |
+| 21          | Parameter error       |
+| 23          | System error          |
+| 24          | Account unavailable   |
+| 25          | Insufficient quota    |
 
 ##### `description`
 
--   Type: String
--   Description: Response description message
+- Type: String
+- Description: Response description message
 
 ##### `properties`
 
--   Type: Object
--   Description: Extended properties
+- Type: Object
+- Description: Extended properties
 
 ##### `result`
 
--   Type: String or array
--   Description: Return result, could be task ID or other data
+- Type: String or array
+- Description: Return result, could be task ID or other data
 
 ## 📥 Responses
 
@@ -749,98 +750,98 @@ All interfaces return a similar response structure:
 
 #### `action`
 
--   Type: Enum string
--   Description: Task type
+- Type: Enum string
+- Description: Task type
 
-| String Value | Description       |
-| ------------ | ----------------- |
-| `IMAGINE`    | Create image      |
-| `UPSCALE`    | Upscale image     |
+| String Value | Description        |
+| ------------ | ------------------ |
+| `IMAGINE`    | Create image       |
+| `UPSCALE`    | Upscale image      |
 | `VARIATION`  | Generate variation |
-| `ZOOM`       | Zoom image        |
-| `PAN`        | Pan image         |
-| `DESCRIBE`   | Describe image    |
-| `BLEND`      | Blend images      |
-| `SHORTEN`    | Shorten prompt    |
-| `SWAP_FACE`  | Face swap         |
+| `ZOOM`       | Zoom image         |
+| `PAN`        | Pan image          |
+| `DESCRIBE`   | Describe image     |
+| `BLEND`      | Blend images       |
+| `SHORTEN`    | Shorten prompt     |
+| `SWAP_FACE`  | Face swap          |
 
 #### `buttons`
 
--   Type: Object array
--   Description: Executable action buttons
+- Type: Object array
+- Description: Executable action buttons
 
-| Array Property | Description                     |
-| -------------- | ------------------------------- |
-| `customId`     | Action identifier               |
-| `emoji`        | Button icon                     |
-| `label`        | Button text                     |
-| `style`        | Style (2=Primary, 3=Green)      |
+| Array Property | Description                        |
+| -------------- | ---------------------------------- |
+| `customId`     | Action identifier                  |
+| `emoji`        | Button icon                        |
+| `label`        | Button text                        |
+| `style`        | Style (2=Primary, 3=Green)         |
 | `type`         | Type used internally by the system |
 
 #### `description`
 
--   Type: String
--   Description: Task description message
+- Type: String
+- Description: Task description message
 
 #### `failReason`
 
--   Type: String
--   Description: Reason for task failure
+- Type: String
+- Description: Reason for task failure
 
 #### `finishTime`
 
--   Type: Integer
--   Description: Task completion timestamp
+- Type: Integer
+- Description: Task completion timestamp
 
 #### `id`
 
--   Type: String
--   Description: Unique task identifier
+- Type: String
+- Description: Unique task identifier
 
 #### `imageUrl`
 
--   Type: String
--   Description: URL of the generated image
+- Type: String
+- Description: URL of the generated image
 
 #### `progress`
 
--   Type: String
--   Description: Task progress information
+- Type: String
+- Description: Task progress information
 
 #### `prompt`
 
--   Type: String
--   Description: Original prompt
+- Type: String
+- Description: Original prompt
 
 #### `promptEn`
 
--   Type: String
--   Description: English prompt
+- Type: String
+- Description: English prompt
 
 #### `status`
 
--   Type: Enum string
--   Description: Task status
+- Type: Enum string
+- Description: Task status
 
-| String Value  | Description       |
-| ------------- | ----------------- |
-| `NOT_START`   | Not started       |
-| `SUBMITTED`   | Submitted         |
+| String Value  | Description        |
+| ------------- | ------------------ |
+| `NOT_START`   | Not started        |
+| `SUBMITTED`   | Submitted          |
 | `MODAL`       | In modal operation |
-| `IN_PROGRESS` | In progress       |
-| `FAILURE`     | Failed            |
-| `SUCCESS`     | Successful        |
-| `CANCEL`      | Canceled          |
+| `IN_PROGRESS` | In progress        |
+| `FAILURE`     | Failed             |
+| `SUCCESS`     | Successful         |
+| `CANCEL`      | Canceled           |
 
 #### `submitTime`
 
--   Type: Integer
--   Description: Task submission timestamp
+- Type: Integer
+- Description: Task submission timestamp
 
 #### `startTime`
 
--   Type: Integer
--   Description: Task start execution timestamp
+- Type: Integer
+- Description: Task start execution timestamp
 
 ### Error Responses
 
@@ -848,12 +849,12 @@ When there is an issue with the request, the API will return an error response:
 
 #### HTTP Status Codes
 
--   `400 Bad Request`: Invalid request parameters
--   `401 Unauthorized`: API key invalid or not provided
--   `403 Forbidden`: Insufficient permissions
--   `404 Not Found`: Resource not found
--   `429 Too Many Requests`: Request frequency exceeded
--   `500 Internal Server Error`: Internal server error
+- `400 Bad Request`: Invalid request parameters
+- `401 Unauthorized`: API key invalid or not provided
+- `403 Forbidden`: Insufficient permissions
+- `404 Not Found`: Resource not found
+- `429 Too Many Requests`: Request frequency exceeded
+- `500 Internal Server Error`: Internal server error
 
 #### Error Response Format
 
@@ -884,30 +885,30 @@ When there is an issue with the request, the API will return an error response:
 ### Image Format Requirements
 
 1.  Supported image formats:
-    -   JPEG/JPG
-    -   PNG
-    -   GIF (static)
-    -   WEBP
+    - JPEG/JPG
+    - PNG
+    - GIF (static)
+    - WEBP
 
 2.  Image size limits:
-    -   File size: Maximum 4MB
-    -   Resolution: Recommended 1024x1024 or higher
-    -   Aspect ratio: Supports 1:1, 2:3, 3:2
+    - File size: Maximum 4MB
+    - Resolution: Recommended 1024x1024 or higher
+    - Aspect ratio: Supports 1:1, 2:3, 3:2
 
 ### Performance Optimization Suggestions
 
 1.  Base64 Encoding:
-    -   Use standard Base64 encoding format
-    -   Include the correct MIME type prefix
-    -   Compress images to reduce data transfer
+    - Use standard Base64 encoding format
+    - Include the correct MIME type prefix
+    - Compress images to reduce data transfer
 
 2.  Task Processing:
-    -   Use webhooks to receive task completion notifications
-    -   Set reasonable retry strategies
-    -   Recommended to use asynchronous processing
+    - Use webhooks to receive task completion notifications
+    - Set reasonable retry strategies
+    - Recommended to use asynchronous processing
 
 ### Error Handling
 
--   Implement request retry mechanism
--   Add error logging
--   Set reasonable timeout durations
+- Implement request retry mechanism
+- Add error logging
+- Set reasonable timeout durations

@@ -497,126 +497,126 @@ Where `$NEWAPI_API_KEY` is your API key. You can find or generate your API key o
 
 A list of messages comprising the conversation so far. Different message types (forms) are supported depending on the model used, such as text, image, and audio.
 
-| Message Type              | Description                                                                                                                              | Available for       |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| **Developer message**     | Instructions provided by the developer that the model should follow, regardless of what the user sends. In o1 models and newer, developer messages replace previous system messages. | All message types   |
-| **System message**        | Instructions provided by the developer that the model should follow, regardless of what the user sends. In o1 models and newer, please use developer messages instead. | All message types   |
-| **User message**          | Messages sent by the end-user, containing prompts or additional context information.                                                     | All message types   |
-| **Assistant message**     | Messages sent by the model in response to user messages.                                                                                 | All message types   |
-| **Tool message**          | The content of the tool message.                                                                                                         | All message types   |
-| **Function message**      | Deprecated.                                                                                                                              | All message types   |
+| Message Type          | Description                                                                                                                                                                          | Available for     |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| **Developer message** | Instructions provided by the developer that the model should follow, regardless of what the user sends. In o1 models and newer, developer messages replace previous system messages. | All message types |
+| **System message**    | Instructions provided by the developer that the model should follow, regardless of what the user sends. In o1 models and newer, please use developer messages instead.               | All message types |
+| **User message**      | Messages sent by the end-user, containing prompts or additional context information.                                                                                                 | All message types |
+| **Assistant message** | Messages sent by the model in response to user messages.                                                                                                                             | All message types |
+| **Tool message**      | The content of the tool message.                                                                                                                                                     | All message types |
+| **Function message**  | Deprecated.                                                                                                                                                                          | All message types |
 
 **Developer message attributes:**
 
-| Attribute | Type          | Required | Description                                                                                                |
-| --------- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `role`    | String        | Yes      | The role of the message author, which is `developer` here.                                                 |
-| `content` | String or Array | Yes      | The content of the developer message. Can be text content (string) or an array of content parts.           |
-| `name`    | String        | No       | An optional name for the participant. Provides information to the model to differentiate between participants with the same role. |
+| Attribute | Type            | Required | Description                                                                                                                       |
+| --------- | --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `role`    | String          | Yes      | The role of the message author, which is `developer` here.                                                                        |
+| `content` | String or Array | Yes      | The content of the developer message. Can be text content (string) or an array of content parts.                                  |
+| `name`    | String          | No       | An optional name for the participant. Provides information to the model to differentiate between participants with the same role. |
 
 **System message attributes:**
 
-| Attribute | Type          | Required | Description                                                                                                |
-| --------- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `role`    | String        | Yes      | The role of the message author, which is `system` here.                                                    |
-| `content` | String or Array | Yes      | The content of the system message. Can be text content (string) or an array of content parts.              |
-| `name`    | String        | No       | An optional name for the participant. Provides information to the model to differentiate between participants with the same role. |
+| Attribute | Type            | Required | Description                                                                                                                       |
+| --------- | --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `role`    | String          | Yes      | The role of the message author, which is `system` here.                                                                           |
+| `content` | String or Array | Yes      | The content of the system message. Can be text content (string) or an array of content parts.                                     |
+| `name`    | String          | No       | An optional name for the participant. Provides information to the model to differentiate between participants with the same role. |
 
 **User message attributes:**
 
-| Attribute | Type          | Required | Description                                                                                                |
-| --------- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `role`    | String        | Yes      | The role of the message author, which is `user` here.                                                      |
-| `content` | String or Array | Yes      | The content of the user message. Can be text content (string) or an array of content parts.                |
-| `name`    | String        | No       | An optional name for the participant. Provides information to the model to differentiate between participants with the same role. |
+| Attribute | Type            | Required | Description                                                                                                                       |
+| --------- | --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `role`    | String          | Yes      | The role of the message author, which is `user` here.                                                                             |
+| `content` | String or Array | Yes      | The content of the user message. Can be text content (string) or an array of content parts.                                       |
+| `name`    | String          | No       | An optional name for the participant. Provides information to the model to differentiate between participants with the same role. |
 
 **Content part types:**
 
-| Content Part Type     | Description                                     | Available for   |
-| --------------------- | ----------------------------------------------- | --------------- |
-| **Text content part** | Text input.                                     | All message types |
-| **Image content part** | Image input.                                    | User messages   |
-| **Audio content part** | Audio input.                                    | User messages   |
-| **File content part** | File input, used for text generation.           | User messages   |
-| **Refusal content part** | A refusal message generated by the model.       | Assistant messages |
+| Content Part Type        | Description                               | Available for      |
+| ------------------------ | ----------------------------------------- | ------------------ |
+| **Text content part**    | Text input.                               | All message types  |
+| **Image content part**   | Image input.                              | User messages      |
+| **Audio content part**   | Audio input.                              | User messages      |
+| **File content part**    | File input, used for text generation.     | User messages      |
+| **Refusal content part** | A refusal message generated by the model. | Assistant messages |
 
 **Text content part attributes:**
 
-| Attribute | Type   | Required | Description              |
-| --------- | ------ | -------- | ------------------------ |
-| `text`    | String | Yes      | The text content.        |
+| Attribute | Type   | Required | Description                   |
+| --------- | ------ | -------- | ----------------------------- |
+| `text`    | String | Yes      | The text content.             |
 | `type`    | String | Yes      | The type of the content part. |
 
 **Image content part attributes:**
 
-| Attribute   | Type   | Required | Description                                     |
-| ----------- | ------ | -------- | ----------------------------------------------- |
+| Attribute   | Type   | Required | Description                                          |
+| ----------- | ------ | -------- | ---------------------------------------------------- |
 | `image_url` | Object | Yes      | Contains the image URL or base64 encoded image data. |
-| `type`      | String | Yes      | The type of the content part.                   |
+| `type`      | String | Yes      | The type of the content part.                        |
 
 **Image URL object attributes:**
 
-| Attribute | Type   | Required | Description                                       |
-| --------- | ------ | -------- | ------------------------------------------------- |
-| `url`     | String | Yes      | The URL or base64 encoded image data of the image. |
+| Attribute | Type   | Required | Description                                                  |
+| --------- | ------ | -------- | ------------------------------------------------------------ |
+| `url`     | String | Yes      | The URL or base64 encoded image data of the image.           |
 | `detail`  | String | No       | Specifies the detail level of the image. Defaults to `auto`. |
 
 **Audio content part attributes:**
 
-| Attribute     | Type   | Required | Description                                    |
-| ------------- | ------ | -------- | ---------------------------------------------- |
-| `input_audio` | Object | Yes      | An object containing audio data.               |
+| Attribute     | Type   | Required | Description                                         |
+| ------------- | ------ | -------- | --------------------------------------------------- |
+| `input_audio` | Object | Yes      | An object containing audio data.                    |
 | `type`        | String | Yes      | The type of the content part. Always `input_audio`. |
 
 **Audio input object attributes:**
 
-| Attribute | Type   | Required | Description                                          |
-| --------- | ------ | -------- | ---------------------------------------------------- |
-| `data`    | String | Yes      | The base64 encoded audio data.                       |
+| Attribute | Type   | Required | Description                                                               |
+| --------- | ------ | -------- | ------------------------------------------------------------------------- |
+| `data`    | String | Yes      | The base64 encoded audio data.                                            |
 | `format`  | String | Yes      | The format of the encoded audio data. Currently supports "wav" and "mp3". |
 
 **File content part attributes:**
 
-| Attribute | Type   | Required | Description                                |
-| --------- | ------ | -------- | ------------------------------------------ |
-| `file`    | Object | Yes      | An object containing file data.            |
+| Attribute | Type   | Required | Description                                  |
+| --------- | ------ | -------- | -------------------------------------------- |
+| `file`    | Object | Yes      | An object containing file data.              |
 | `type`    | String | Yes      | The type of the content part. Always `file`. |
 
 **File object attributes:**
 
-| Attribute   | Type   | Required | Description                                                              |
-| ----------- | ------ | -------- | ------------------------------------------------------------------------ |
+| Attribute   | Type   | Required | Description                                                               |
+| ----------- | ------ | -------- | ------------------------------------------------------------------------- |
 | `file_data` | String | No       | Base64 encoded file data, used to pass the file as a string to the model. |
-| `file_id`   | String | No       | The ID of the uploaded file, used as input.                              |
-| `filename`  | String | No       | The filename, used to pass the file as a string to the model.            |
+| `file_id`   | String | No       | The ID of the uploaded file, used as input.                               |
+| `filename`  | String | No       | The filename, used to pass the file as a string to the model.             |
 
 **Assistant message attributes:**
 
-| Attribute       | Type          | Required | Description                                                                                                |
-| --------------- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `role`          | String        | Yes      | The role of the message author, which is `assistant` here.                                                 |
-| `content`       | String or Array | No       | The content of the assistant message. Required unless `tool_calls` or `function_call` is specified.        |
-| `name`          | String        | No       | An optional name for the participant. Provides information to the model to differentiate between participants with the same role. |
-| `audio`         | Object or null | No       | Data about the model's previous audio response.                                                            |
-| `function_call` | Object or null | No       | Deprecated, replaced by `tool_calls`. The name and arguments of a function that should be called, as generated by the model. |
-| `tool_calls`    | Array         | No       | The tool calls generated by the model, such as function calls.                                             |
-| `refusal`       | String or null | No       | The assistant's refusal message.                                                                           |
+| Attribute       | Type            | Required | Description                                                                                                                       |
+| --------------- | --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `role`          | String          | Yes      | The role of the message author, which is `assistant` here.                                                                        |
+| `content`       | String or Array | No       | The content of the assistant message. Required unless `tool_calls` or `function_call` is specified.                               |
+| `name`          | String          | No       | An optional name for the participant. Provides information to the model to differentiate between participants with the same role. |
+| `audio`         | Object or null  | No       | Data about the model's previous audio response.                                                                                   |
+| `function_call` | Object or null  | No       | Deprecated, replaced by `tool_calls`. The name and arguments of a function that should be called, as generated by the model.      |
+| `tool_calls`    | Array           | No       | The tool calls generated by the model, such as function calls.                                                                    |
+| `refusal`       | String or null  | No       | The assistant's refusal message.                                                                                                  |
 
 **Tool message attributes:**
 
-| Attribute      | Type          | Required | Description                                |
-| -------------- | ------------- | -------- | ------------------------------------------ |
-| `role`         | String        | Yes      | The role of the message author, which is `tool` here. |
-| `content`      | String or Array | Yes      | The content of the tool message.           |
-| `tool_call_id` | String        | Yes      | The tool call this message is responding to. |
+| Attribute      | Type            | Required | Description                                           |
+| -------------- | --------------- | -------- | ----------------------------------------------------- |
+| `role`         | String          | Yes      | The role of the message author, which is `tool` here. |
+| `content`      | String or Array | Yes      | The content of the tool message.                      |
+| `tool_call_id` | String          | Yes      | The tool call this message is responding to.          |
 
 **Function message attributes: (Deprecated)**
 
-| Attribute | Type          | Required | Description                                |
-| --------- | ------------- | -------- | ------------------------------------------ |
-| `role`    | String        | Yes      | The role of the message author, which is `function` here. |
-| `content` | String or null | Yes      | The content of the function message.       |
-| `name`    | String        | Yes      | The name of the function to call.          |
+| Attribute | Type           | Required | Description                                               |
+| --------- | -------------- | -------- | --------------------------------------------------------- |
+| `role`    | String         | Yes      | The role of the message author, which is `function` here. |
+| `content` | String or null | Yes      | The content of the function message.                      |
+| `name`    | String         | Yes      | The name of the function to call.                         |
 
 #### `model`
 
@@ -671,16 +671,16 @@ Configuration for speculative output, which can significantly improve response t
 
 **Possible types:**
 
-| Type             | Description                                                                                                |
-| ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| Type               | Description                                                                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------------------------- |
 | **Static content** | Static speculative output content, such as the content of a text file being regenerated with minor changes. |
 
 **Static content attributes:**
 
-| Attribute | Type          | Required | Description                                                                                                |
-| --------- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| Attribute | Type            | Required | Description                                                                                                                                               |
+| --------- | --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `content` | String or Array | Yes      | The content that the generated model response should match. If the generated tokens match this content, the entire model response can be returned faster. |
-| `type`    | String        | Yes      | The type of speculative content to provide. The current type is always `content`.                          |
+| `type`    | String          | Yes      | The type of speculative content to provide. The current type is always `content`.                                                                         |
 
 **Content possible types:**
 
@@ -690,9 +690,9 @@ Configuration for speculative output, which can significantly improve response t
 
 **Content part array attributes:**
 
-| Attribute | Type   | Required | Description              |
-| --------- | ------ | -------- | ------------------------ |
-| `text`    | String | Yes      | The text content.        |
+| Attribute | Type   | Required | Description                   |
+| --------- | ------ | -------- | ----------------------------- |
+| `text`    | String | Yes      | The text content.             |
 | `type`    | String | Yes      | The type of the content part. |
 
 #### `audio`
@@ -702,9 +702,9 @@ Configuration for speculative output, which can significantly improve response t
 
 Parameters for audio output. Required when requesting audio output using `modalities: ["audio"]`.
 
-| Attribute | Type   | Required | Description                                                                                                |
-| --------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `format`  | String | Yes      | Specifies the output audio format. Must be one of the following: wav, mp3, flac, opus, or pcm16.           |
+| Attribute | Type   | Required | Description                                                                                                                                   |
+| --------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `format`  | String | Yes      | Specifies the output audio format. Must be one of the following: wav, mp3, flac, opus, or pcm16.                                              |
 | `voice`   | String | Yes      | The voice the model should use for its response. Supported voices are: alloy, ash, ballad, coral, echo, fable, nova, onyx, sage, and shimmer. |
 
 #### `temperature`
@@ -824,4 +824,4 @@ Options for streaming responses. Only used when `stream: true` is set.
 
 **Possible attributes:**
 
-| Attribute       | Type    | Required | Description
+| Attribute | Type | Required | Description

@@ -3,7 +3,8 @@ title: Cohere リランキングフォーマット（Rerank）
 ---
 
 <Callout type="warn" title="重要">
-  Cohere の Rerank モデルインターフェースは、[Jina の Rerank モデルインターフェースフォーマット](jinaai-rerank.md) と同じです。
+  Cohere の Rerank モデルインターフェースは、[Jina の Rerank
+  モデルインターフェースフォーマット](jinaai-rerank.md) と同じです。
 </Callout>
 
 <Callout type="info" title="公式ドキュメント">
@@ -239,13 +240,13 @@ Authorization: Bearer $NEWAPI_API_KEY
 1.  **ドキュメントの長さ**：各ドキュメントは簡潔で明確に保ち、長すぎないようにしてください。長いドキュメントは自動的に切り詰められます。
 2.  **構造化データ**：最適なパフォーマンスを得るために、構造化データをYAML文字列としてフォーマットしてください。例：
 
-   ```yaml
-   title: 製品名称
-   price: 9999元
-   features:
-     - 特性1
-     - 特性2
-   ```
+```yaml
+title: 製品名称
+price: 9999元
+features:
+  - 特性1
+  - 特性2
+```
 
 3.  **ドキュメント数**：最適なパフォーマンスを得るために、1つのリクエストで1,000件を超えるドキュメントを送信しないでください。
 

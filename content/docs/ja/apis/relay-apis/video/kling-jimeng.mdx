@@ -17,27 +17,27 @@ POST /v1/video/generations
 
 ### リクエストヘッダー
 
-| パラメータ      | 型     | 必須 | 説明                           |
-| ------------- | ------ | ---- | ------------------------------ |
+| パラメータ    | 型     | 必須 | 説明                                   |
+| ------------- | ------ | ---- | -------------------------------------- |
 | Authorization | string | はい | ユーザー認証トークン (Bearer: sk-xxxx) |
-| Content-Type  | string | はい | application/json               |
+| Content-Type  | string | はい | application/json                       |
 
 ### リクエストパラメータ
 
-| パラメータ        | 型     | 必須 | 説明                                                                 |
-| --------------- | ------- | ---- | -------------------------------------------------------------------- |
-| model           | string  | はい | モデル/スタイルID                                                          |
-| prompt          | string  | はい | テキストプロンプト                                                           |
-| duration        | number  | いいえ | 動画の長さ（秒）                                                       |
-| fps             | integer | いいえ | 動画フレームレート                                                             |
-| height          | integer | いいえ | 動画の高さ                                                             |
-| width           | integer | いいえ | 動画の幅                                                              |
-| image           | string  | いいえ | 画像入力（URL/Base64）                                               |
+| パラメータ      | 型      | 必須   | 説明                                                                                  |
+| --------------- | ------- | ------ | ------------------------------------------------------------------------------------- |
+| model           | string  | はい   | モデル/スタイルID                                                                     |
+| prompt          | string  | はい   | テキストプロンプト                                                                    |
+| duration        | number  | いいえ | 動画の長さ（秒）                                                                      |
+| fps             | integer | いいえ | 動画フレームレート                                                                    |
+| height          | integer | いいえ | 動画の高さ                                                                            |
+| width           | integer | いいえ | 動画の幅                                                                              |
+| image           | string  | いいえ | 画像入力（URL/Base64）                                                                |
 | metadata        | object  | いいえ | プロバイダー固有/カスタムパラメータ（例：negative_prompt, style, quality_level など） |
-| n               | integer | いいえ | 生成する動画の数                                                         |
-| response_format | string  | いいえ | レスポンスフォーマット                                                             |
-| seed            | integer | いいえ | ランダムシード                                                           |
-| user            | string  | いいえ | ユーザー識別子                                                           |
+| n               | integer | いいえ | 生成する動画の数                                                                      |
+| response_format | string  | いいえ | レスポンスフォーマット                                                                |
+| seed            | integer | いいえ | ランダムシード                                                                        |
+| user            | string  | いいえ | ユーザー識別子                                                                        |
 
 ### リクエスト例
 
@@ -120,9 +120,9 @@ GET /v1/video/generations/{task_id}
 
 ### パスパラメータ
 
-| パラメータ    | 型     | 必須 | 説明   |
-| ------- | ------ | ---- | ------ |
-| task_id | string | はい | タスクID |
+| パラメータ | 型     | 必須 | 説明     |
+| ---------- | ------ | ---- | -------- |
+| task_id    | string | はい | タスクID |
 
 ### リクエスト例
 
@@ -153,14 +153,14 @@ curl 'https://你的newapi服务器地址/v1/video/generations/{task_id}'
 
 #### レスポンスフィールドの説明
 
-| フィールド   | 型     | 説明                                                          |
-| -------- | ------ | ------------------------------------------------------------- |
-| task_id  | string | タスクID                                                        |
-| status   | string | タスクステータス（processing: 処理中, succeeded: 成功, failed: 失敗） |
-| format   | string | 動画フォーマット                                                      |
-| url      | string | 動画リソースURL（成功時）                                         |
-| metadata | object | 結果メタデータ                                                    |
-| error    | object | エラー情報（成功時はnull）                                      |
+| フィールド | 型     | 説明                                                                  |
+| ---------- | ------ | --------------------------------------------------------------------- |
+| task_id    | string | タスクID                                                              |
+| status     | string | タスクステータス（processing: 処理中, succeeded: 成功, failed: 失敗） |
+| format     | string | 動画フォーマット                                                      |
+| url        | string | 動画リソースURL（成功時）                                             |
+| metadata   | object | 結果メタデータ                                                        |
+| error      | object | エラー情報（成功時はnull）                                            |
 
 ## エラーレスポンス
 

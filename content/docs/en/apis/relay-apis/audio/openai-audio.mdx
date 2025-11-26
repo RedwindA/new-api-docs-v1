@@ -110,131 +110,131 @@ Where `$NEWAPI_API_KEY` is your API key.
 
 ##### `model`
 
--   Type: String
--   Required: Yes
--   Possible values: tts-1, tts-1-hd
--   Description: The TTS model to use
+- Type: String
+- Required: Yes
+- Possible values: tts-1, tts-1-hd
+- Description: The TTS model to use
 
 ##### `input`
 
--   Type: String
--   Required: Yes
--   Max length: 4096 characters
--   Description: The text to convert to speech
+- Type: String
+- Required: Yes
+- Max length: 4096 characters
+- Description: The text to convert to speech
 
 ##### `voice`
 
--   Type: String
--   Required: Yes
--   Possible values: alloy, echo, fable, onyx, nova, shimmer
--   Description: The voice to use when generating speech
+- Type: String
+- Required: Yes
+- Possible values: alloy, echo, fable, onyx, nova, shimmer
+- Description: The voice to use when generating speech
 
 ##### `response_format`
 
--   Type: String
--   Required: No
--   Default: mp3
--   Possible values: mp3, opus, aac, flac, wav, pcm
--   Description: The audio output format
+- Type: String
+- Required: No
+- Default: mp3
+- Possible values: mp3, opus, aac, flac, wav, pcm
+- Description: The audio output format
 
 ##### `speed`
 
--   Type: Number
--   Required: No
--   Default: 1.0
--   Range: 0.25 - 4.0
--   Description: The speed of the generated speech
+- Type: Number
+- Required: No
+- Default: 1.0
+- Range: 0.25 - 4.0
+- Description: The speed of the generated speech
 
 #### Speech-to-Text
 
 ##### `file`
 
--   Type: File
--   Required: Yes
--   Supported formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, webm
--   Description: The audio file to transcribe
+- Type: File
+- Required: Yes
+- Supported formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, webm
+- Description: The audio file to transcribe
 
 ##### `model`
 
--   Type: String
--   Required: Yes
--   Currently only supports: whisper-1
--   Description: The ID of the model to use
+- Type: String
+- Required: Yes
+- Currently only supports: whisper-1
+- Description: The ID of the model to use
 
 ##### `language`
 
--   Type: String
--   Required: No
--   Format: ISO-639-1 (e.g., "en")
--   Description: The language of the audio, providing it can improve accuracy
+- Type: String
+- Required: No
+- Format: ISO-639-1 (e.g., "en")
+- Description: The language of the audio, providing it can improve accuracy
 
 ##### `prompt`
 
--   Type: String
--   Required: No
--   Description: Text used to guide the model's style or continue a previous audio segment
+- Type: String
+- Required: No
+- Description: Text used to guide the model's style or continue a previous audio segment
 
 ##### `response_format`
 
--   Type: String
--   Required: No
--   Default: json
--   Possible values: json, text, srt, verbose_json, vtt
--   Description: The output format
+- Type: String
+- Required: No
+- Default: json
+- Possible values: json, text, srt, verbose_json, vtt
+- Description: The output format
 
 ##### `temperature`
 
--   Type: Number
--   Required: No
--   Default: 0
--   Range: 0 - 1
--   Description: Sampling temperature, higher values make the output more random
+- Type: Number
+- Required: No
+- Default: 0
+- Range: 0 - 1
+- Description: Sampling temperature, higher values make the output more random
 
 ##### `timestamp_granularities`
 
--   Type: Array
--   Required: No
--   Default: segment
--   Possible values: word, segment
--   Description: The timestamp granularities for the transcription
+- Type: Array
+- Required: No
+- Default: segment
+- Possible values: word, segment
+- Description: The timestamp granularities for the transcription
 
 #### Audio Translation
 
 ##### `file`
 
--   Type: File
--   Required: Yes
--   Supported formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, webm
--   Description: The audio file to translate
+- Type: File
+- Required: Yes
+- Supported formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, webm
+- Description: The audio file to translate
 
 ##### `model`
 
--   Type: String
--   Required: Yes
--   Currently only supports: whisper-1
--   Description: The ID of the model to use
+- Type: String
+- Required: Yes
+- Currently only supports: whisper-1
+- Description: The ID of the model to use
 
 ##### `prompt`
 
--   Type: String
--   Required: No
--   Description: English text used to guide the model's style
+- Type: String
+- Required: No
+- Description: English text used to guide the model's style
 
 ##### `response_format`
 
--   Type: String
--   Required: No
--   Default: json
--   Possible values: json, text, srt, verbose_json, vtt
--   Description: The output format
+- Type: String
+- Required: No
+- Default: json
+- Possible values: json, text, srt, verbose_json, vtt
+- Description: The output format
 
 ##### `temperature`
 
--   Type: Number
--   Required: No
--   Default: 0
--   Range: 0 - 1
--   Description: Sampling temperature, higher values make the output more random
+- Type: Number
+- Required: No
+- Default: 0
+- Range: 0 - 1
+- Description: Sampling temperature, higher values make the output more random
 
 ## 📥 Responses
 
@@ -293,10 +293,10 @@ When a request encounters an issue, the API will return an error response object
 
 #### Common Error Status Codes
 
--   `400 Bad Request`: Invalid request parameters
--   `401 Unauthorized`: Invalid or missing API key
--   `429 Too Many Requests`: API call limit exceeded
--   `500 Internal Server Error`: Internal server error
+- `400 Bad Request`: Invalid request parameters
+- `401 Unauthorized`: Invalid or missing API key
+- `429 Too Many Requests`: API call limit exceeded
+- `500 Internal Server Error`: Internal server error
 
 Error response example:
 
