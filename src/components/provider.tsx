@@ -36,7 +36,7 @@ export function Provider({
   return (
     <RootProvider i18n={i18n}>
       <Banner id="api-docs-upgrade" variant="rainbow">
-        {text.message}{' '}
+        {text.message}&nbsp;
         <Link
           href="https://docs.newapi.pro/api/auth-system-description/"
           target="_blank"
