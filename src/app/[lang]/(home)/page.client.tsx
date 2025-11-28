@@ -43,18 +43,18 @@ export function Hero() {
       {mounted && (
         <div
           className={cn(
-            'absolute max-lg:bottom-[-20%] max-lg:left-[-100px] lg:top-[-5%] lg:right-[10%]',
+            'absolute hidden lg:top-[10%] lg:right-[10%] lg:block',
             logoReady
               ? 'animate-in fade-in zoom-in-95 duration-700'
               : 'invisible'
           )}
         >
           <Image
-            src="/assets/logo.png"
+            src="/assets/newapi.svg"
             alt="logo"
-            width={500}
-            height={500}
-            className="drop-shadow-2xl"
+            width={288}
+            height={288}
+            className="size-32 drop-shadow-2xl sm:size-40 md:size-56 lg:size-72"
             onLoad={() => setLogoReady(true)}
             priority
           />

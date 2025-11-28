@@ -26,10 +26,10 @@ export const linkItems: LinkItemType[] = [
 export const logo = (
   <Image
     alt="New API"
-    src="/assets/logo.png"
+    src="/assets/newapi.svg"
     width={24}
     height={24}
-    className="size-8"
+    className="size-6"
     priority
     unoptimized
   />
