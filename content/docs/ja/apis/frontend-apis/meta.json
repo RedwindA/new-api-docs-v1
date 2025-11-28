@@ -1,9 +1,0 @@
-{
-  "title": "フロントエンドAPI",
-  "icon": "Layout",
-  "pages": [
-    "auth-system-description",
-    "get-available-models-list",
-    "module-guide"
-  ]
-}

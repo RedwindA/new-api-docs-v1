@@ -40,7 +40,11 @@ const footerContent: Record<
         links: [
           { label: '安装部署', href: 'docs/installation' },
           { label: '使用指南', href: 'docs/guide/home' },
-          { label: 'API 文档', href: 'docs/apis' },
+          {
+            label: 'API 文档',
+            href: 'https://apifox.newapi.ai/',
+            external: true,
+          },
         ],
       },
       {
@@ -153,7 +157,11 @@ const footerContent: Record<
         links: [
           { label: 'Installation', href: 'docs/installation' },
           { label: 'User Guide', href: 'docs/guide/home' },
-          { label: 'API Docs', href: 'docs/apis' },
+          {
+            label: 'API Docs',
+            href: 'https://apifox.newapi.ai/',
+            external: true,
+          },
         ],
       },
       {
@@ -266,7 +274,11 @@ const footerContent: Record<
         links: [
           { label: 'インストール', href: 'docs/installation' },
           { label: 'ユーザーガイド', href: 'docs/guide/home' },
-          { label: 'APIドキュメント', href: 'docs/apis' },
+          {
+            label: 'APIドキュメント',
+            href: 'https://apifox.newapi.ai/',
+            external: true,
+          },
         ],
       },
       {
