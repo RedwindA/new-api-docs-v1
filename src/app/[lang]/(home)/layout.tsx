@@ -16,6 +16,7 @@ import {
   HelpCircle,
   Sparkles,
   Briefcase,
+  FileCode,
   type LucideIcon,
 } from 'lucide-react';
 import { getLocalePath } from '@/lib/i18n';
@@ -152,6 +153,7 @@ export default async function Layout({
             on: 'menu',
             text: texts.apiDocs.text,
             url: 'https://apifox.newapi.ai/',
+            icon: <FileCode />,
             external: true,
           },
           // 桌面端导航

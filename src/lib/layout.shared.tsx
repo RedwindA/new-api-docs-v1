@@ -27,9 +27,9 @@ export const logo = (
   <Image
     alt="New API"
     src="/assets/newapi.svg"
-    width={24}
-    height={24}
-    className="size-6"
+    width={20}
+    height={20}
+    className="size-5"
     priority
     unoptimized
   />
