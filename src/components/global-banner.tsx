@@ -9,27 +9,27 @@ import type { ComponentProps } from 'react';
 // ============================================
 const BANNER_CONFIG = {
   // banner 唯一标识，用于记住用户是否关闭过
-  id: 'api-docs-upgrade',
+  id: 'docs-renewal-notice',
 
   // banner 样式: 'rainbow' | 'normal'
   variant: 'rainbow' as const,
 
   // 链接地址
-  linkUrl: 'https://docs.newapi.pro/api/auth-system-description/',
+  linkUrl: 'https://doc.newapi.pro',
 
   // 多语言文本配置
   text: {
     en: {
-      message: 'API docs upgrading. For non-relay API docs, visit',
-      linkText: 'docs.newapi.pro',
+      message: 'Documentation renewed! For old docs, visit',
+      linkText: 'doc.newapi.pro',
     },
     zh: {
-      message: 'API 文档升级中，非中继接口文档请访问',
-      linkText: 'docs.newapi.pro',
+      message: '文档焕新，旧文档请访问',
+      linkText: 'doc.newapi.pro',
     },
     ja: {
-      message: 'APIドキュメント更新中。非中継APIドキュメントは',
-      linkText: 'docs.newapi.pro',
+      message: 'ドキュメントが一新されました！旧ドキュメントは',
+      linkText: 'doc.newapi.pro',
     },
   } as Record<string, { message: string; linkText: string }>,
 };
