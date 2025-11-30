@@ -1,21 +1,61 @@
 import { generateFiles } from 'fumadocs-openapi';
-import { openapi } from '../src/lib/openapi';
+import { createOpenAPI } from 'fumadocs-openapi/server';
 
-void generateFiles({
-  input: openapi,
-  // 输出目录 - 生成的 MDX 文件将放在这里
-  output: './content/docs/zh/api',
-  // 按 tag 分组，每个 tag 生成一个页面
-  per: 'tag',
-  // 包含 API 描述
-  includeDescription: true,
-  // 添加自动生成注释
-  addGeneratedComment: true,
-})
+// AI Model API (relay.json)
+const relayAPI = createOpenAPI({
+  input: [
+    'https://raw.githubusercontent.com/QuantumNous/new-api/refs/heads/main/docs/openapi/relay.json',
+  ],
+});
+
+// Management API (api.json)
+const managementAPI = createOpenAPI({
+  input: [
+    'https://raw.githubusercontent.com/QuantumNous/new-api/refs/heads/main/docs/openapi/api.json',
+  ],
+});
+
+async function generate() {
+  // Generate AI Model API - each operation as separate file, grouped by tag
+  await generateFiles({
+    input: relayAPI,
+    output: './content/docs/zh/api/ai-model',
+    per: 'operation',
+    groupBy: 'tag',
+    includeDescription: true,
+    addGeneratedComment: true,
+  });
+  console.log('✅ AI Model API docs generated!');
+
+  // Generate Management API - each operation as separate file, grouped by tag
+  await generateFiles({
+    input: managementAPI,
+    output: './content/docs/zh/api/management',
+    per: 'operation',
+    groupBy: 'tag',
+    includeDescription: true,
+    addGeneratedComment: true,
+    // Simplify file names since api.json doesn't have operationId
+    name(output) {
+      if (output.type !== 'operation') return output.path;
+      // Convert route path to simple file name
+      // e.g., /api/about -> about, /api/user/login -> user-login
+      const path = output.item.path
+        .replace(/^\/api\//, '') // Remove /api/ prefix
+        .replace(/\/+$/, '') // Remove trailing slashes to avoid double dashes
+        .replace(/\//g, '-') // Replace remaining slashes with dashes
+        .replace(/[{}]/g, ''); // Remove path parameter brackets
+      return `${path}-${output.item.method}`;
+    },
+  });
+  console.log('✅ Management API docs generated!');
+}
+
+generate()
   .then(() => {
-    console.log('✅ OpenAPI 文档生成完成！');
+    console.log('✅ All OpenAPI docs generated!');
   })
   .catch((err) => {
-    console.error('❌ 生成失败:', err);
+    console.error('❌ Generation failed:', err);
     process.exit(1);
   });
