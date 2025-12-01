@@ -521,7 +521,7 @@ async function processFiles(
 // Main Function
 // ============================================================================
 
-async function translateDocs(specificFiles?: string[]) {
+async function translateDocs(specificPaths?: string[]) {
   console.log('═══════════════════════════════════════════════');
   console.log('🌐 Starting document translation...');
   console.log('═══════════════════════════════════════════════\n');
@@ -532,29 +532,41 @@ async function translateDocs(specificFiles?: string[]) {
   // Determine files to translate
   let filesToTranslate: string[];
 
-  if (specificFiles && specificFiles.length > 0) {
-    filesToTranslate = specificFiles
-      .map((file) => path.resolve(file))
-      .filter((file) => {
-        const languageDirs = Object.values(LANGUAGES).map((l) => `/${l.dir}/`);
+  if (specificPaths && specificPaths.length > 0) {
+    filesToTranslate = [];
+    const languageDirs = Object.values(LANGUAGES).map((l) => `/${l.dir}/`);
 
-        if (languageDirs.some((dir) => file.includes(dir))) {
-          console.log(`⏭  Skipping translated file: ${file}`);
-          return false;
+    for (const inputPath of specificPaths) {
+      const resolvedPath = path.resolve(inputPath);
+
+      // Check if it's a translated directory (en/ja)
+      if (languageDirs.some((dir) => resolvedPath.includes(dir))) {
+        console.log(`⏭  Skipping translated path: ${resolvedPath}`);
+        continue;
+      }
+
+      if (!fs.existsSync(resolvedPath)) {
+        console.warn(`⚠ Path not found: ${resolvedPath}`);
+        continue;
+      }
+
+      const stat = fs.statSync(resolvedPath);
+
+      if (stat.isDirectory()) {
+        // It's a directory - collect all markdown files
+        console.log(`📁 Collecting files from directory: ${inputPath}`);
+        const dirFiles = collectMarkdownFiles(resolvedPath);
+        console.log(`   Found ${dirFiles.length} markdown file(s)`);
+        filesToTranslate.push(...dirFiles);
+      } else if (stat.isFile()) {
+        // It's a file
+        if (!/\.(md|mdx)$/i.test(resolvedPath)) {
+          console.warn(`⚠ Not a markdown file: ${resolvedPath}`);
+          continue;
         }
-
-        if (!fs.existsSync(file)) {
-          console.warn(`⚠ File not found: ${file}`);
-          return false;
-        }
-
-        if (!/\.(md|mdx)$/i.test(file)) {
-          console.warn(`⚠ Not a markdown file: ${file}`);
-          return false;
-        }
-
-        return true;
-      });
+        filesToTranslate.push(resolvedPath);
+      }
+    }
   } else {
     const zhDir = path.join(DOCS_DIR, 'zh');
     filesToTranslate = collectMarkdownFiles(zhDir);
