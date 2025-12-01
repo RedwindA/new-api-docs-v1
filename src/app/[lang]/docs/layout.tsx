@@ -5,6 +5,8 @@ import { Footer } from '@/components/footer';
 // AI 功能暂时禁用
 // import { AISearchTrigger } from '@/components/search';
 import 'katex/dist/katex.min.css';
+import { notFound } from 'next/navigation';
+import { i18n } from '@/lib/i18n';
 
 export default async function Layout({
   params,
@@ -14,6 +16,12 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   const { lang } = await params;
+
+  // 检查语言是否有效，防止无效语言代码（如 'api'）导致错误
+  if (!i18n.languages.includes(lang as (typeof i18n.languages)[number])) {
+    notFound();
+  }
+
   const base = baseOptions(lang);
 
   return (

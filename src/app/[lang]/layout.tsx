@@ -4,6 +4,7 @@ import { Provider } from '@/components/provider';
 import '../global.css';
 import type { Metadata } from 'next';
 import { createMetadata, baseUrl } from '@/lib/metadata';
+import { notFound } from 'next/navigation';
 
 const { provider } = defineI18nUI(i18n, {
   translations: {
@@ -126,6 +127,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const lang = (await params).lang;
+
+  // 检查语言是否有效，防止无效语言代码（如 'api'）导致错误
+  if (!i18n.languages.includes(lang as (typeof i18n.languages)[number])) {
+    notFound();
+  }
 
   return (
     <Provider i18n={provider(lang)} lang={lang}>
