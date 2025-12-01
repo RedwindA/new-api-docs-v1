@@ -3,5 +3,5 @@
   "description": "New API Documentation",
   "icon": "Code",
   "root": true,
-  "pages": ["ai-model", "management"]
+  "pages": ["index", "ai-model", "management"]
 }

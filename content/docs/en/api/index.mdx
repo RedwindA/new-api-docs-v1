@@ -1,0 +1,248 @@
+---
+title: API Reference
+description: Complete New API Documentation
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import {
+  Brain,
+  Settings,
+  MessageSquare,
+  Bot,
+  Sparkles,
+  FileText,
+  Database,
+  Search,
+  ShieldCheck,
+  Headphones,
+  Radio,
+  Image,
+  Video,
+  FileQuestion,
+  Server,
+  Sliders,
+  UserCheck,
+  Users,
+  KeyRound,
+  Link2,
+  Network,
+  Blocks,
+  Key,
+  Ticket,
+  CreditCard,
+  ScrollText,
+  BarChart3,
+  ListTodo,
+  FolderKanban,
+  Store,
+  ShieldAlert,
+  List,
+} from 'lucide-react';
+
+## Overview
+
+New API provides a complete set of RESTful APIs, divided into **AI Model APIs** and **Management APIs**. You can use these APIs to access AI capabilities and manage your system.
+
+<Callout title="Online Debugging">
+  Visit the [Apifox Playground](https://apifox.newapi.ai/) to test and debug all API endpoints online.
+</Callout>
+
+## AI Model APIs
+
+AI Model APIs provide access to various AI capabilities, compatible with OpenAI API format.
+
+<Cards>
+  <Card
+    icon={<List />}
+    title="List Models"
+    description="Get available model list."
+    href="/en/docs/api/ai-model/list-models/list-models"
+  />
+  <Card
+    icon={<MessageSquare />}
+    title="OpenAI Chat"
+    description="OpenAI format chat completion API."
+    href="/en/docs/api/ai-model/openai-chat/create-chat-completion"
+  />
+  <Card
+    icon={<Bot />}
+    title="Claude Messages"
+    description="Anthropic Claude messages API."
+    href="/en/docs/api/ai-model/claude-messages/create-message"
+  />
+  <Card
+    icon={<Sparkles />}
+    title="Gemini"
+    description="Google Gemini model API."
+    href="/en/docs/api/ai-model/gemini/gemini-relay-v1-beta"
+  />
+  <Card
+    icon={<MessageSquare />}
+    title="OpenAI Responses"
+    description="OpenAI Responses API."
+    href="/en/docs/api/ai-model/openai-responses/create-response"
+  />
+  <Card
+    icon={<FileText />}
+    title="Completions"
+    description="Legacy text completion API."
+    href="/en/docs/api/ai-model/completions/create-completion"
+  />
+  <Card
+    icon={<Database />}
+    title="Embeddings"
+    description="Text embedding generation API."
+    href="/en/docs/api/ai-model/embeddings/create-embedding"
+  />
+  <Card
+    icon={<Search />}
+    title="Rerank"
+    description="Document reranking API."
+    href="/en/docs/api/ai-model/rerank/create-rerank"
+  />
+  <Card
+    icon={<ShieldCheck />}
+    title="Moderations"
+    description="Content moderation API."
+    href="/en/docs/api/ai-model/moderations/create-moderation"
+  />
+  <Card
+    icon={<Headphones />}
+    title="Audio"
+    description="Speech recognition and synthesis API."
+    href="/en/docs/api/ai-model/audio/create-speech"
+  />
+  <Card
+    icon={<Radio />}
+    title="Realtime"
+    description="Realtime audio streaming API."
+    href="/en/docs/api/ai-model/realtime/create-realtime-session"
+  />
+  <Card
+    icon={<Image />}
+    title="Image Generation"
+    description="AI image generation API."
+    href="/en/docs/api/ai-model/image-generation/edit-images/qwen/create-image"
+  />
+  <Card
+    icon={<Video />}
+    title="Video Generation"
+    description="AI video generation API."
+    href="/en/docs/api/ai-model/video-generation/create-video-generation"
+  />
+  <Card
+    icon={<FileQuestion />}
+    title="Not Implemented"
+    description="Placeholder APIs, not yet implemented."
+    href="/en/docs/api/ai-model/not-implemented/files/list-files"
+  />
+</Cards>
+
+## Management APIs
+
+Management APIs are used for system configuration, user management, and business operations.
+
+<Cards>
+  <Card
+    icon={<Server />}
+    title="System"
+    description="System information and status APIs."
+    href="/en/docs/api/management/system/status-get"
+  />
+  <Card
+    icon={<Sliders />}
+    title="System Settings"
+    description="System configuration management APIs."
+    href="/en/docs/api/management/system-settings/option-get"
+  />
+  <Card
+    icon={<UserCheck />}
+    title="User Auth"
+    description="User login, registration, and password APIs."
+    href="/en/docs/api/management/user-auth/user-login-post"
+  />
+  <Card
+    icon={<Users />}
+    title="User Management"
+    description="User information management APIs."
+    href="/en/docs/api/management/user-management/user-self-get"
+  />
+  <Card
+    icon={<KeyRound />}
+    title="Two-Factor Auth"
+    description="2FA two-factor authentication APIs."
+    href="/en/docs/api/management/two-factor-auth/user-2fa-status-get"
+  />
+  <Card
+    icon={<Link2 />}
+    title="OAuth"
+    description="Third-party OAuth login APIs."
+    href="/en/docs/api/management/oauth/oauth-github-get"
+  />
+  <Card
+    icon={<Network />}
+    title="Channel Management"
+    description="API channel configuration APIs."
+    href="/en/docs/api/management/channel-management/channel-get"
+  />
+  <Card
+    icon={<Blocks />}
+    title="Model Management"
+    description="Model configuration management APIs."
+    href="/en/docs/api/management/model-management/models-get"
+  />
+  <Card
+    icon={<Key />}
+    title="Token Management"
+    description="API token management APIs."
+    href="/en/docs/api/management/token-management/token-get"
+  />
+  <Card
+    icon={<Ticket />}
+    title="Redemption"
+    description="Redemption code management APIs."
+    href="/en/docs/api/management/redemption/redemption-get"
+  />
+  <Card
+    icon={<CreditCard />}
+    title="Payment"
+    description="Payment and top-up APIs."
+    href="/en/docs/api/management/payment/user-topup-info-get"
+  />
+  <Card
+    icon={<ScrollText />}
+    title="Logs"
+    description="Usage log query APIs."
+    href="/en/docs/api/management/logs/log-get"
+  />
+  <Card
+    icon={<BarChart3 />}
+    title="Statistics"
+    description="Data statistics APIs."
+    href="/en/docs/api/management/statistics/data-get"
+  />
+  <Card
+    icon={<ListTodo />}
+    title="Tasks"
+    description="Async task management APIs."
+    href="/en/docs/api/management/tasks/task-get"
+  />
+  <Card
+    icon={<FolderKanban />}
+    title="Groups"
+    description="User group management APIs."
+    href="/en/docs/api/management/groups/group-get"
+  />
+  <Card
+    icon={<Store />}
+    title="Vendors"
+    description="Vendor management APIs."
+    href="/en/docs/api/management/vendors/vendors-get"
+  />
+  <Card
+    icon={<ShieldAlert />}
+    title="Security Verification"
+    description="Security verification APIs."
+    href="/en/docs/api/management/security-verification/verify-status-get"
+  />
+</Cards>

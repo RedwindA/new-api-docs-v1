@@ -31,6 +31,19 @@ function convertTagToEnglish(
   return convertedParts.join('/');
 }
 
+/**
+ * Convert camelCase to kebab-case
+ * e.g., "createMessage" -> "create-message"
+ *       "createChatCompletion" -> "create-chat-completion"
+ *       "listModelsGemini" -> "list-models-gemini"
+ */
+function camelToKebab(str: string): string {
+  return str
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/([A-Z])([A-Z][a-z])/g, '$1-$2')
+    .toLowerCase();
+}
+
 async function generate() {
   // Generate AI Model API docs with custom path control
   await generateFiles({
@@ -55,12 +68,14 @@ async function generate() {
         const operationId =
           operation.operationId ||
           `${op.path.replace(/\//g, '-').replace(/^-/, '')}-${op.method}`;
+        // Convert camelCase operationId to kebab-case for consistent file naming
+        const fileName = camelToKebab(operationId);
 
         const entry: OperationOutput = {
           type: 'operation',
           schemaId: builder.id,
           item: op,
-          path: `${englishTag}/${operationId}.mdx`,
+          path: `${englishTag}/${fileName}.mdx`,
           info: {
             title: displayName,
             description: operation.description || pathItem.description,
