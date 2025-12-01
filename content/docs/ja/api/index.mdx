@@ -1,6 +1,6 @@
 ---
-title: API リファレンス
-description: New API 完全ドキュメント
+title: APIリファレンス
+description: New API の完全なインターフェースドキュメント
 ---
 
 import { Card, Cards } from 'fumadocs-ui/components/card';
@@ -41,208 +41,208 @@ import {
 
 ## 概要
 
-New API は完全な RESTful API を提供し、**AI モデル API** と **管理 API** の 2 つのカテゴリに分かれています。これらの API を使用して、AI 機能の呼び出しとシステム管理を行うことができます。
+New API は、**AIモデルインターフェース**と**管理インターフェース**の2つの主要なカテゴリに分けられた完全なRESTful APIインターフェースを提供します。これらのインターフェースを通じて、AI機能の呼び出しとシステム管理機能を実現できます。
 
 <Callout title="オンラインデバッグ">
-  [Apifox プレイグラウンド](https://apifox.newapi.ai/) にアクセスして API エンドポイントをオンラインでテストするか、以下の API ドキュメントを参照してください。
+  [Apifox 演習場](https://apifox.newapi.ai/) にアクセスしてAPIインターフェースをオンラインでテストおよびデバッグするか、以下のAPIドキュメントを参照してください。
 </Callout>
 
-## AI モデル API
+## AIモデルインターフェース
 
-AI モデル API は、OpenAI API 形式と互換性のある様々な AI 機能へのアクセスを提供します。
+AIモデルインターフェースは、OpenAI API形式と互換性のある様々なAI機能の呼び出しを提供します。
 
 <Cards>
   <Card
     icon={<List />}
-    title="モデル一覧"
-    description="利用可能なモデル一覧を取得。"
+    title="モデルリスト"
+    description="利用可能なモデルリストを取得します。"
     href="/ja/docs/api/ai-model/list-models/list-models"
   />
   <Card
     icon={<MessageSquare />}
     title="OpenAI Chat"
-    description="OpenAI 形式のチャット補完 API。"
+    description="OpenAI形式のチャット補完インターフェース。"
     href="/ja/docs/api/ai-model/openai-chat/create-chat-completion"
   />
   <Card
     icon={<Bot />}
     title="Claude Messages"
-    description="Anthropic Claude メッセージ API。"
+    description="Anthropic Claude メッセージインターフェース。"
     href="/ja/docs/api/ai-model/claude-messages/create-message"
   />
   <Card
     icon={<Sparkles />}
     title="Gemini"
-    description="Google Gemini モデル API。"
+    description="Google Gemini モデルインターフェース。"
     href="/ja/docs/api/ai-model/gemini/gemini-relay-v1-beta"
   />
   <Card
     icon={<MessageSquare />}
     title="OpenAI Responses"
-    description="OpenAI Responses API。"
+    description="OpenAI Responses APIインターフェース。"
     href="/ja/docs/api/ai-model/openai-responses/create-response"
   />
   <Card
     icon={<FileText />}
     title="テキスト補完"
-    description="従来のテキスト補完 API。"
+    description="従来のテキスト補完インターフェース。"
     href="/ja/docs/api/ai-model/completions/create-completion"
   />
   <Card
     icon={<Database />}
-    title="埋め込み"
-    description="テキスト埋め込み生成 API。"
+    title="埋め込みベクトル"
+    description="テキスト埋め込みベクトル生成インターフェース。"
     href="/ja/docs/api/ai-model/embeddings/create-embedding"
   />
   <Card
     icon={<Search />}
-    title="リランキング"
-    description="ドキュメントリランキング API。"
+    title="並べ替え"
+    description="ドキュメント並べ替えインターフェース。"
     href="/ja/docs/api/ai-model/rerank/create-rerank"
   />
   <Card
     icon={<ShieldCheck />}
-    title="モデレーション"
-    description="コンテンツモデレーション API。"
+    title="コンテンツモデレーション"
+    description="コンテンツセキュリティ監査インターフェース。"
     href="/ja/docs/api/ai-model/moderations/create-moderation"
   />
   <Card
     icon={<Headphones />}
     title="オーディオ"
-    description="音声認識と音声合成 API。"
+    description="音声認識および音声合成インターフェース。"
     href="/ja/docs/api/ai-model/audio/create-speech"
   />
   <Card
     icon={<Radio />}
-    title="リアルタイム"
-    description="リアルタイムオーディオストリーミング API。"
+    title="リアルタイムオーディオ"
+    description="リアルタイムオーディオストリームインターフェース。"
     href="/ja/docs/api/ai-model/realtime/create-realtime-session"
   />
   <Card
     icon={<Image />}
     title="画像生成"
-    description="AI 画像生成 API。"
+    description="AI画像生成インターフェース。"
     href="/ja/docs/api/ai-model/image-generation/edit-images/qwen/create-image"
   />
   <Card
     icon={<Video />}
     title="動画生成"
-    description="AI 動画生成 API。"
+    description="AI動画生成インターフェース。"
     href="/ja/docs/api/ai-model/video-generation/create-video-generation"
   />
   <Card
     icon={<FileQuestion />}
-    title="未実装"
-    description="プレースホルダー API、未実装。"
+    title="未実装インターフェース"
+    description="プレースホルダーインターフェース、現在未実装。"
     href="/ja/docs/api/ai-model/not-implemented/files/list-files"
   />
 </Cards>
 
-## 管理 API
+## 管理インターフェース
 
-管理 API は、システム設定、ユーザー管理、ビジネス運営に使用されます。
+管理インターフェースは、システム設定、ユーザー管理、ビジネス管理などのバックエンド操作に使用されます。
 
 <Cards>
   <Card
     icon={<Server />}
     title="システム"
-    description="システム情報とステータス API。"
+    description="システム情報とステータスインターフェース。"
     href="/ja/docs/api/management/system/status-get"
   />
   <Card
     icon={<Sliders />}
     title="システム設定"
-    description="システム構成管理 API。"
+    description="システム設定管理インターフェース。"
     href="/ja/docs/api/management/system-settings/option-get"
   />
   <Card
     icon={<UserCheck />}
     title="ユーザー認証"
-    description="ユーザーログイン、登録、パスワード API。"
+    description="ユーザーログイン、登録、パスワード管理などのインターフェース。"
     href="/ja/docs/api/management/user-auth/user-login-post"
   />
   <Card
     icon={<Users />}
     title="ユーザー管理"
-    description="ユーザー情報管理 API。"
+    description="ユーザー情報管理インターフェース。"
     href="/ja/docs/api/management/user-management/user-self-get"
   />
   <Card
     icon={<KeyRound />}
     title="二要素認証"
-    description="2FA 二要素認証 API。"
+    description="2FA二要素認証インターフェース。"
     href="/ja/docs/api/management/two-factor-auth/user-2fa-status-get"
   />
   <Card
     icon={<Link2 />}
     title="OAuth"
-    description="サードパーティ OAuth ログイン API。"
+    description="サードパーティOAuthログインインターフェース。"
     href="/ja/docs/api/management/oauth/oauth-github-get"
   />
   <Card
     icon={<Network />}
     title="チャネル管理"
-    description="API チャネル設定 API。"
+    description="APIチャネル設定管理インターフェース。"
     href="/ja/docs/api/management/channel-management/channel-get"
   />
   <Card
     icon={<Blocks />}
     title="モデル管理"
-    description="モデル設定管理 API。"
+    description="モデル設定管理インターフェース。"
     href="/ja/docs/api/management/model-management/models-get"
   />
   <Card
     icon={<Key />}
     title="トークン管理"
-    description="API トークン管理 API。"
+    description="APIトークン管理インターフェース。"
     href="/ja/docs/api/management/token-management/token-get"
   />
   <Card
     icon={<Ticket />}
     title="引き換えコード"
-    description="引き換えコード管理 API。"
+    description="引き換えコード管理インターフェース。"
     href="/ja/docs/api/management/redemption/redemption-get"
   />
   <Card
     icon={<CreditCard />}
     title="支払い"
-    description="支払いとチャージ API。"
+    description="支払いとチャージインターフェース。"
     href="/ja/docs/api/management/payment/user-topup-info-get"
   />
   <Card
     icon={<ScrollText />}
     title="ログ"
-    description="使用ログ照会 API。"
+    description="使用ログ照会インターフェース。"
     href="/ja/docs/api/management/logs/log-get"
   />
   <Card
     icon={<BarChart3 />}
     title="統計"
-    description="データ統計 API。"
+    description="データ統計インターフェース。"
     href="/ja/docs/api/management/statistics/data-get"
   />
   <Card
     icon={<ListTodo />}
     title="タスク"
-    description="非同期タスク管理 API。"
+    description="非同期タスク管理インターフェース。"
     href="/ja/docs/api/management/tasks/task-get"
   />
   <Card
     icon={<FolderKanban />}
     title="グループ"
-    description="ユーザーグループ管理 API。"
+    description="ユーザーグループ管理インターフェース。"
     href="/ja/docs/api/management/groups/group-get"
   />
   <Card
     icon={<Store />}
     title="ベンダー"
-    description="ベンダー管理 API。"
+    description="ベンダー管理インターフェース。"
     href="/ja/docs/api/management/vendors/vendors-get"
   />
   <Card
     icon={<ShieldAlert />}
     title="セキュリティ検証"
-    description="セキュリティ検証 API。"
+    description="セキュリティ検証関連インターフェース。"
     href="/ja/docs/api/management/security-verification/verify-status-get"
   />
 </Cards>
