@@ -5,11 +5,8 @@ description: New API の完全なインターフェースドキュメント
 
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import {
-  Brain,
-  Settings,
+  List,
   MessageSquare,
-  Bot,
-  Sparkles,
   FileText,
   Database,
   Search,
@@ -36,7 +33,6 @@ import {
   FolderKanban,
   Store,
   ShieldAlert,
-  List,
 } from 'lucide-react';
 
 ## 概要
@@ -56,53 +52,35 @@ AIモデルインターフェースは、OpenAI API形式と互換性のある�
     icon={<List />}
     title="モデルリスト"
     description="利用可能なモデルリストを取得します。"
-    href="/ja/docs/api/ai-model/list-models/list-models"
+    href="/ja/docs/api/ai-model/models/list/list-models"
   />
   <Card
     icon={<MessageSquare />}
-    title="OpenAI Chat"
-    description="OpenAI形式のチャット補完インターフェース。"
-    href="/ja/docs/api/ai-model/openai-chat/create-chat-completion"
-  />
-  <Card
-    icon={<Bot />}
-    title="Claude Messages"
-    description="Anthropic Claude メッセージインターフェース。"
-    href="/ja/docs/api/ai-model/claude-messages/create-message"
-  />
-  <Card
-    icon={<Sparkles />}
-    title="Gemini"
-    description="Google Gemini モデルインターフェース。"
-    href="/ja/docs/api/ai-model/gemini/gemini-relay-v1-beta"
-  />
-  <Card
-    icon={<MessageSquare />}
-    title="OpenAI Responses"
-    description="OpenAI Responses APIインターフェース。"
-    href="/ja/docs/api/ai-model/openai-responses/create-response"
+    title="チャット"
+    description="チャット補完インターフェース。"
+    href="/ja/docs/api/ai-model/chat/openai/create-chat-completion"
   />
   <Card
     icon={<FileText />}
-    title="テキスト補完"
+    title="補完"
     description="従来のテキスト補完インターフェース。"
     href="/ja/docs/api/ai-model/completions/create-completion"
   />
   <Card
     icon={<Database />}
-    title="埋め込みベクトル"
+    title="埋め込み"
     description="テキスト埋め込みベクトル生成インターフェース。"
     href="/ja/docs/api/ai-model/embeddings/create-embedding"
   />
   <Card
     icon={<Search />}
-    title="並べ替え"
-    description="ドキュメント並べ替えインターフェース。"
+    title="リランク"
+    description="ドキュメントリランクインターフェース。"
     href="/ja/docs/api/ai-model/rerank/create-rerank"
   />
   <Card
     icon={<ShieldCheck />}
-    title="コンテンツモデレーション"
+    title="審査"
     description="コンテンツセキュリティ監査インターフェース。"
     href="/ja/docs/api/ai-model/moderations/create-moderation"
   />
@@ -110,31 +88,31 @@ AIモデルインターフェースは、OpenAI API形式と互換性のある�
     icon={<Headphones />}
     title="オーディオ"
     description="音声認識および音声合成インターフェース。"
-    href="/ja/docs/api/ai-model/audio/create-speech"
+    href="/ja/docs/api/ai-model/audio/openai/create-speech"
   />
   <Card
     icon={<Radio />}
-    title="リアルタイムオーディオ"
+    title="リアルタイム音声"
     description="リアルタイムオーディオストリームインターフェース。"
     href="/ja/docs/api/ai-model/realtime/create-realtime-session"
   />
   <Card
     icon={<Image />}
-    title="画像生成"
+    title="画像"
     description="AI画像生成インターフェース。"
-    href="/ja/docs/api/ai-model/image-generation/edit-images/qwen/create-image"
+    href="/ja/docs/api/ai-model/images/openai/v1-images-generations--post"
   />
   <Card
     icon={<Video />}
-    title="動画生成"
+    title="動画"
     description="AI動画生成インターフェース。"
-    href="/ja/docs/api/ai-model/video-generation/create-video-generation"
+    href="/ja/docs/api/ai-model/videos/sora/create-video"
   />
   <Card
     icon={<FileQuestion />}
-    title="未実装インターフェース"
+    title="未実装"
     description="プレースホルダーインターフェース、現在未実装。"
-    href="/ja/docs/api/ai-model/not-implemented/files/list-files"
+    href="/ja/docs/api/ai-model/unimplemented/files/list-files"
   />
 </Cards>
 

@@ -1,0 +1,5 @@
+{
+  "title": "聊天",
+  "icon": "MessageSquare",
+  "pages": ["openai", "create-message"]
+}

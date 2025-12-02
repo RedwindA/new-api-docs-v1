@@ -3,53 +3,55 @@
  * This allows us to use English paths in URLs while keeping the original Chinese tags in OpenAPI specs
  */
 
-// AI Model API tags (exact match with OpenAPI spec tag names)
+// AI Model API tags (exact match with OpenAPI spec tag names from relay.json)
 export const aiModelTagMapping: Record<string, string> = {
-  // Main tags
-  获取模型列表: 'list-models',
-  'OpenAI格式(Chat)': 'openai-chat',
-  'Claude格式(Messages)': 'claude-messages',
-  Gemini格式: 'gemini',
-  'OpenAI格式(Responses)': 'openai-responses',
-  '文本补全(Completions)': 'completions',
-  'OpenAI格式(Embeddings)': 'embeddings',
-  '重排序(Rerank)': 'rerank',
-  Moderations: 'moderations',
-  'OpenAI音频(Audio)': 'audio',
-  Realtime: 'realtime',
-  图片生成: 'image-generation',
-  视频生成: 'video-generation',
-  未实现: 'not-implemented',
-  // Sub-tags
-  '编辑(Images)': 'edit-images',
-  Qwen千问: 'qwen',
-  Kling格式: 'kling',
-  Sora兼容格式: 'sora-compatible',
+  // Main category tags (parent parts when split by /)
+  '模型（Models）': 'models',
+  '聊天（Chat）': 'chat',
+  '补全（Completions）': 'completions',
+  '图像（Images）': 'images',
+  '视频（Videos）': 'videos',
+  '音频（Audio）': 'audio',
+  '实时语音（Realtime）': 'realtime',
+  '嵌入（Embeddings）': 'embeddings',
+  '重排序（Rerank）': 'rerank',
+  '审查（Moderations）': 'moderations',
+  '未实现（Unimplemented）': 'unimplemented',
+
+  // Sub-category tags (child parts when split by /)
+  列出模型: 'list',
+  原生OpenAI格式: 'openai',
+  通义千问OpenAI格式: 'qwen',
+  原生Gemini格式: 'gemini',
+  Sora格式: 'sora',
+  可灵格式: 'kling',
   即梦格式: 'jimeng',
-  Files: 'files',
-  'Fine-tunes': 'fine-tunes',
-  // Lowercase variants (just in case)
-  'openai格式(chat)': 'openai-chat',
-  'claude格式(messages)': 'claude-messages',
-  gemini格式: 'gemini',
-  'openai格式(responses)': 'openai-responses',
-  'openai格式(embeddings)': 'embeddings',
-  'openai音频(audio)': 'audio',
-  moderations: 'moderations',
-  realtime: 'realtime',
-  files: 'files',
-  'fine-tunes': 'fine-tunes',
+  '微调（Fine-tuning）': 'fine-tuning',
+  '文件（Files）': 'files',
+
+  // Full path tags (for direct matching)
+  '模型（Models）/列出模型': 'models/list',
+  '聊天（Chat）/原生OpenAI格式': 'chat/openai',
+  '图像（Images）/原生OpenAI格式': 'images/openai',
+  '图像（Images）/通义千问OpenAI格式': 'images/qwen',
+  '图像（Images）/原生Gemini格式': 'images/gemini',
+  '视频（Videos）/Sora格式': 'videos/sora',
+  '视频（Videos）/可灵格式': 'videos/kling',
+  '视频（Videos）/即梦格式': 'videos/jimeng',
+  '音频（Audio）/原生OpenAI格式': 'audio/openai',
+  '未实现（Unimplemented）/微调（Fine-tuning）': 'unimplemented/fine-tuning',
+  '未实现（Unimplemented）/文件（Files）': 'unimplemented/files',
 };
 
-// Management API tags (exact match with OpenAPI spec tag names)
+// Management API tags (exact match with OpenAPI spec tag names from api.json)
 export const managementTagMapping: Record<string, string> = {
   系统: 'system',
   系统设置: 'system-settings',
   用户登陆注册: 'user-auth',
   用户管理: 'user-management',
   两步验证: 'two-factor-auth',
+  安全验证: 'security-verification',
   OAuth: 'oauth',
-  oauth: 'oauth',
   渠道管理: 'channel-management',
   模型管理: 'model-management',
   令牌管理: 'token-management',
@@ -57,10 +59,9 @@ export const managementTagMapping: Record<string, string> = {
   充值: 'payment',
   日志: 'logs',
   数据统计: 'statistics',
-  任务: 'tasks',
   分组: 'groups',
+  任务: 'tasks',
   供应商: 'vendors',
-  安全验证: 'security-verification',
 };
 
 // Combined mapping
@@ -73,112 +74,106 @@ export const allTagMapping: Record<string, string> = {
  * Localized titles for each tag in different languages
  */
 export const tagTitles: Record<string, Record<string, string>> = {
-  // AI Model API
-  'list-models': {
+  // AI Model API - Main categories
+  models: {
+    en: 'Models',
+    zh: '模型',
+    ja: 'モデル',
+  },
+  list: {
     en: 'List Models',
-    zh: '获取模型列表',
+    zh: '列出模型',
     ja: 'モデル一覧',
   },
-  'openai-chat': {
-    en: 'OpenAI Chat Format',
-    zh: 'OpenAI格式(Chat)',
-    ja: 'OpenAI形式(Chat)',
+  chat: {
+    en: 'Chat',
+    zh: '聊天',
+    ja: 'チャット',
   },
-  'claude-messages': {
-    en: 'Claude Messages Format',
-    zh: 'Claude格式(Messages)',
-    ja: 'Claude形式(Messages)',
+  openai: {
+    en: 'OpenAI Format',
+    zh: '原生OpenAI格式',
+    ja: 'OpenAI形式',
+  },
+  completions: {
+    en: 'Completions',
+    zh: '补全',
+    ja: '補完',
+  },
+  images: {
+    en: 'Images',
+    zh: '图像',
+    ja: '画像',
+  },
+  qwen: {
+    en: 'Qwen Format',
+    zh: '通义千问格式',
+    ja: 'Qwen形式',
   },
   gemini: {
     en: 'Gemini Format',
     zh: 'Gemini格式',
     ja: 'Gemini形式',
   },
-  'openai-responses': {
-    en: 'OpenAI Responses Format',
-    zh: 'OpenAI格式(Responses)',
-    ja: 'OpenAI形式(Responses)',
+  videos: {
+    en: 'Videos',
+    zh: '视频',
+    ja: '動画',
   },
-  completions: {
-    en: 'Text Completions',
-    zh: '文本补全(Completions)',
-    ja: 'テキスト補完(Completions)',
-  },
-  embeddings: {
-    en: 'Embeddings',
-    zh: 'OpenAI格式(Embeddings)',
-    ja: 'OpenAI形式(Embeddings)',
-  },
-  rerank: {
-    en: 'Rerank',
-    zh: '重排序(Rerank)',
-    ja: 'リランク(Rerank)',
-  },
-  moderations: {
-    en: 'Moderations',
-    zh: 'Moderations',
-    ja: 'Moderations',
-  },
-  audio: {
-    en: 'Audio',
-    zh: 'OpenAI音频(Audio)',
-    ja: 'OpenAI音声(Audio)',
-  },
-  realtime: {
-    en: 'Realtime',
-    zh: 'Realtime',
-    ja: 'Realtime',
-  },
-  'image-generation': {
-    en: 'Image Generation',
-    zh: '图片生成',
-    ja: '画像生成',
-  },
-  'video-generation': {
-    en: 'Video Generation',
-    zh: '视频生成',
-    ja: '動画生成',
-  },
-  'not-implemented': {
-    en: 'Not Implemented',
-    zh: '未实现',
-    ja: '未実装',
-  },
-  // Sub-tags
-  'edit-images': {
-    en: 'Edit Images',
-    zh: '编辑(Images)',
-    ja: '編集(Images)',
-  },
-  qwen: {
-    en: 'Qwen',
-    zh: 'Qwen千问',
-    ja: 'Qwen',
+  sora: {
+    en: 'Sora Format',
+    zh: 'Sora格式',
+    ja: 'Sora形式',
   },
   kling: {
     en: 'Kling Format',
-    zh: 'Kling格式',
-    ja: 'Kling形式',
-  },
-  'sora-compatible': {
-    en: 'Sora Compatible Format',
-    zh: 'Sora兼容格式',
-    ja: 'Sora互換形式',
+    zh: '可灵格式',
+    ja: '可灵形式',
   },
   jimeng: {
     en: 'Jimeng Format',
     zh: '即梦格式',
     ja: 'Jimeng形式',
   },
+  audio: {
+    en: 'Audio',
+    zh: '音频',
+    ja: '音声',
+  },
+  realtime: {
+    en: 'Realtime',
+    zh: '实时语音',
+    ja: 'リアルタイム',
+  },
+  embeddings: {
+    en: 'Embeddings',
+    zh: '嵌入',
+    ja: '埋め込み',
+  },
+  rerank: {
+    en: 'Rerank',
+    zh: '重排序',
+    ja: 'リランク',
+  },
+  moderations: {
+    en: 'Moderations',
+    zh: '审查',
+    ja: 'モデレーション',
+  },
+  unimplemented: {
+    en: 'Unimplemented',
+    zh: '未实现',
+    ja: '未実装',
+  },
+  'fine-tuning': {
+    en: 'Fine-tuning',
+    zh: '微调',
+    ja: 'ファインチューニング',
+  },
   files: {
     en: 'Files',
-    zh: 'Files',
-    ja: 'Files',
-  },
-  'fine-tunes': {
-    en: 'Fine-tunes',
-    zh: 'Fine-tunes',
-    ja: 'Fine-tunes',
+    zh: '文件',
+    ja: 'ファイル',
   },
   // Management API
   system: {
@@ -205,6 +200,11 @@ export const tagTitles: Record<string, Record<string, string>> = {
     en: 'Two-Factor Authentication',
     zh: '两步验证',
     ja: '二要素認証',
+  },
+  'security-verification': {
+    en: 'Security Verification',
+    zh: '安全验证',
+    ja: 'セキュリティ検証',
   },
   oauth: {
     en: 'OAuth',
@@ -246,25 +246,20 @@ export const tagTitles: Record<string, Record<string, string>> = {
     zh: '数据统计',
     ja: '統計',
   },
-  tasks: {
-    en: 'Tasks',
-    zh: '任务',
-    ja: 'タスク',
-  },
   groups: {
     en: 'Groups',
     zh: '分组',
     ja: 'グループ',
   },
+  tasks: {
+    en: 'Tasks',
+    zh: '任务',
+    ja: 'タスク',
+  },
   vendors: {
     en: 'Vendors',
     zh: '供应商',
     ja: 'ベンダー',
-  },
-  'security-verification': {
-    en: 'Security Verification',
-    zh: '安全验证',
-    ja: 'セキュリティ検証',
   },
 };
 

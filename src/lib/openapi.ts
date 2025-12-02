@@ -1,49 +1,14 @@
 import { createOpenAPI } from 'fumadocs-openapi/server';
 
-// OpenAPI schema URLs
-export const OPENAPI_URLS = {
-  management:
-    'https://raw.githubusercontent.com/QuantumNous/new-api/refs/heads/main/docs/openapi/api.json',
-  aiModel:
-    'https://raw.githubusercontent.com/QuantumNous/new-api/refs/heads/main/docs/openapi/relay.json',
+// OpenAPI schema local paths
+export const OPENAPI_PATHS = {
+  management: './openapi/api.json',
+  aiModel: './openapi/relay.json',
 };
-
-// Default server configuration to avoid hydration mismatch
-const DEFAULT_SERVERS = [
-  {
-    url: '{baseUrl}',
-    description: 'API Server',
-    variables: {
-      baseUrl: {
-        default: 'https://api.example.com',
-        description: 'The base URL of the API server',
-      },
-    },
-  },
-];
 
 export const openapi = createOpenAPI({
   // Set proxy URL to resolve CORS issues
   proxyUrl: '/api/proxy',
-  // Use a function to inject servers into OpenAPI specs
-  async input() {
-    const schemas: Record<string, unknown> = {};
-
-    for (const [key, url] of Object.entries(OPENAPI_URLS)) {
-      const response = await fetch(url);
-      const schema = (await response.json()) as Record<string, unknown>;
-
-      // Inject servers if empty or undefined
-      if (
-        !schema.servers ||
-        (Array.isArray(schema.servers) && schema.servers.length === 0)
-      ) {
-        schema.servers = DEFAULT_SERVERS;
-      }
-
-      schemas[url] = schema;
-    }
-
-    return schemas;
-  },
+  // Use local OpenAPI files with server injection
+  input: Object.values(OPENAPI_PATHS),
 });

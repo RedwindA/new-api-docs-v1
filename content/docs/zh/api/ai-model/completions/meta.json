@@ -1,0 +1,5 @@
+{
+  "title": "补全",
+  "icon": "FileText",
+  "pages": ["create-completion"]
+}

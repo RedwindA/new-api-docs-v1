@@ -1,6 +1,6 @@
 import { generateFiles, type OperationOutput } from 'fumadocs-openapi';
 import { createOpenAPI } from 'fumadocs-openapi/server';
-import { OPENAPI_URLS } from '../src/lib/openapi';
+import { OPENAPI_PATHS } from '../src/lib/openapi';
 import { aiModelTagMapping, managementTagMapping } from './tag-mapping';
 
 // Type for OpenAPI operation object
@@ -47,7 +47,7 @@ function camelToKebab(str: string): string {
 async function generate() {
   // Generate AI Model API docs with custom path control
   await generateFiles({
-    input: createOpenAPI({ input: [OPENAPI_URLS.aiModel] }),
+    input: createOpenAPI({ input: [OPENAPI_PATHS.aiModel] }),
     output: './content/docs/zh/api/ai-model',
     per: 'custom',
     includeDescription: true,
@@ -90,7 +90,7 @@ async function generate() {
 
   // Generate Management API docs with custom path control
   await generateFiles({
-    input: createOpenAPI({ input: [OPENAPI_URLS.management] }),
+    input: createOpenAPI({ input: [OPENAPI_PATHS.management] }),
     output: './content/docs/zh/api/management',
     per: 'custom',
     includeDescription: true,

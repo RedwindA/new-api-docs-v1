@@ -1,26 +1,17 @@
 {
-  "title": "AI 模型接口",
-  "description": "AI 模型相关的 API 接口",
-  "icon": "Brain",
+  "title": "AI模型接口",
+  "icon": "Bot",
   "pages": [
-    "list-models",
-    "---对话补全---",
-    "openai-chat",
-    "claude-messages",
-    "gemini",
-    "openai-responses",
-    "---文本处理---",
+    "models",
+    "chat",
     "completions",
+    "images",
+    "videos",
+    "audio",
+    "realtime",
     "embeddings",
     "rerank",
     "moderations",
-    "---音频---",
-    "audio",
-    "realtime",
-    "---图像与视频---",
-    "image-generation",
-    "video-generation",
-    "---其他---",
-    "not-implemented"
+    "unimplemented"
   ]
 }

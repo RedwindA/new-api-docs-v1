@@ -5,11 +5,8 @@ description: New API 完整接口文档
 
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import {
-  Brain,
-  Settings,
+  List,
   MessageSquare,
-  Bot,
-  Sparkles,
   FileText,
   Database,
   Search,
@@ -36,7 +33,6 @@ import {
   FolderKanban,
   Store,
   ShieldAlert,
-  List,
 } from 'lucide-react';
 
 ## 概述
@@ -56,41 +52,23 @@ AI 模型接口提供各种 AI 能力的调用，兼容 OpenAI API 格式。
     icon={<List />}
     title="模型列表"
     description="获取可用的模型列表。"
-    href="/zh/docs/api/ai-model/list-models/list-models"
+    href="/zh/docs/api/ai-model/models/list/list-models"
   />
   <Card
     icon={<MessageSquare />}
-    title="OpenAI Chat"
-    description="OpenAI 格式的对话补全接口。"
-    href="/zh/docs/api/ai-model/openai-chat/create-chat-completion"
-  />
-  <Card
-    icon={<Bot />}
-    title="Claude Messages"
-    description="Anthropic Claude 消息接口。"
-    href="/zh/docs/api/ai-model/claude-messages/create-message"
-  />
-  <Card
-    icon={<Sparkles />}
-    title="Gemini"
-    description="Google Gemini 模型接口。"
-    href="/zh/docs/api/ai-model/gemini/gemini-relay-v1-beta"
-  />
-  <Card
-    icon={<MessageSquare />}
-    title="OpenAI Responses"
-    description="OpenAI Responses API 接口。"
-    href="/zh/docs/api/ai-model/openai-responses/create-response"
+    title="聊天"
+    description="对话补全接口。"
+    href="/zh/docs/api/ai-model/chat/openai/create-chat-completion"
   />
   <Card
     icon={<FileText />}
-    title="文本补全"
+    title="补全"
     description="传统文本补全接口。"
     href="/zh/docs/api/ai-model/completions/create-completion"
   />
   <Card
     icon={<Database />}
-    title="嵌入向量"
+    title="嵌入"
     description="文本嵌入向量生成接口。"
     href="/zh/docs/api/ai-model/embeddings/create-embedding"
   />
@@ -102,7 +80,7 @@ AI 模型接口提供各种 AI 能力的调用，兼容 OpenAI API 格式。
   />
   <Card
     icon={<ShieldCheck />}
-    title="内容审核"
+    title="审查"
     description="内容安全审核接口。"
     href="/zh/docs/api/ai-model/moderations/create-moderation"
   />
@@ -110,31 +88,31 @@ AI 模型接口提供各种 AI 能力的调用，兼容 OpenAI API 格式。
     icon={<Headphones />}
     title="音频"
     description="语音识别和语音合成接口。"
-    href="/zh/docs/api/ai-model/audio/create-speech"
+    href="/zh/docs/api/ai-model/audio/openai/create-speech"
   />
   <Card
     icon={<Radio />}
-    title="实时音频"
+    title="实时语音"
     description="实时音频流接口。"
     href="/zh/docs/api/ai-model/realtime/create-realtime-session"
   />
   <Card
     icon={<Image />}
-    title="图像生成"
-    description="AI 图像生成接口。"
-    href="/zh/docs/api/ai-model/image-generation/edit-images/qwen/create-image"
+    title="图像"
+    description="AI图像生成接口。"
+    href="/zh/docs/api/ai-model/images/openai/v1-images-generations--post"
   />
   <Card
     icon={<Video />}
-    title="视频生成"
-    description="AI 视频生成接口。"
-    href="/zh/docs/api/ai-model/video-generation/create-video-generation"
+    title="视频"
+    description="AI视频生成接口。"
+    href="/zh/docs/api/ai-model/videos/sora/create-video"
   />
   <Card
     icon={<FileQuestion />}
-    title="未实现接口"
+    title="未实现"
     description="占位接口，暂未实现。"
-    href="/zh/docs/api/ai-model/not-implemented/files/list-files"
+    href="/zh/docs/api/ai-model/unimplemented/files/list-files"
   />
 </Cards>
 
