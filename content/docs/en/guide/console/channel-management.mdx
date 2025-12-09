@@ -2,7 +2,7 @@
 title: Channels
 ---
 
-Here you can manage NewAPI's upstream channels
+Here you can manage NewAPI's upstream channels.
 
 ![Channels](/assets/guide/channel.png)
 
@@ -14,17 +14,28 @@ Here you can manage NewAPI's upstream channels
 
 ![Channel Management 3](/assets/guide/create-channel-3.png)
 
+## Special Channel Parameters for Coding Plan Packages
+
+If using a Coding Plan package, the `API Address` field should not be filled with an actual URL, but rather with the corresponding special identifier:
+
+| Package Name | Channel Type Selection | API Address (Enter Identifier) |
+| --- | --- | --- |
+| GLM Coding Plan | Zhipu GLM 4V | `glm-coding-plan` |
+| GLM Coding Plan (International Version) | Zhipu GLM 4V | `glm-coding-plan-international` |
+| Kimi Coding Plan | Moonshot | `kimi-coding-plan` |
+| Doubao Coding Plan | ByteDance Volcano Engine, Doubao General | Select `doubao-coding-plan` from dropdown |
+
 # Parameter Override Settings Documentation
 
 ## Overview
 
-The parameter override system supports two modes: Simple Override Mode (backward compatible) and Advanced Operation Mode. Complex dynamic parameter adjustments can be achieved through flexible conditional judgments and operation types.
+The parameter override system supports two modes: simple override mode (backward compatible) and advanced operation mode. Complex dynamic parameter adjustments can be achieved through flexible conditional judgments and operation types.
 
 ## Usage
 
 ### Simple Override Mode
 
-Backward compatible. Directly specify the fields and values to be overridden, and the system will merge these fields into the original request.
+For backward compatibility, directly specify the fields and values to be overridden. The system will merge these fields into the original request.
 
 ```json
 {
@@ -71,7 +82,7 @@ Sets the value at the specified path.
 
 **Parameter Description:**
 
-- `keep_origin`: If `true`, skips setting the value if the target path already exists.
+- `keep_origin`: When `true`, if the target path already has a value, the setting is skipped.
 
 ### 2. delete - Delete Field
 
@@ -111,7 +122,7 @@ Appends new content after existing content.
 **Supported Data Types:**
 
 - **String**: Appends to the end of the original string.
-- **Array**: Adds elements to the end of the array (supports adding a single element or an array).
+- **Array**: Adds elements to the end of the array (supports adding single elements or arrays).
 - **Object**: Merges object properties.
 
 ### 5. prepend - Prepend Content
@@ -129,12 +140,12 @@ Adds new content before existing content.
 **Supported Data Types:**
 
 - **String**: Prepends to the beginning of the original string.
-- **Array**: Adds elements to the beginning of the array (supports adding a single element or an array).
+- **Array**: Adds elements to the beginning of the array (supports adding single elements or arrays).
 - **Object**: Merges object properties.
 
-## Conditional Judgments
+## Conditional Judgment
 
-Set conditions for operation execution using the `conditions` array; operations will only execute if conditions are met.
+Set the conditions for operation execution using the `conditions` array. Operations will only be executed when the conditions are met.
 
 ### Condition Structure
 
@@ -174,25 +185,25 @@ Set conditions for operation execution using the `conditions` array; operations 
 - `invert`: Invert function, `true` means to negate the result.
 - `pass_missing_key`: Behavior when the specified path does not exist.
   - `true`: Condition passes if the path does not exist.
-  - `false`: Condition fails if the path does not exist (default).
+  - `false`: Condition does not pass if the path does not exist (default).
 
 ### Logical Relationship (logic)
 
 - `AND`: All conditions must be met.
-- `OR`: Any condition can be met (default).
+- `OR`: Any condition met is sufficient (default).
 
 ## Path Syntax
 
 Use JSON path syntax to access nested fields:
 
 - `temperature` - Root-level field
-- `messages.0.content` - The content field of the first element in the array
-- `messages.-1.content` - The content field of the last element in the array
+- `messages.0.content` - `content` field of the first element in the array
+- `messages.-1.content` - `content` field of the last element in the array
 - `metadata.user.name` - Nested object field
 
 ## Practical Examples
 
-### 1. Dynamically Adjusting Model Parameters
+### 1. Dynamically Adjust Model Parameters
 
 Dynamically adjust the temperature parameter based on message content:
 
@@ -227,7 +238,7 @@ Dynamically adjust the temperature parameter based on message content:
 }
 ```
 
-### 2. Adding System Prompts
+### 2. Add System Prompt
 
 Add a system message at the beginning of the message array:
 
@@ -248,7 +259,7 @@ Add a system message at the beginning of the message array:
 }
 ```
 
-### 3. Adjusting Parameters Based on Model Type
+### 3. Adjust Parameters Based on Model Type
 
 Set different max_tokens based on different models:
 
@@ -314,7 +325,7 @@ Execute operations only when multiple conditions are met simultaneously:
 
 ### 5. Numeric Comparison Conditions
 
-Perform conditional judgments based on numeric values:
+Perform conditional judgment based on numerical value:
 
 ```json
 {
@@ -335,7 +346,7 @@ Perform conditional judgments based on numeric values:
 }
 ```
 
-### 6. Inverted Conditions
+### 6. Invert Condition
 
 Use `invert` to implement inverse logic:
 
@@ -359,7 +370,7 @@ Use `invert` to implement inverse logic:
 }
 ```
 
-### 7. Handling Missing Fields
+### 7. Handle Missing Fields
 
 Use `pass_missing_key` to handle potentially missing fields:
 
@@ -401,4 +412,4 @@ Append instructions after the user message:
 
 ## Important Notes
 
-**Execution Order**: Operations are executed sequentially in the order they appear in the `operations` array; earlier operations may affect subsequent ones.
+**Execution Order**: Operations are executed sequentially according to their order in the `operations` array. Earlier operations may affect subsequent operations.
