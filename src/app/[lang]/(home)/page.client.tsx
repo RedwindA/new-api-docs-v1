@@ -20,16 +20,19 @@ type ShaderProfile = {
   reduceMotion: boolean;
 };
 
+const DEFAULT_SHADER_PROFILE: ShaderProfile = {
+  delayMs: 500,
+  idleTimeoutMs: 1200,
+  softness: 1,
+  intensity: 0.85,
+  noise: 0.45,
+  reduceMotion: false,
+};
+
 function detectShaderProfile(): ShaderProfile {
   if (typeof window === 'undefined') {
-    return {
-      delayMs: 500,
-      idleTimeoutMs: 1200,
-      softness: 1,
-      intensity: 0.85,
-      noise: 0.45,
-      reduceMotion: false,
-    };
+    // Must be consistent between SSR and the client's first render.
+    return DEFAULT_SHADER_PROFILE;
   }
 
   const reduceMotion =
@@ -90,9 +93,8 @@ export function Hero() {
   const [imageReady, setImageReady] = useState(false);
   const [logoReady, setLogoReady] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [profile, setProfile] = useState<ShaderProfile>(() =>
-    detectShaderProfile()
-  );
+  // Avoid hydration mismatch: the first client render must match SSR output.
+  const [profile, setProfile] = useState<ShaderProfile>(DEFAULT_SHADER_PROFILE);
 
   const shaderColors = useMemo(
     () =>
@@ -111,6 +113,7 @@ export function Hero() {
     if (!mounted) return;
 
     let cancelled = false;
+    let idleId: number | undefined;
     const start = () => {
       if (!cancelled) setShowShaders(true);
     };
@@ -125,14 +128,12 @@ export function Hero() {
 
     // Always keep the effect, but start it after first paint/idle to minimize jank.
     const t = window.setTimeout(() => {
+      if (cancelled) return;
       if (typeof win.requestIdleCallback === 'function') {
-        const id = win.requestIdleCallback(start, {
+        idleId = win.requestIdleCallback(start, {
           timeout: profile.idleTimeoutMs,
         });
-        return () => {
-          cancelled = true;
-          win.cancelIdleCallback?.(id);
-        };
+        return;
       }
       start();
     }, profile.delayMs);
@@ -140,6 +141,9 @@ export function Hero() {
     return () => {
       cancelled = true;
       window.clearTimeout(t);
+      if (typeof idleId === 'number') {
+        win.cancelIdleCallback?.(idleId);
+      }
     };
   }, [mounted, profile.delayMs, profile.idleTimeoutMs]);
 
@@ -211,7 +215,7 @@ export function Hero() {
           onLoad={() => setImageReady(true)}
           loading="lazy"
           fetchPriority="low"
-          sizes="(min-width: 1024px) 900px, 100vw"
+          sizes="(min-width: 1024px) 1200px, 100vw"
         />
       )}
     </>

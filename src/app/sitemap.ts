@@ -58,19 +58,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Add docs pages with proper alternates and lastModified
   for (const [slugKey, langPages] of pagesBySlug) {
     for (const { lang, page } of langPages) {
-      // Get the most recent lastModified from all language versions
-      const lastModifiedDates = langPages
-        .map((lp) => {
-          const lm = lp.page.data.lastModified;
-          if (!lm) return null;
-          return lm instanceof Date ? lm : new Date(lm);
-        })
-        .filter((d): d is Date => d !== null);
-
-      const lastModified =
-        lastModifiedDates.length > 0
-          ? new Date(Math.max(...lastModifiedDates.map((d) => d.getTime())))
-          : new Date();
+      // Each language version should use its own lastModified.
+      const lm = page.data.lastModified;
+      const lastModified = lm ? (lm instanceof Date ? lm : new Date(lm)) : null;
 
       // Determine priority based on page depth
       const depth = page.slugs.length;
@@ -91,7 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       entries.push({
         url: `${url}/${lang}/docs/${slugKey}`,
-        lastModified,
+        ...(lastModified ? { lastModified } : {}),
         changeFrequency,
         priority,
         alternates: {
