@@ -16,6 +16,7 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: sitemapUrl,
-    host: baseUrl.origin,
+    // robots.txt spec: Host should contain only the hostname (no scheme)
+    host: baseUrl.hostname,
   };
 }
